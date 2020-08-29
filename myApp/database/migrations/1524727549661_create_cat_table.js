@@ -16,6 +16,8 @@ class CatsTableSchema extends Schema {
       table.string("Desc").nullable(false)
       table.integer("sid").unsigned()
       table.foreign("sid").references('id').on('shops')
+      table.integer("parent_id").usigned()
+      table.foreign("parent_id").references("id").on("cats")
       table.softDeletes()
     })
   }

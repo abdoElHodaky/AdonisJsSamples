@@ -12,8 +12,10 @@ class PaymentsTableSchema extends Schema {
     this.create('payments', (table) => {
       table.increments()
       table.timestamps()
-      table.integer("cid").unsigned()
+      table.integer("uid").unsigned()
       table.integer("amount")
+      table.foreign("uid").references("id").on("users")
+      table.json("hash")
     })
   }
 

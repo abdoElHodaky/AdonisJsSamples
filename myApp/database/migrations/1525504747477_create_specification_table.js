@@ -13,7 +13,7 @@ class SpecificationsTableSchema extends Schema {
       table.increments()
       table.timestamps()
       table.string("Name").nullable(false)
-      table.string("Value").nullable(false)
+      table.json("Value")
       table.integer("pid").unsigned()
       table.foreign("pid").references("id").on("products")
     })

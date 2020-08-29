@@ -15,8 +15,8 @@ class CreditsTableSchema extends Schema {
       table.text("creditNo")
       table.date("expires")
       table.integer("cvv")
-      table.integer("cid").unsigned()
-      table.foreign("cid").references("id").on("clients")
+      table.integer("uid").unsigned()
+      table.foreign("uid").references("id").on("users")
       table.integer("balance").unsigned()
     })
   }

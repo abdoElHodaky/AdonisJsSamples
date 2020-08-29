@@ -10,6 +10,7 @@ class User extends Lucid {
   shops(){
     return this.hasMany("App/Model/Shop","uid","id");
   }
+
 }
 
 module.exports = User

@@ -13,7 +13,9 @@ class OrdersTableSchema extends Schema {
       table.increments()
       table.timestamps()
       table.integer("cid").unsigned()
-      table.foreign("cid").references("id").on("clients")
+      table.foreign("uid").references("id").on("users")
+      table.string("type").nullable(false)
+
     })
   }
 

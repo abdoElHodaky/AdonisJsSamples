@@ -13,6 +13,9 @@ class Product extends Lucid {
   specs(){
     return this.hasMany("App/Model/Spec","pid","id");
   }
+  childern(){
+  	return this.hasMany("App/Model/Product","parent_id","id");
+  }
 }
 
 module.exports = Product
