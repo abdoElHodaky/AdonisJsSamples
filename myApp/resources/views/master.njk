@@ -28,9 +28,29 @@
 </head>
 <body>
 	{% block content %}
-	<script type="text/javascript">var session=sessionStorage
-
-  </script>
+	
 	{% endblock %}
+
+<script type="text/javascript">
+        var session=sessionStorage
+        {% block scripts %}
+         var obj = $("form img");
+
+	obj.on('dragenter dragover drop', function (e)
+	{
+	    e.stopPropagation();
+	    e.preventDefault();
+	     var files = e.originalEvent.dataTransfer.files;
+	 	var file=files[0]
+	 	var filereader=new FileReader()
+	 	filereader.onloadend=(event)=>{
+	 		obj.attr('src',event.target.result);
+	 		$("form h4").append("<input type='hidden' name='avatar' value="+obj.attr("src").slice(22,obj.attr("src").length)+">");
+	 	}
+	 	filereader.readAsDataURL(file);
+
+	});
+      {% endblock %}
+    </script>
 </body>
 </html>
