@@ -1,9 +1,10 @@
 Additional Information
 (
  JSON(type,identity)
- status
- visits
+ JSON(visits)
+ JSON(status)
  JSON(locations(previous,current))
+ JSON(info)
 )
 
 
