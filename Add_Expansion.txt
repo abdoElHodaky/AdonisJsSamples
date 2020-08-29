@@ -64,6 +64,20 @@ Attachment
   Type
 )
 
+Verification
+(
+  For (JSON(type,identity))
+  Data (JSON(token,code))
+  Is (JSON(verfied,By(value|array)))
+  Parent
+)
+Messages
+(
+  Header (JSON(from(identity),to(identity)))
+  Data (JSON(type,content,
+  attachment(optional)))
+  parent
+)
 Transfer
 (
 JSON(Products(identity,ordered quantity))
