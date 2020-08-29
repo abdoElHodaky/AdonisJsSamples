@@ -1,0 +1,75 @@
+Additional Information
+(
+ JSON(type,identity)
+ status
+ visits
+ JSON(locations(previous,current))
+)
+
+
+Coupons
+(
+ Created By(Owner)
+ Code
+ amount
+ Type
+ JSON(On(type,array|cat)
+)
+Product Version
+(
+ Version Identity
+ Parent
+ number
+ Products identity
+)
+Ads
+(
+ ID
+ Owner Id
+ scope view
+ JSON(type,data,visits,info(optional))
+)
+User
+
+Comments
+(
+ Type
+ JSON(data)
+ parent
+)
+Votes
+(
+ On (JSON(type,identity))
+ Data (JSON(identity,num))
+)
+Offers
+(
+ On (JSON(type,identity))
+ Data (JSON(identity,JSON(text 
+ Content),attachment)
+)
+Wallet
+(
+  owned By (identity)
+  Balance
+  Perv Balance
+  JSON(Credit)
+  Address (Hashed object)
+)
+Attachment
+(
+ By (identity)
+ On (JSON(type,identity))
+  Data (JSON(type,src))
+  Type
+)
+
+Transfer
+(
+JSON(Products(identity,ordered quantity))
+Received Owner
+Sender Owner
+Fee
+)
+Operation
+  New-Payment=>Credit(balance-    =Transfer(Fee))
