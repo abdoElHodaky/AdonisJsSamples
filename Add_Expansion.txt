@@ -7,6 +7,12 @@ Additional Information
  JSON(info)
 )
 
+Reactions
+(
+  Who (identity)
+  To (JSON(type,identity))
+   Data (JSON(type,emotion))
+)
 
 Coupons
 (
