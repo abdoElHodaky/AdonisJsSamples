@@ -58,7 +58,7 @@ Offers
  Type
  Data (JSON(identity,JSON(text 
  Content),attachment)
- Additional Information
+ Status
 )
 Wallet
 (
