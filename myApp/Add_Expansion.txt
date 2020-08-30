@@ -58,7 +58,7 @@ Offers
  Type
  Data (JSON(identity,JSON(text 
  Content),attachment)
- Status
+ Additional Information
 )
 Wallet
 (
@@ -99,3 +99,7 @@ Fee
 )
 Operation
   New-Payment=>Credit(balance-    =Transfer(Fee))
+
+Note:
+  Use adonis-jsonable trait
+  For json crud
