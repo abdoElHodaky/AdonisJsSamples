@@ -55,8 +55,10 @@ Votes
 Offers
 (
  On (JSON(type,identity))
+ Type
  Data (JSON(identity,JSON(text 
  Content),attachment)
+ Additional Information
 )
 Wallet
 (
