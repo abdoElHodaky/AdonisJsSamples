@@ -1,12 +1,16 @@
 Additional Information
 (
- JSON(type,identity)
+ For (JSON(type,identity))
  JSON(visits)
  JSON(status)
  JSON(locations(previous,current))
  JSON(info)
 )
-
+Activity
+(
+  By (identity)
+  Data (JSON)
+)
 Reactions
 (
   Who (identity)
@@ -36,7 +40,6 @@ Ads
  scope view
  JSON(type,data,visits,info(optional))
 )
-User
 
 Comments
 (
@@ -82,7 +85,7 @@ Messages
 (
   Header (JSON(from(identity),to(identity)))
   Data (JSON(type,content,
-  attachment(optional)))
+  attachment(optional),via(value,array))
   parent
 )
 Transfer
