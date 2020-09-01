@@ -58,7 +58,7 @@ Offers
  Type
  Data (JSON(identity,JSON(text 
  Content),attachment)
- Additional Information
+ Status
 )
 Wallet
 (
@@ -86,7 +86,8 @@ Verification
 Messages
 (
   Header (JSON(from(identity),to(identity)))
-  Data (JSON(type,content,
+  Type
+  Data (JSON(content,
   attachment(optional),via(value,array))
   parent
 )
@@ -103,3 +104,9 @@ Operation
 Note:
   Use adonis-jsonable trait
   For json crud
+
+
+=====================
+Installer
+  Admin create =========
+  Redirect to admin page =
