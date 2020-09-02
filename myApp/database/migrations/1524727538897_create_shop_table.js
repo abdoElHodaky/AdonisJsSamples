@@ -16,6 +16,8 @@ class ShopsTableSchema extends Schema {
       table.binary("Image")
       table.integer("uid").unsigned()
       table.foreign("uid").references("id").on("users")
+      table.integer("parent_id").unsigned()
+      table.foreign("parent_id").references("id").on("shops")
       table.softDeletes()
     })
   }
