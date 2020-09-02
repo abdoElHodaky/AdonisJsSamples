@@ -14,6 +14,7 @@ class ShopsTableSchema extends Schema {
       table.timestamps()
       table.string("Name",50).unique()
       table.binary("Image")
+      table.string("type",50).unique()
       table.integer("uid").unsigned()
       table.foreign("uid").references("id").on("users")
       table.integer("parent_id").unsigned()
