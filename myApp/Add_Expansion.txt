@@ -9,7 +9,7 @@ Additional Information
 Activity
 (
   By (identity)
-  Data (JSON)
+  Data (JSON)(action,action_info)
 )
 Reactions
 (
