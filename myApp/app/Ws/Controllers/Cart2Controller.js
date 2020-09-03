@@ -89,7 +89,8 @@ class Cart2Controller {
     var user=this.user
    var offer=yield user.offers().findOrCreate({
      {
-      "for": JSON.strignify(data.for)
+      'for->>"$.type"':data.for.type,
+      'for->>"$.identity"':data.for.identity
     },data.offer)
   }
   
