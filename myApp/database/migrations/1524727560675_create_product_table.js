@@ -16,6 +16,7 @@ class ProductsTableSchema extends Schema {
       table.integer("Quantity").nullable(false)
       table.integer("Price")
       table.binary("Image")
+      table.boolean("used")
       table.integer("cid").unsigned()
       table.foreign("cid").references("id").on("cats")
       table.softDeletes()
