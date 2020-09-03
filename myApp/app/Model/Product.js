@@ -16,8 +16,8 @@ class Product extends Lucid {
   childern(){
   	return this.hasMany("App/Model/Product","parent_id","id");
   }
-  static get filter(filters={},used_all=false){
-    return (yield(Product.query().with("specs").fetch().toJSON())).
+  static get filter(filters={},use_all=false,used=false){
+    return (yield(Product.query().where('used',used).with("specs").fetch().toJSON())).
     filter({specs}=>{
       if(used_all==true)
         return filters==specs
