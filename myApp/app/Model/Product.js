@@ -16,15 +16,15 @@ class Product extends Lucid {
   childern(){
   	return this.hasMany("App/Model/Product","parent_id","id");
   }
-  filter(filters={},used_all=false){
-    return (yield(Product.all().toJson())).
-    filter({extrainfo}=>{
+  static get filter(filters={},used_all=false){
+    return (yield(Product.query().with("specs").fetch().toJSON())).
+    filter({specs}=>{
       if(used_all==true)
-        return filters==extrainfo
+        return filters==specs
       else
         {
           obj_keys=Object.keys(filters).filter(k=>filters[k]!=null||filters[k]!=undefined)
-          return obj_key.map(key=>filters[key]==extrainfo[key])
+          return obj_key.map(key=>filters[key]==specs[key])
         }
     })
   }
