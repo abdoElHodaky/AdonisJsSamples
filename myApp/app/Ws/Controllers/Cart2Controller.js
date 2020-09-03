@@ -7,6 +7,7 @@ class Cart2Controller {
   constructor (socket, request) {
     this.socket = socket
     this.request = request
+    this.user=yield request.session.get('user')
   }
   *onChange(d){
       this.socket.toMe().emit("changed",d)
@@ -46,6 +47,52 @@ class Cart2Controller {
     })
     this.socket.toMe().emit("ok","your order will be sent");
   }
+   onCreateProduct(data)
+   {
+     var {specs,version}={product,mode}=data;
+     var cproduct= new Product();
+       cproduct.name=product.names
+       cproduct.price=product.price
+       cproduct.quantity=product.quantity
+       cproduct.save();
+       cproduct.specs().create(specs);
+       cproduct.versions().Create(version)
+      if(mode.delete==true)
+       cproduct=yield Product.find(product.id)
+       cproduct.delete()
+   }
+   onQuantityChange(data)
+   {
+     var mproduct=yield Product.find(data.id)
+     mproduct.quantity=data.quantity
+     mproduct.save()
+   }
+  onSpecCreate(data)
+   {
+    var specs=(yield Product.find(data.product.id)).
+    specs()
+    .findOrCreate('name',data.specs.name,data.specs)
+   }
+  onVersionProduct(data)
+   {
+    var version=(yield Product.find(data.product.id)).
+    versions()
+    .findOrCreate({'name',data.version.name},data.version)
+   }
+  onAttachmentCreate(data)
+  {
+    var user=this.user
+    var attachment=yield user.attachments().Create(data.attachment)
+  }
+  onOfferCreate(data)
+  {
+    var user=this.user
+   var offer=yield user.offers().findOrCreate({
+     {
+      "for": Json.strignfy(data.for)
+    },data.offer)
+  }
+  
 }
 
 module.exports = Cart2Controller
