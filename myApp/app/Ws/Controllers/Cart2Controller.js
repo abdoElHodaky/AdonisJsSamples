@@ -209,6 +209,7 @@ class Cart2Controller {
         'on->>"$.type"':comment.on.type,
         'on->>"$.id"':comment.on.id
       })
+    }
   }
   OnExtraInfoAdd(extrainfo)
   {
