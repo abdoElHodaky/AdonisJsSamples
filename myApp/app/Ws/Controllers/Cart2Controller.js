@@ -92,12 +92,14 @@ class Cart2Controller {
       'for->>"$.type"':data.for.type,
       'for->>"$.identity"':data.for.identity
     },data.offer)
+   onAttachmentCreate(data.attachment)
   }
  onMessage(data)
  {  var message;
    if (data.mode.create)
     {
      message=yield Message.Create(data.message)
+     onAttachmentCreate(data.attachment)
    }
    if(data.mode.getBySender)
     {
@@ -108,7 +110,9 @@ class Cart2Controller {
    else
     message=yield Message.all()
  }
-  
+  onCouponCreate(data)
+  {
+  }
 }
 
 module.exports = Cart2Controller
