@@ -210,6 +210,17 @@ class Cart2Controller {
         'on->>"$.id"':comment.on.id
       })
   }
+  OnExtraInfoAdd(extrainfo)
+  {
+   var ainfo=New AdditionalInformation();
+   var{location,for,info}=extrainfo;
+   ainfo.info=info
+   ainfo.locations={
+    prev:[{long:location.long,lang:location.Lang}],
+    current:[{long:location.long,lang:location.Lang}]
+   }
+   ainfo.save()
+  }
 }
 
 module.exports = Cart2Controller
