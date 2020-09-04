@@ -67,16 +67,42 @@ class Cart2Controller {
      var{couponCode,quantity}=data
      if(quantity!=null || quantity!=undefined)mproduct.quantity=quantity
      if(couponCode!=null || couponCode!=undefined)
-     var coupon=yield Coupons.findBy({
+     var coupons=(yield Coupons.findBy({
       Code:CouponCode,
-      'on->>"$.type"':"products",
-      'on->>"$.ids":data.id.toString()
+      'on->>"$.type"':"products"
+     })).toJSON()
+     var coupon=coupons.filter({on}=>{
+       ids=on.ids.split(',')
+       return (mproduct.id in on.ids)
      })
      price=mproduct.price
      mproduct.price=price-coupon.discount*price
      mproduct.save()
      
    }
+
+  onCatCoupon(data)
+  {
+    var mcat=yield Cat.find(data.id)
+     var{couponCode,catId}=data
+     if(catId!=null || catId!=undefined)mproduct.quantity=quantity
+     if(couponCode!=null || couponCode!=undefined)
+     var coupons=(yield Coupons.findBy({
+      Code:CouponCode,
+      'on->>"$.type"':"cats"
+     })).toJSON()
+    var coupon=coupons.filter({on}=>{
+       ids=on.ids.split(',')
+       return (mcat.id in on.ids)
+     })
+    for(var product of yield(mcat.products()))
+    {
+       price=product.price
+       product.price=price-coupon.discount*price
+       product.save()
+    }
+   
+  }
   onSpecCreate(data)
    {
     var specs=(yield Product.find(data.product.id)).
