@@ -110,8 +110,24 @@ class Cart2Controller {
    else
     message=yield Message.all()
  }
-  onCouponCreate(data)
+  onCoupon(data)
   {
+    var coupon;
+   if(data.mode.create)
+   { coupon=New Coupons();
+    coupon.by=User.id
+    coupon.type=data.coupon.type
+    coupon.code=data.coupon.code
+    coupon.on=data.coupon.on
+    coupon.fee=data.coupon.fee
+    coupon.save()
+   }
+   if(data.mode.getOnType)
+   { coupon=yield Coupons.findBy({
+    'on->>"$.type"': data.coupon.on.type
+    })
+  }
+    
   }
 }
 
