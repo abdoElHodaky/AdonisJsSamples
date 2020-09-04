@@ -183,6 +183,17 @@ class Cart2Controller {
       })
     }
    }
+  OnActivityCreate(data){
+  var activity;
+   if(data.mode.create)
+   {
+    activity=yield Activity.Create({
+     action:data.activity.action,
+     action_info:data.activity.action_info
+     })
+   }
+    if(mode.get)activity=yield Activity.all()
+  }
 }
 
 module.exports = Cart2Controller
