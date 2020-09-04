@@ -222,6 +222,16 @@ class Cart2Controller {
    }
    ainfo.save()
   }
+ OnCreateAds(ads)
+  {
+    var advertise=yield User.advertisements.Create({
+     type:ads.type,
+     scopeviews:ads.scopeviews
+     data:ads.data
+     callback_url:ads.callback_url
+    })
+   
+  }
 }
 
 module.exports = Cart2Controller
