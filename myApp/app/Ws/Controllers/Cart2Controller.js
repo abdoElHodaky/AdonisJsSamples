@@ -67,7 +67,7 @@ class Cart2Controller {
      var{couponCode,quantity}=data
      if(quantity!=null || quantity!=undefined)mproduct.quantity=quantity
      if(couponCode!=null || couponCode!=undefined)
-     var coupons=(yield Coupons.findBy({
+     var coupons=(yield Coupons.where({
       Code:CouponCode,
       'on->>"$.type"':"products"
      })).toJSON()
@@ -87,7 +87,7 @@ class Cart2Controller {
      var{couponCode,catId}=data
      if(catId!=null || catId!=undefined)mproduct.quantity=quantity
      if(couponCode!=null || couponCode!=undefined)
-     var coupons=(yield Coupons.findBy({
+     var coupons=(yield Coupons.where({
       Code:CouponCode,
       'on->>"$.type"':"cats"
      })).toJSON()
@@ -139,7 +139,7 @@ class Cart2Controller {
    }
    if(data.mode.getBySender)
     {
-      message=yield Message.findBy({
+      message=yield Message.where({
      'header->>"$.from"':data.sender_id
       })
      }
@@ -159,12 +159,29 @@ class Cart2Controller {
     coupon.save()
    }
    if(data.mode.getOnType)
-   { coupon=yield Coupons.findBy({
+   { coupon=yield Coupons.where({
     'on->>"$.type"': data.coupon.on.type
     })
-  }
+   }
     
   }
+ OnVote(data)
+   {
+    var {mode,vote}=data;
+    var votes;
+   if(mode.create)
+    { votes=yield Votes.Create({
+      on:vote.on,
+      data:vote.data
+     })
+    }
+    if(mode.get)
+    {
+      votes=yield Votes.where({
+        "on":vote.on
+      })
+    }
+   }
 }
 
 module.exports = Cart2Controller
