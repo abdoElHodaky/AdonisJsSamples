@@ -135,7 +135,7 @@ class Cart2Controller {
    if (data.mode.create)
     {
      message=yield Message.Create(data.message)
-     onAttachmentCreate(data.attachment)
+     if(data.attachment!=null||data.attachment!=undefined)onAttachmentCreate(data.attachment)
    }
    if(data.mode.getBySender)
     {
@@ -193,6 +193,22 @@ class Cart2Controller {
      })
    }
     if(mode.get)activity=yield Activity.all()
+  }
+  OnComment(data)
+  {
+   var {mode,comment,attachment}=data
+  var comment;
+   if(mode.create)
+   { comment=yield User.comments().Create(comment)
+      if(attachment!=null || attachment != undefined)
+       OnAttachmentCreate(attachment)
+    }
+     if(mode.get)
+    {
+      comment=yield User.comments().where({
+        'on->>"$.type"':comment.on.type,
+        'on->>"$.id"':comment.on.id
+      })
   }
 }
 
