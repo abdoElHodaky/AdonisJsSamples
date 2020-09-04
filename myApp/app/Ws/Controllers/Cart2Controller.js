@@ -93,6 +93,10 @@ class Cart2Controller {
       'for->>"$.identity"':data.for.identity
     },data.offer)
   }
+ onMessageCreate(data)
+ {
+   var message=yield Message.Create(data.message)
+ }
   
 }
 
