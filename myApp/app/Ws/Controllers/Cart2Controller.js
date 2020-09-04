@@ -15,14 +15,14 @@ class Cart2Controller {
   *onBuy(bcart,inputs){
     var user=yield this.request.session.get("user")
     console.log(inputs)
-  	var createdOrder=yield order.create({id:null,cid:user.id})
+  	var createdOrder=yield User.orders().Create({type:"order"})
   	var obj={}
   	inputs.forEach(function (input){
   		obj[input.name]=input.value;
   	})
     var amount=0;
     for(var i in bcart){
-      var p=yield(product.findBy("Name",i))
+      var p=yield product.find(i)
       yield createdOrder.products().create({
         pid:p.id,
         Quantity:bcart[i].q,
@@ -61,11 +61,21 @@ class Cart2Controller {
        cproduct=yield Product.find(product.id)
        cproduct.delete()
    }
-   onQuantityChange(data)
+   onProductChange(data)
    {
      var mproduct=yield Product.find(data.id)
-     mproduct.quantity=data.quantity
+     var{couponCode,quantity}=data
+     if(quantity!=null || quantity!=undefined)mproduct.quantity=quantity
+     if(couponCode!=null || couponCode!=undefined)
+     var coupon=yield Coupons.findBy({
+      Code:CouponCode,
+      'on->>"$.type"':"products",
+      'on->>"$.ids":data.id.toString()
+     })
+     price=mproduct.price
+     mproduct.price=price-coupon.discount*price
      mproduct.save()
+     
    }
   onSpecCreate(data)
    {
