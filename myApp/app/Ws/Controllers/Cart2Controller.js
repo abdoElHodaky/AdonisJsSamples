@@ -93,9 +93,20 @@ class Cart2Controller {
       'for->>"$.identity"':data.for.identity
     },data.offer)
   }
- onMessageCreate(data)
- {
-   var message=yield Message.Create(data.message)
+ onMessage(data)
+ {  var message;
+   if (data.mode.create)
+    {
+     message=yield Message.Create(data.message)
+   }
+   if(data.mode.getBySender)
+    {
+      message=yield Message.findBy({
+     'header->>"$.from"':data.sender_id
+      })
+     }
+   else
+    message=yield Message.all()
  }
   
 }
