@@ -9,7 +9,8 @@ Additional Information
 Activity
 (
   By (identity)
-  Data (JSON)(action,action_info)
+  action
+  info(ISON)
 )
 Reactions
 (
@@ -22,7 +23,7 @@ Coupons
 (
  Created By(Owner)
  Code
- amount
+ discount
  Type
  JSON(On(type,array|cat)
 )
@@ -87,10 +88,19 @@ Messages
 (
   Header (JSON(from(identity),to(identity)))
   Type
-  Data (JSON(content,
-  attachment(optional),via(value,array))
+  Data (JSON(content))
+  attachment(optional)
+  via(value,array)
   parent
 )
+
+Devices
+(
+  owned_by (identity)
+  name
+  login_form_it
+)
+
 Transfer(OrderType)
 (
  Orderd_identity
@@ -105,7 +115,7 @@ Note:
   Use adonis-jsonable trait
   For json crud
 
-Not
+
 =====================
 Installer
   Admin create =========
