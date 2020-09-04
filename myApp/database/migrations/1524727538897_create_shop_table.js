@@ -17,7 +17,7 @@ class ShopsTableSchema extends Schema {
       table.string("type",50)
       table.integer("uid").unsigned()
       table.foreign("uid").references("id").on("users")
-      table.integer("parent_id").unsigned()
+      table.integer("parent_id").unsigned().default(0)
       table.foreign("parent_id").references("id").on("shops")
       table.softDeletes()
     })
