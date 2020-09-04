@@ -178,7 +178,8 @@ class Cart2Controller {
     if(mode.get)
     {
       votes=yield Votes.where({
-        "on":vote.on
+        'on->>"$.type"':vote.on.type,
+        'on->>"$.id"':vote.on.id
       })
     }
    }
