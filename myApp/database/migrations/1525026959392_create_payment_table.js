@@ -15,7 +15,7 @@ class PaymentsTableSchema extends Schema {
       table.integer("uid").unsigned()
       table.integer("amount")
       table.foreign("uid").references("id").on("users")
-      table.json("hash")
+      //table.json("hash")
     })
   }
 
