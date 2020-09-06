@@ -12,13 +12,9 @@ class Cart2Controller {
   *onChange(d){
       this.socket.toMe().emit("changed",d)
   }
-  *onBuy(bcart,inputs){
+  *onBuy(bcart,orderType){
     var user=this.user
-  	var createdOrder=yield User.orders().Create({type:"order"})
-  	var obj={}
-  	inputs.forEach(function (input){
-  		obj[input.name]=input.value;
-  	})
+  	var createdOrder=yield User.orders().Create({type:orderType})
     var amount=0;
     for(var i in bcart){
       var p=yield product.find(i)
@@ -26,6 +22,7 @@ class Cart2Controller {
         pid:p.id,
         Quantity:bcart[i].q,
         oid:createdOrder.id
+        transfered:if(orderType=="transfer")return true;
       });
       amount+=parseInt(p.Price)*parseInt(bcart[i].q)
     }
