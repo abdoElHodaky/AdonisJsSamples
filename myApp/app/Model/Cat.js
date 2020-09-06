@@ -11,7 +11,10 @@ class Cat extends Lucid {
   	return this.belongsTo("App/Model/Shop",'id','sid');
   }
   childern(){
-  	return this.hasMany("App/Models/Cat","parent_id","id")
+  	return this.hasMany("App/Models/Cat","parent_id","cid")
+  }
+  products(){
+   return return this.hasMany("App/Models/Product","cid","cid")
   }
 }
 
