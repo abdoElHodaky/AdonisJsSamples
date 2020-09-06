@@ -233,6 +233,9 @@ class Cart2Controller {
     })
    
   }
+  OnUserTypeAdd(data){
+      var userType=yield UserTypes.Create(data);
+   }
 }
 
 module.exports = Cart2Controller
