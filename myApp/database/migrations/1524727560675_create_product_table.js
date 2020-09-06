@@ -10,7 +10,7 @@ class ProductsTableSchema extends Schema {
 
   up () {
     this.create('products', (table) => {
-      table.increments()
+      table.increments("pid")
       table.timestamps()
       table.string("Name",50).unique()
       table.integer("Quantity").nullable(false)
@@ -18,9 +18,9 @@ class ProductsTableSchema extends Schema {
       table.binary("Image")
       table.boolean("used")
       table.integer("related_to_id").unsigned().default(0)
-      table.foreign("related_to_id").references("id").on("products")
+      table.foreign("related_to_id").references("pid").on("products")
       table.integer("cid").unsigned()
-      table.foreign("cid").references("id").on("cats")
+      table.foreign("cid").references("cid").on("cats")
       table.softDeletes()
     })
   }
