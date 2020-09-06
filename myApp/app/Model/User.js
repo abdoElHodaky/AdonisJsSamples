@@ -43,7 +43,12 @@ class User extends Lucid {
   coupons(){
    return this.hasMany("App/Model/Coupon","uid","uid");
   }
-
+  reactions(){
+   return this.hasMany("App/Model/Reaction","uid","uid");
+  }
+  events(){
+   return this.hasMany("App/Model/Event","uid","uid");
+  }
 }
 
 module.exports = User
