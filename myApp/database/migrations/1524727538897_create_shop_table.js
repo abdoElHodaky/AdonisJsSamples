@@ -10,15 +10,15 @@ class ShopsTableSchema extends Schema {
 
   up () {
     this.create('shops', (table) => {
-      table.increments()
+      table.increments("sid")
       table.timestamps()
       table.string("Name",50).unique()
       table.binary("Image")
       table.string("type",50)
       table.integer("uid").unsigned()
-      table.foreign("uid").references("id").on("users")
+      table.foreign("uid").references("uid").on("users")
       table.integer("parent_id").unsigned().default(0)
-      table.foreign("parent_id").references("id").on("shops")
+      table.foreign("parent_id").references("sid").on("shops")
       table.softDeletes()
     })
   }
