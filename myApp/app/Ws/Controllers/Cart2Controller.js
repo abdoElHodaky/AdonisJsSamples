@@ -22,7 +22,7 @@ class Cart2Controller {
         pid:p.id,
         Quantity:bcart[i].q,
         oid:createdOrder.id
-        transfered:(orderType=="transfer")?:true;
+        transfered:(orderType=="transfer")?true:false;
       });
       amount+=parseInt(p.Price)*parseInt(bcart[i].q)
     }
