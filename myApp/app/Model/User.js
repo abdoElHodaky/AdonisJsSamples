@@ -27,6 +27,9 @@ class User extends Lucid {
   attachments(){
    return this.hasMany("App/Model/Attachment","uid","uid");
   }
+  activity(){
+   return this.hasMany("App/Model/Activity","uid","uid");
+  }
 
 }
 
