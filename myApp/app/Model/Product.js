@@ -8,13 +8,13 @@ class Product extends Lucid {
     return 'mysql'
   }
   cat(){
-    return this.belongsTo("App/Model/Cat","id","cid");
+    return this.belongsTo("App/Model/Cat","cid","cid");
   }
   specs(){
-    return this.hasMany("App/Model/Spec","pid","id");
+    return this.hasMany("App/Model/Spec","pid","pid");
   }
   childern(){
-  	return this.hasMany("App/Model/Product","parent_id","id");
+  	return this.hasMany("App/Model/Product","parent_id","pid");
   }
   static get filter(filters={},use_all=false,used=false){
     return (yield(Product.query().where('used',used).with("specs").fetch().toJSON())).
