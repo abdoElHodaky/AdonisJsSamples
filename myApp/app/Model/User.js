@@ -40,6 +40,9 @@ class User extends Lucid {
   ads(){
    return this.hasMany("App/Model/Ads","uid","uid");
   }
+  coupons(){
+   return this.hasMany("App/Model/Coupon","uid","uid");
+  }
 
 }
 
