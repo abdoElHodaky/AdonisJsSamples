@@ -8,7 +8,10 @@ class Credit extends Lucid {
     return 'mysql'
   }
   client(){
-  	return this.belongTo("App/Model/Client","id","cid");
+  	return this.belongTo("App/Model/User","uid","uid");
+  }
+  wallet(){
+    return this.belongsTo("App/Model/Wallet","wid","wid")
   }
 }
 
