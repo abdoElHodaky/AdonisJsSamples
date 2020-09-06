@@ -10,14 +10,14 @@ class CatsTableSchema extends Schema {
 
   up () {
     this.create('cats', (table) => {
-      table.increments()
+      table.increments("cid")
       table.timestamps()
       table.string("Name",50).unique()
       table.string("Desc").nullable(false)
       table.integer("sid").unsigned()
-      table.foreign("sid").references('id').on('shops')
+      table.foreign("sid").references('sid').on('shops')
       table.integer("parent_id").usigned().default(0)
-      table.foreign("parent_id").references("id").on("cats")
+      table.foreign("parent_id").references("cid").on("cats")
       table.softDeletes()
     })
   }
