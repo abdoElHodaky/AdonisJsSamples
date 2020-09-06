@@ -37,6 +37,9 @@ class User extends Lucid {
   votes(){
    return this.hasMany("App/Model/Votes","uid","uid");
   }
+  ads(){
+   return this.hasMany("App/Model/Ads","uid","uid");
+  }
 
 }
 
