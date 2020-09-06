@@ -22,13 +22,20 @@ class User extends Lucid {
    "uid","uid")
   }
   info(){
-    return AdditionalInformation.query().where('on->>"$.id"',this.id);
+    return AdditionalInformation.query().where({'on->>"$.id"':this.id,
+    'on->"$.type"':"user"});
   }
   attachments(){
    return this.hasMany("App/Model/Attachment","uid","uid");
   }
   activity(){
    return this.hasMany("App/Model/Activity","uid","uid");
+  }
+  comments(){
+   return this.hasMany("App/Model/comments","uid","uid");
+  }
+  votes(){
+   return this.hasMany("App/Model/Votes","uid","uid");
   }
 
 }
