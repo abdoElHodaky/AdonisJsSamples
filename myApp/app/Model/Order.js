@@ -8,9 +8,11 @@ class Order extends Lucid {
     return 'mysql'
   }
 
-  products(){
-  	return this.hasMany("App/Model/OrderedProduct",'oid','id');
+  products(transfer=false){
+  	return this.hasMany("App/Model/OrderedProduct",'oid','id')
+       .where({transfer:transfer}) ;
   }
+  
 }
 
 module.exports = Order
