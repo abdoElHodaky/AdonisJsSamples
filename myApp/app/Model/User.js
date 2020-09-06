@@ -10,6 +10,9 @@ class User extends Lucid {
   shops(){
     return this.hasMany("App/Model/Shop","uid","id");
   }
+  type(){
+   return this.belongsTo("App/Model/UserType","type_id","related_type_id")
+  }
 
 }
 
