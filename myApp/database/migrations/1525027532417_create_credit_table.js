@@ -17,7 +17,7 @@ class CreditsTableSchema extends Schema {
       table.integer("cvv")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
-      table.integer("balance").unsigned()
+      table.integer("balance").unsigned().default(500)
     })
   }
 
