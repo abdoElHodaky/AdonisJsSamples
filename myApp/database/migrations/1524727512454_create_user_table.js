@@ -15,7 +15,8 @@ class UsersTableSchema extends Schema {
       table.string("Name",50).unique()
       table.string("Password").nullable(false)
       table.string("Email",50).unique()
-      table.string("type").nullable(false)
+      table.integer("related_type_id").unsigned().default(0)
+      table.foreign("related_type_id").references("id").on("users_types"
       table.integer("related_to_id").unsigned().default(0)
       table.foreign("related_to_id").references("id").on("users")
       table.softDeletes()
