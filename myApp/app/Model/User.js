@@ -16,10 +16,17 @@ class User extends Lucid {
   wallet(){
     return this.hasOne("App/Model/Wallet","wid","wid")
   }
-  orders(type="order"){
-   return this.hasMany("App/Model/Order","uid","uid").where({type:type})
+  orders(model="order",type="order"){
+   return (model=="order")?this.hasMany("App/Model/Order",
+   "uid","uid").where({type:type}):this.hasMany("App/Model/Offer",
+   "uid","uid")
   }
-  
+  info(){
+    return AdditionalInformation.query().where('on->>"$.id"',this.id);
+  }
+  attachments(){
+   return this.hasMany("App/Model/Attachment","uid","uid");
+  }
 
 }
 
