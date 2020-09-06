@@ -12,7 +12,7 @@ class Cart2Controller {
   *onChange(d){
       this.socket.toMe().emit("changed",d)
   }
-  *onBuy(bcart,orderType){
+  *onBuy(bcart,orderType="order"){
     var user=this.user
   	var createdOrder=yield User.orders().Create({type:orderType})
     var amount=0;
