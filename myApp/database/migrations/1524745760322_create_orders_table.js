@@ -12,7 +12,7 @@ class OrdersTableSchema extends Schema {
     this.create('orders', (table) => {
       table.increments()
       table.timestamps()
-      table.integer("cid").unsigned()
+      table.integer("uid").unsigned()
       table.foreign("uid").references("id").on("users")
       table.string("type").nullable(false)
 
