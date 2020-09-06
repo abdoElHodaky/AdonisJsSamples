@@ -13,6 +13,10 @@ class User extends Lucid {
   type(){
    return this.belongsTo("App/Model/UserType","type_id","related_type_id")
   }
+  wallet(){
+    return this.hasOne("App/Model/Wallet","uid","uid")
+  }
+  
 
 }
 
