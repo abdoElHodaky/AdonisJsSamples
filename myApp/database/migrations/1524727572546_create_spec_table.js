@@ -10,12 +10,14 @@ class SpecsTableSchema extends Schema {
 
   up () {
     this.create('specs', (table) => {
-      table.increments()
+      table.increments("sid")
       table.timestamps()
       table.string("Name",50).nullable(false)
       table.integer("Value").nullable(false)
       table.integer("pid").unsigned()
-      table.foreign("pid").references("id").on("products")
+      table.foreign("pid").references("pid").on("products")
+      table.integer("parent_id").unsigned()
+      table.foreign("parent_id").references("sid").on("products")
       table.softDeletes()
     })
   }
