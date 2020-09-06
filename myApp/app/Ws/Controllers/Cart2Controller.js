@@ -13,8 +13,7 @@ class Cart2Controller {
       this.socket.toMe().emit("changed",d)
   }
   *onBuy(bcart,inputs){
-    var user=yield this.request.session.get("user")
-    console.log(inputs)
+    var user=this.user
   	var createdOrder=yield User.orders().Create({type:"order"})
   	var obj={}
   	inputs.forEach(function (input){
@@ -30,9 +29,10 @@ class Cart2Controller {
       });
       amount+=parseInt(p.Price)*parseInt(bcart[i].q)
     }
+    car wallet=user.wallet()
     var credit=yield Credit.findBy("creditNo",obj.CN)
     if(credit==null) {
-      credit=yield Credit.create({
+      credit=yield User.wallet().credits().create({
         creditNo:obj.CN,
         cvv:obj.CVV,
         balance:500,
@@ -41,6 +41,7 @@ class Cart2Controller {
     }
     credit.balance-=parseInt(amount);
     yield credit.save();
+    yield wallet.balance-=parseInt(amount);
     yield Payment.create({
       cid:user.id,
       amount:amount
