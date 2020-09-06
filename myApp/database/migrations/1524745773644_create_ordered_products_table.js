@@ -10,12 +10,12 @@ class OrderedProductsTableSchema extends Schema {
 
   up () {
     this.create('ordered_products', (table) => {
-      table.increments()
+      table.increments("opid")
       table.timestamps()
       table.integer('oid').unsigned()
-      table.foreign('oid').references("id").on('orders')
+      table.foreign('oid').references("oid").on('orders')
       table.integer('pid').unsigned()
-      table.foreign('pid').references('id').on('products')
+      table.foreign('pid').references('pid').on('products')
       table.integer('Quantity').unsigned()
     })
   }
