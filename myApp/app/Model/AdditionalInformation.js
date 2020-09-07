@@ -2,7 +2,7 @@
 
 const Lucid = use('Lucid')
 
-class Attachment extends Lucid {
+class AdditionalInformation extends Lucid {
 
   static get connection () {
     return 'mysql'
@@ -14,6 +14,7 @@ class Attachment extends Lucid {
     });
   }
   
+  
 }
 
-module.exports = Cat
+module.exports = AdditionalInformation
