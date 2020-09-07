@@ -13,9 +13,9 @@ class Vote extends Lucid {
   products(){
       return return this.belongsTo("App/Models/Product","OnId,"pid").where("OnType","products");
   }
-    users(){
+  users(){
       return return this.belongsTo("App/Models/User","OnId,"uid").where("OnType","users");
-  }
+    }
 }
 
 module.exports = Vote
