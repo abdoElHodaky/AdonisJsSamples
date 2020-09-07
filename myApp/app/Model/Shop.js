@@ -9,7 +9,7 @@ class Shop extends Lucid {
   }
 
    cats(){
-     return this.hasMany("App/Model/Cat",'sid','id')
+     return this.hasMany("App/Model/Cat",'sid','sid')
   }
   products(){
     return this.manyThrough("App/Model/Cat","products","cid","cid");
