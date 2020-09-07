@@ -15,6 +15,7 @@ class OrdersTableSchema extends Schema {
       table.integer("uid").unsigned()
       table.foreign("uid").references("id").on("users")
       table.string("type").nullable(false)
+      table.string("status").nullable()
 
     })
   }
