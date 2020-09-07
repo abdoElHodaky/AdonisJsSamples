@@ -22,8 +22,8 @@ class User extends Lucid {
    "uid","uid")
   }
   info(){
-    //return AdditionalInformation.on("users",this);
-    return this.hasOne("App/Model/UserInfo","uid","uid")
+    //return Information.on("users",this);
+    return this.hasOne("App/Model/Inforamation","onId","uid").where("onType","users")
   }
   attachments(){
    return this.hasMany("App/Model/Attachment","uid","uid");
