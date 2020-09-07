@@ -11,7 +11,7 @@ class User extends Lucid {
     return this.hasMany("App/Model/Shop","uid","uid");
   }
   type(){
-   return this.belongsTo("App/Model/UserType","related_type_id","type_id")
+   return this.belongsMany("App/Model/Type","related_type_id","uid","uid","type_id")
   }
   wallet(){
     return this.hasOne("App/Model/Wallet","wid","wid")
