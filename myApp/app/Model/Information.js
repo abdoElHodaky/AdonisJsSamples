@@ -14,10 +14,10 @@ class Information extends Lucid {
     });
   }
   order(){
-    this.belongsTo("App/Model/OrderInfo","oid","oid")
+    this.belongsTo("App/Model/Order","OnId","oid").where("OnType","orders")
   }
   user(){
-    this.belongsTo("App/Model/UserInfo","uid","uid")
+    this.belongsTo("App/Model/Info","OnId","uid").where("onType","users")
   }
   
   
