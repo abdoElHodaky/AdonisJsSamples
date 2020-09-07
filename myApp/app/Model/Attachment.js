@@ -7,6 +7,9 @@ class Attachment extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  static get On(type,{id}){
+   
+  }
   
 }
 
