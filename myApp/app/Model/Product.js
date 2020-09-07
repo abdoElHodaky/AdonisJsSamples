@@ -37,7 +37,7 @@ class Product extends Lucid {
   }
   attachments(){
     //return Attachment.on("product",this)
-     return this.manyThrough("App/Model/ProductAttachment","attachments","pid","pid")
+     return this.manyThrough("App/Model/ProductAttachment","attachments","aid","aid")
   }
 }
 
