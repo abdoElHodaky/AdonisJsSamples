@@ -15,6 +15,9 @@ class Shop extends Lucid {
     return this.manyThrough("App/Model/Cat","products","cid","cid");
   }
   
+  coupons(){
+    return this.manyThrough("App/Model/Cat","coupons","cid","cid");
+  }
   
 
 }
