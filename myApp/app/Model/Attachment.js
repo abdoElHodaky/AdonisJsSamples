@@ -30,4 +30,4 @@ class Attachment extends Lucid {
   
 }
 
-module.exports = Cat
+module.exports = Attachment
