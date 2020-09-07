@@ -16,6 +16,9 @@ class Cat extends Lucid {
   products(){
    return this.hasMany("App/Models/Product","cid","cid")
   }
+  coupons(){
+   return this.hasMany("App/Models/Coupon","cid","OnId").where("OnType","cats")
+  }
 }
 
 module.exports = Cat
