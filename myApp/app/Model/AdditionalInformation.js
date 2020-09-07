@@ -11,7 +11,7 @@ class Attachment extends Lucid {
    return AdditionalInformation.query().where({
     'on->"$.type"':type,
      'on->"$.id"':id
-    }).fetch();
+    });
   }
   
 }
