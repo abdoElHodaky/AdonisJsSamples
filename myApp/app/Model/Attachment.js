@@ -7,8 +7,11 @@ class Attachment extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  static get On(type,{id}){
-   
+  static get on(type,{id}){
+   return Attachment.query().where({
+    'on->"$.type"':type,
+     'on->"$.id"':id
+    }).fetch();
   }
   
 }
