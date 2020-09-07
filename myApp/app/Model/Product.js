@@ -35,6 +35,12 @@ class Product extends Lucid {
   versions(){
    return this.hasMany("App/Model/ProductVersion","pid","pid");
   }
+  attachments(){
+    return Attachment.query().where({
+    'on->"$.type"':"products",
+     'on->"$.id"':this.id
+    }).fetch();
+  }
 }
 
 module.exports = Product
