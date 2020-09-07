@@ -13,6 +13,10 @@ class Coupon extends Lucid {
      OnType:type,
      OnId:id
     });
+   cats(){
+    return this.belongsMany("App/Model/Cat","OnId","cid","cid","OnId").
+    where("OnType","cats")
+   }
 }
 
 module.exports = Coupon
