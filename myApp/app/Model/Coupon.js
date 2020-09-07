@@ -8,7 +8,11 @@ class Coupon extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  static get On(){}
+  static get on(type,{id}){
+   return Information.query().where({
+     OnType:type,
+     OnId:id
+    });
 }
 
 module.exports = Coupon
