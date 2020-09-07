@@ -9,7 +9,7 @@ class Type extends Lucid {
     return 'mysql'
   }
   users(){
-   this.hasMany("App/Model/User","type_id","type_id")
+   this.hasMany("App/Model/User","utype_id","utype_id")
   }
 }
 
