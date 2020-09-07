@@ -9,8 +9,8 @@ class Information extends Lucid {
   }
   static get on(type,{id}){
    return Information.query().where({
-    'on->"$.type"':type,
-     'on->"$.id"':id
+     OnType:type,
+     OnId:id
     });
   }
   order(){
