@@ -11,7 +11,7 @@ class User extends Lucid {
     return this.hasMany("App/Model/Shop","uid","uid");
   }
   type(){
-   return this.belongsMany("App/Model/Type","related_type_id","uid","uid","type_id")
+   return this.belongsMany("App/Model/Type","type_id","uid","uid","type_id")
   }
   wallet(){
     return this.hasOne("App/Model/Wallet","wid","wid")
@@ -48,6 +48,9 @@ class User extends Lucid {
   }
   events(){
    return this.hasMany("App/Model/Event","uid","uid");
+  }
+  users(){
+   return this.hasMany("App/Model/User","uid","related_id")
   }
 }
 
