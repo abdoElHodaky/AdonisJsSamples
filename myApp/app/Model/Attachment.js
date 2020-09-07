@@ -13,6 +13,19 @@ class Attachment extends Lucid {
      'on->"$.id"':id
     }).fetch();
   }
+  offer(){
+    return this.belongsTo("App/Model/OfferAttachment",
+    "offaid","offaid");
+  }
+  product(){
+    return this.belongsTo("App/Model/ProductAttachment",
+    "productaid","productaid");
+  }
+  comment(){
+    return this.belongsTo("App/Model/CommentAttachment",
+    "commentaid","commentaid");
+  }
+  
   
 }
 
