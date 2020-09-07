@@ -1,10 +1,8 @@
-
 'use strict'
 
 const Lucid = use('Lucid')
 
 class Vote extends Lucid {
-
 
   static get connection () {
     return 'mysql'
