@@ -15,15 +15,16 @@ class Attachment extends Lucid {
   }
   offer(){
     return this.belongsTo("App/Model/OfferAttachment",
-    "offaid","offaid");
+    "aid","aid").where("related_type","offer");
   }
   product(){
     return this.belongsTo("App/Model/ProductAttachment",
-    "productaid","productaid");
+    "aid","aid").where("related_type","product");
+
   }
   comment(){
     return this.belongsTo("App/Model/CommentAttachment",
-    "commentaid","commentaid");
+    "aid","aid").where("related_type","comment");
   }
   
   
