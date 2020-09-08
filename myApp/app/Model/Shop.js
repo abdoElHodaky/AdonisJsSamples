@@ -18,6 +18,9 @@ class Shop extends Lucid {
   coupons(){
     return this.manyThrough("App/Model/Cat","coupons","cid","cid");
   }
+   types(){
+    return this.belongsMany("App/Model/TypeShop","shptype_id","sid","sid","shptype_id");
+  }
   
 
 }
