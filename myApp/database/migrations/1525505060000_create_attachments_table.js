@@ -18,9 +18,9 @@ class AttachmentsTableSchema extends Schema {
       table.string("type").nullable()
       table.enu("attachment_type",["file","url","thumbnail"])
       table.binary(attachment_src)
-      table.integer("OnId")
+      /*table.integer("OnId")
       table.string("OnType",20)
-      table.index(["OnId","OnType"],"On")
+      table.index(["OnId","OnType"],"On")*/
       })
   }
 
