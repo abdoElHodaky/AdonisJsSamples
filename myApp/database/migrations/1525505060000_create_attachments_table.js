@@ -16,7 +16,7 @@ class AttachmentsTableSchema extends Schema {
       table.foreign("uid").references("uid").on("users")
       table.string("status").nullable()
       table.string("type").nullable()
-      table.enum("attachment_type",["file","url","thumbnail"])
+      table.enu("attachment_type",["file","url","thumbnail"])
       table.binary(attachment_src)
       })
   }
