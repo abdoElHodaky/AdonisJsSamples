@@ -5,7 +5,7 @@ const Lucid = use('Lucid')
 
 class ProductVotes extends Lucid {
 
-  static get tableName(){
+  static get table(){
     return "votes_on_products"
    }
   static get connection () {
