@@ -5,7 +5,7 @@ const Lucid = use('Lucid')
 
 class ProductVotes extends Lucid {
 
-  private tableName="votes_on_products";
+  private var tableName="votes_on_products";
   static get connection () {
     return 'mysql'
   }
