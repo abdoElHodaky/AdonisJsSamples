@@ -15,6 +15,7 @@ class ShopsTableSchema extends Schema {
       table.string("Name",50).unique()
       table.binary("Image")
       table.string("type",50)
+      table.json("addit_info").default("{}")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       table.integer("parent_id").unsigned().default(0)
