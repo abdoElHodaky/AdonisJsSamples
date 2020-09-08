@@ -12,10 +12,10 @@ class Transfer extends Lucid {
     return this.belongsTo("App/Model/Order",'oid','oid');
   }
   sender(){
-     return this.belongsTo("App/Models/User","uid","uid")
+     return this.belongsTo("App/Models/User","sender_uid","uid")
   }
   receiver(){
-     return this.belongsTo("App/Models/User","uid","uid")
+     return this.belongsTo("App/Models/User","receiver_uid","uid")
   }
 }
 
