@@ -27,10 +27,10 @@ class Attachment extends Lucid {
     return this.belongsTo("App/Model/CommentAttachment",
     "aid","aid").where("related_type","comment");
   }
-  belongs(modelName,modelId){
+  /*belongs(modelName,modelId){
    return this.belongsTo("App/Model/"+modelName,"OnId",modelId)
     .where("OnType",modelName);
-  }
+  }*/
   
   
 }
