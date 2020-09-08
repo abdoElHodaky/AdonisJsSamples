@@ -29,4 +29,4 @@ class CommentsTableSchema extends Schema {
 
 }
 
-module.exports = AttachmentsTableSchema
+module.exports = CommentsTableSchema
