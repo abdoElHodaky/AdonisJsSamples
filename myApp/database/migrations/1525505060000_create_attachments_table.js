@@ -18,6 +18,7 @@ class AttachmentsTableSchema extends Schema {
       table.string("type").nullable()
       table.enu("attachment_type",["file","url","thumbnail"])
       table.binary(attachment_src)
+      table.integer("OnId").index()
       })
   }
 
