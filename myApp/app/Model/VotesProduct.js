@@ -3,7 +3,7 @@
 
 const Lucid = use('Lucid')
 
-class ProductVotes extends Lucid {
+class VotesProduct extends Lucid {
 
   static get table(){
     return "votes_on_products"
@@ -20,4 +20,4 @@ class ProductVotes extends Lucid {
   
 }
 
-module.exports = ProductVotes
+module.exports = VotesProduct
