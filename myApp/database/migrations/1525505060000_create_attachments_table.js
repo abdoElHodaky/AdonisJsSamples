@@ -15,12 +15,8 @@ class AttachmentsTableSchema extends Schema {
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       table.string("status").nullable()
-      table.string("type").nullable()
       table.enu("attachment_type",["file","url","thumbnail"])
       table.binary(attachment_src)
-      table.integer("OnId")
-      table.string("OnType",20)
-      table.index(["OnId","OnType"],"On")
       })
   }
 
