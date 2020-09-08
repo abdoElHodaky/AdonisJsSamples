@@ -15,6 +15,7 @@ class VisitsTableSchema extends Schema {
       table.timestamps()
       table.string("scope",50)/*page.[name]*/
       table.boolean("isGuest").default(true)
+      table.timestamp("duration")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       table.integer("session_id")
