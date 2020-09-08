@@ -53,10 +53,10 @@ class User extends Lucid {
    return this.hasMany("App/Model/User","uid","related_id")
   }
   outTransfers(){
-   return this.hasMany("App/Model/Transfer","sender_uid","uid")
+   return this.hasMany("App/Model/Transfer","uid","sender_uid")
   }
   inTransfers(){
-   return this.hasMany("App/Model/Transfer","receiver_uid","uid")
+   return this.hasMany("App/Model/Transfer","uid","receiver_uid")
   }
 }
 module.exports = User
