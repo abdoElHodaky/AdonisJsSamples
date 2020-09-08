@@ -16,7 +16,7 @@ class Attachment extends Lucid {
   offer(){
     return this.belongsTo("App/Model/OfferAttachment",
     "aid","aid").where("related_type","offer");
-  }
+   
   product(){
     return this.belongsTo("App/Model/ProductAttachment",
     "aid","aid").where("related_type","product");
@@ -25,6 +25,11 @@ class Attachment extends Lucid {
   comment(){
     return this.belongsTo("App/Model/CommentAttachment",
     "aid","aid").where("related_type","comment");
+  }
+  belong(type,id){
+  return this.belongsTo("App/Model/Offer");
+   
+
   }
   
   
