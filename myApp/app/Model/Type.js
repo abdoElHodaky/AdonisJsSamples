@@ -3,7 +3,7 @@
 
 const Lucid = use('Lucid')
 
-class Type extends Lucid {
+class TypeUser extends Lucid {
 
   static get connection () {
     return 'mysql'
@@ -13,4 +13,4 @@ class Type extends Lucid {
   }
 }
 
-module.exports = Type
+module.exports = TypeUser
