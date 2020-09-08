@@ -108,6 +108,21 @@ Transfer(OrderType)
  Sender Owner
  Fee
 )
+
+Events
+(
+  who (identity)
+  type
+   content
+   Interested(json)
+   comming(Jain)
+)
+  UserType
+( 
+   name
+   Desc
+   releatedType
+)
 Operation
   New-Payment=>Credit(balance-    =Transfer(Fee))
 
