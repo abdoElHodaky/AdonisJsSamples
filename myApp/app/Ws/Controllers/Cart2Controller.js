@@ -12,7 +12,7 @@ class Cart2Controller {
   *onChange(d){
       this.socket.toMe().emit("changed",d)
   }
-  *onBuy(bcart,orderType="order"){
+  *onBuy(bcart,orderType="order",coupon){
     var user=this.user
   	var createdOrder=yield User.orders().Create({type:orderType})
     var amount=0;
@@ -23,13 +23,14 @@ class Cart2Controller {
         Quantity:bcart[i].q,
         oid:createdOrder.id
         transfered:(orderType=="transfer")?true:false;
+        coupon:coupon
       });
       amount+=parseInt(p.Price)*parseInt(bcart[i].q)
     }
-    car wallet=user.wallet()
+    car wallet=yield user.wallet().create()
     var credit=yield Credit.findBy("creditNo",obj.CN)
     if(credit==null) {
-      credit=yield User.wallet().credits().create({
+      credit=yield wallet.credits().create({
         creditNo:obj.CN,
         cvv:obj.CVV,
         balance:500,
@@ -38,7 +39,8 @@ class Cart2Controller {
     }
     credit.balance-=parseInt(amount);
     yield credit.save();
-    yield wallet.balance-=parseInt(amount);
+    wallet.balance-=parseInt(amount);
+    yield wallet.save()
     yield Payment.create({
       cid:user.id,
       amount:amount
