@@ -10,12 +10,14 @@ class OffersTableSchema extends Schema {
 
   up () {
     this.create('offers', (table) => {
-      table.increments()
+      table.increments("offid")
       table.timestamps()
       table.integer("uid").unsigned()
-      table.foreign("uid").references("id").on("users")
+      table.foreign("uid").references("uid").on("users")
       table.string("status").nullable()
-
+      table.string("type").nullable()
+      table.integer("offattid").unsigned()
+      table.foreign("offattid").references("offattid").on("offer_attachment")
     })
   }
 
