@@ -17,6 +17,7 @@ class OrderedProductsTableSchema extends Schema {
       table.integer('pid').unsigned()
       table.foreign('pid').references('pid').on('products')
       table.integer('Quantity').unsigned()
+      table.boolean("transfered").default(false)
     })
   }
 
