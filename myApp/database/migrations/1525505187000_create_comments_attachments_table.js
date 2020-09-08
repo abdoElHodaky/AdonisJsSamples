@@ -20,7 +20,7 @@ class CommentAttachmentsTableSchema extends Schema {
   }
 
   down () {
-    this.drop('comments')
+    this.drop('comments_attachments')
   }
 
 }
