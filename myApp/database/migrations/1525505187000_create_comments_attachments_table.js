@@ -9,7 +9,7 @@ class CommentAttachmentsTableSchema extends Schema {
   }
 
   up () {
-    this.create('comments_attachment s', (table) => {
+    this.create('comments_attachments', (table) => {
       table.increments("comattid")
       table.timestamps()
       table.integer("aid").unsigned()
