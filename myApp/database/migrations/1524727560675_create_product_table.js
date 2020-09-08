@@ -22,8 +22,8 @@ class ProductsTableSchema extends Schema {
       table.foreign("related_to_id").references("pid").on("products")
       table.integer("cid").unsigned()
       table.foreign("cid").references("cid").on("cats")
-      table.integer("pidaid").unsigned()
-      table.foreign("padid").references("pidaid").on("products_attachments")
+      table.integer("pidattid").unsigned()
+      table.foreign("pidattid").references("pidattid").on("products_attachments")
       table.softDeletes()
     })
   }
