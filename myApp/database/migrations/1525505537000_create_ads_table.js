@@ -12,7 +12,7 @@ class AdsTableSchema extends Schema {
     this.create('ads', (table) => {
       table.increments("adid")
       table.timestamps()
-      table.string("scope")
+      table.string("scope",50)/*table.[id]*/
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       
