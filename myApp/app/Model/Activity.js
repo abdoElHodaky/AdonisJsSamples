@@ -7,11 +7,11 @@ class Activity extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  static get on(type,{id}){
+  static get on(type,id){
    return Activity.query().where({
      OnType:type,
      OnId:id
-    });
+    }).fetch();
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
    }
