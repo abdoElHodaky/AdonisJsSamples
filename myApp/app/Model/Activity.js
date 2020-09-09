@@ -8,9 +8,9 @@ class Activity extends Lucid {
     return 'mysql'
   }
   static get actions(type,id){
-   var actions=yield Activity.query().where({
+   var actions=JSON.parse(yield Activity.query().where({
      "uid":id
-    }).fetch().actions;
+    }).fetch().actions);
     return actions.filter(act=>act.type==type)
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
