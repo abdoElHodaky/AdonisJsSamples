@@ -22,7 +22,7 @@ class Shop extends Lucid {
     return this.belongsMany("App/Model/TypeShop","shptype_id","sid","sid","shptype_id");
   }
   followers(){
-   return this.manyThrough("App/Model/ShopFollower","followers","sid","sid");
+   return this.hasMany("App/Model/ShopFollower","sid","sid");
   }
   
 
