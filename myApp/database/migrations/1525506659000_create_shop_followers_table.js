@@ -3,7 +3,7 @@
 
 const Schema = use('Schema')
 
-class FollowersTableSchema extends Schema {
+class ShopsFollowersTableSchema extends Schema {
 
   static get connection () {
     return 'mysql'
@@ -22,9 +22,9 @@ class FollowersTableSchema extends Schema {
   }
 
   down () {
-    this.drop('followers')
+    this.drop('shops_followers')
   }
 
 }
 
-module.exports = FollowersTableSchema
+module.exports = ShopsFollowersTableSchema
