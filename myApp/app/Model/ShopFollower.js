@@ -10,8 +10,9 @@ class ShopFollower extends Lucid {
   }
 
   followers(){
-   return this.belongsTo("App/Model/Follower","follid","follid");
-  }
+   //return this.belongsTo("App/Model/Follower","follid","follid");
+    return this.hasMany("App/Model/Follower","follid","follid")
+   }
   
 
 }
