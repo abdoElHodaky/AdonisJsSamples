@@ -3,28 +3,26 @@
 
 const Schema = use('Schema')
 
-class ShopsFollowersTableSchema extends Schema {
+class FollowersTableSchema extends Schema {
 
   static get connection () {
     return 'mysql'
   }
 
   up () {
-    this.create('shops_followers', (table) => {
-      table.increments("follsid")
+    this.create('followers', (table) => {
+      table.increments("follid")
       table.timestamps()
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
-      table.integer("sid").unsigned()
-      table.foreign("sid").references("sid").on("sid")
       table.softDeletes()
     })
   }
 
   down () {
-    this.drop('shops')
+    this.drop('followers')
   }
 
 }
 
-module.exports = ShopsFollowersTableSchema
+module.exports = FollowersTableSchema
