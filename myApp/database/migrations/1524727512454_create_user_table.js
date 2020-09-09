@@ -20,6 +20,8 @@ class UsersTableSchema extends Schema {
       table.foreign("related_type_id").references("id").on("users_types"
       table.integer("related_to_id").unsigned().default(0)
       table.foreign("related_to_id").references("uid").on("users")
+      table.integer("follow_id").unsigned().default(0)
+      table.foreign("follow_id").references("uid").on("users")
       table.softDeletes()
     })
   }
