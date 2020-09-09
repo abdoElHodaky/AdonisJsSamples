@@ -8,7 +8,7 @@ class Activity extends Lucid {
     return 'mysql'
   }
   static get actions(type,id){
-   var actions=Activity.query().where({
+   var actions=yield Activity.query().where({
      "uid":id
     }).fetch().actions;
     return actions.filter(act=>act.type==type)
