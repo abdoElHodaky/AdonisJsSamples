@@ -16,8 +16,8 @@ class VerificationTableSchema extends Schema {
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       table.enu("type",["device","email"])
-      table.integer("deviid").unsigned()
-      table.foreign("deviid").references("deviid").on("devices")
+      table.integer("devid").unsigned()
+      table.foreign("devid").references("devid").on("devices")
       table.softDeletes()
     })
   }
