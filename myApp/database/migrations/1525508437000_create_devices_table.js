@@ -15,8 +15,10 @@ class DevicesTableSchema extends Schema {
       table.timestamps()
       table.string("Name",50).unique()
       table.integer("uid").unsigned()
-      table.foreign("uid").references("uid").on("uid")
-      table.string("verify_code",50)
+      table.foreign("uid").references("uid").on("users")
+      //table.string("verify_code",50)
+      table.integer("verifid").unsigned()
+      table.foreign("verifid").references("veryfid").on("verification")
       table.softDeletes()
     })
   }
