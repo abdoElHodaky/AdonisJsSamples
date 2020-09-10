@@ -17,7 +17,7 @@ class AttachmentsTableSchema extends Schema {
       table.string("status",20).nullable()
       table.string("for",50).nullable()
       table.enu("attachment_type",["file","url","thumbnail","emoji"])
-      table.binary(attachment_src)
+      table.binary("attachment_src")
       })
   }
 
