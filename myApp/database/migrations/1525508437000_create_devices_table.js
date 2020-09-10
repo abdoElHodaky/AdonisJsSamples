@@ -17,9 +17,9 @@ class DevicesTableSchema extends Schema {
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       table.string("verify_code",50)
-      table.boolean("verified")
+      /*table.boolean("verified")
       table.integer("verifid").unsigned()
-      table.foreign("verifid").references("veryfid").on("verification")
+      table.foreign("verifid").references("veryfid").on("verification")*/
       table.softDeletes()
     })
   }
