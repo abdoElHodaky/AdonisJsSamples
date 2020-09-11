@@ -15,7 +15,7 @@ class ShopsFollowersTableSchema extends Schema {
       table.timestamps()
       table.integer("follid").unsigned()
       table.foreign("follid").references("follid").on("followers")
-      table.integer("follid").unsigned()
+      table.integer("sid").unsigned()
       table.foreign("sid").references("sid").on("shops")
       table.softDeletes()
     })
