@@ -12,7 +12,7 @@ class Shop extends Lucid {
      return this.hasMany("App/Model/Cat",'sid','sid')
   }
   products(){
-    return this.manyThrough("App/Model/Cat","products","cid","cid");
+    return this.manyThrough("App/Model/Cat","products","sid","cid");
   }
   
   coupons(){
@@ -22,7 +22,7 @@ class Shop extends Lucid {
     return this.belongsMany("App/Model/TypeShop","shptype_id","sid","sid","shptype_id");
   }
   followers(){
-   return this.manyThrough("App/Model/ShopFollower","followers","sid","sid");
+   return this.manyThrough("App/Model/ShopFollower","followers","sid","follid");
   }
   
 
