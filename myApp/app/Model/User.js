@@ -23,8 +23,8 @@ class User extends Lucid {
   }
   info(){
     //return Information.on("users",this);
-    return this.hasOne("App/Model/Inforamation","onId","uid").where("onType","users")
-  }
+    //return this.hasOne("App/Model/Inforamation","onId","uid").where("onType","users")
+   }
   attachments(){
    return this.hasMany("App/Model/Attachment","uid","uid");
   }
