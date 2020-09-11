@@ -18,6 +18,8 @@ class CouponsTableSchema extends Schema {
       table.float("amount")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
+      table.integer("coupuid").unsigned()
+      table.foreign("coupuid").references("coupuid").on("coupons_users")
       table.timestamp("expired_at")
       table.boolean("expired").default(false)
       table.softDeletes()
