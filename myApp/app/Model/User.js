@@ -35,7 +35,7 @@ class User extends Lucid {
    return this.hasMany("App/Model/comments","uid","uid");
   }
   votes_on_users(){
-   return this.manyThrough("App/Model/VotesUsers","votes","uid","uid");
+   return this.manyThrough("App/Model/VotesUsers","votes","uid","votid");
   }
   votes(){
    return this.hasMany("App/Model/Votes","uid","uid");
