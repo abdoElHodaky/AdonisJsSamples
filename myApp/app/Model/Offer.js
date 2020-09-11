@@ -8,7 +8,7 @@ class Offer extends Lucid {
     return 'mysql'
   }
    attachments(){
-    return this.hasManyThrough("App/Model/OfferAttachment","attachments","aid","aid")
+    return this.manyThrough("App/Model/OfferAttachment","attachments","aid","aid")
    }
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
