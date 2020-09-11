@@ -11,7 +11,7 @@ class Verification extends Lucid {
     return this.belongsTo("App/Model/User","uid","uid")
    }
    device(){
-    return this.hasOne("App/Model/Device","devid","devided")
+    return this.hasOne("App/Model/Device","devid","devid")
    }
 }
 
