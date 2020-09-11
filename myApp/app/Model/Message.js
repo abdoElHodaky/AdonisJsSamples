@@ -12,8 +12,7 @@ class Message extends Lucid {
     return this.hasMany("App/Model/User","uid","uid")
   }
   attachments(){
-    //return this.manyThrough("App/Model/MessageAtt","uid","uid")
-    return this.manyThrough("App/Model/Attachment","aid","aid")
-  }
+    return this.manyThrough("App/Model/MessageAttachment","attachments","aid","aid")
+   }
 }
 module.exports = Message
