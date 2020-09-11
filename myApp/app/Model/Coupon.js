@@ -23,6 +23,11 @@ class Coupon extends Lucid {
    users(){
     return this.belongsMany("App/Model/User","uid","coupid","coupid","uid")
    }
+   products(){
+    return this.hasMany("App/Model/OrderedProduct","coupid","coupid")
+   }
+
+
 }
 
 module.exports = Coupon
