@@ -20,6 +20,9 @@ class Coupon extends Lucid {
    users(){
     return this.manyThrough("App/Model/CouponUser","uid","uid")
    }
+   user(){
+    return this.belongsTo("App/Model/User","uid","uid")
+   }
 }
 
 module.exports = Coupon
