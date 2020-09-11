@@ -23,9 +23,9 @@ class Cart2Controller {
         Quantity:bcart[i].q,
         oid:createdOrder.id
         transfered:(orderType=="transfer")?true:false;
-        coupon:coupon
+        coupid:yield use("App/Model/Coupon").findBy("Code",coupon.code).coupid
       });
-      amount+=parseInt(p.Price)*parseInt(bcart[i].q)
+      amount+=Math.round((parseInt(p.Price)*parseInt(bcart[i].q)*coupon.amount),2)
     }
     car wallet=yield user.wallet().create()
     var credit=yield Credit.findBy("creditNo",obj.CN)
