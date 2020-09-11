@@ -7,14 +7,14 @@ class Vote extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  shop(){
-  	return this.belongsTo("App/Model/Shop",'OnId','sid').where("OnType","shpos");
-  }
-  products(){
-      return return this.belongsTo("App/Models/Product","OnId,"pid").where("OnType","products");
-  }
   users(){
       return return this.belongsTo("App/Models/User","OnId,"uid").where("OnType","users");
+    }
+  votes_users(){
+      return return this.belongsTo("App/Models/VoteUser","votuid","votuid")
+    }
+   votes_products(){
+      return return this.belongsTo("App/Models/VoteProduct","votpid","votpid")
     }
 }
 
