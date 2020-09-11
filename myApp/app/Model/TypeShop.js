@@ -7,7 +7,7 @@ class TypeShop extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  users(){
+  shops(){
    this.hasMany("App/Model/Shop","shptype_id","shptype_id")
   }
 }
