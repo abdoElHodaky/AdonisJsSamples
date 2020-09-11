@@ -8,7 +8,7 @@ class Cat extends Lucid {
     return 'mysql'
   }
   shop(){
-  	return this.belongsTo("App/Model/Shop",'id','sid');
+  	return this.belongsTo("App/Model/Shop",'sid','sid');
   }
   childern(){
   	return this.hasMany("App/Models/Cat","parent_id","cid")
