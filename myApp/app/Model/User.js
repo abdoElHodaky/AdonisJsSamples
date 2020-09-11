@@ -61,6 +61,15 @@ class User extends Lucid {
   inTransfers(){
    return this.hasMany("App/Model/Transfer","uid","receiver_uid")
   }
+  outMessages(){
+   return this.hasMany("App/Model/Message","uid","sender_uid")
+  }
+  inMessages(){
+   return this.hasMany("App/Model/Message","uid","receiver_uid")
+  }
+  conversations(){
+  // return this.belongsMany("App/Model/Message","uid","uid","uid","")
+  }
   devices(){
     return this.hasMany("App/Model/Device","uid","uid")
   }
