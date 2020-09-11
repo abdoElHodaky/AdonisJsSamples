@@ -16,12 +16,12 @@ class Coupon extends Lucid {
    cats(){
     return this.belongsMany("App/Model/Cat","OnId","cid","cid","OnId").
     where("OnType","cats")
-   }*/
+   }
    users(){
     return this.manyThrough("App/Model/CouponUser","uid","uid")
-   }
-   user(){
-    return this.belongsTo("App/Model/User","uid","uid")
+   }*/
+   users(){
+    return this.belongsMany("App/Model/User","uid","coupid","coupid","uid")
    }
 }
 
