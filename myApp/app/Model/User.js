@@ -61,5 +61,11 @@ class User extends Lucid {
   inTransfers(){
    return this.hasMany("App/Model/Transfer","uid","receiver_uid")
   }
+  devices(){
+    return this.hasMany("App/Model/Device","uid","uid")
+  }
+  verifications(){
+    return this.hasMany("App/Model/Verification","uid","uid")
+  }
 }
 module.exports = User
