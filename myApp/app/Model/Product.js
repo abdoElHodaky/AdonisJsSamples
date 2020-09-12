@@ -37,10 +37,10 @@ class Product extends Lucid {
   }
   attachments(){
     //return this.hasMany("App/Model/Attachment","pid","onId").where("onType","products")
-     return this.manyThrough("App/Model/ProductAttachment","attachments","aid","aid")
+     return this.manyThrough("App/Model/ProductAttachment","attachments","pidaid","aid")
   }
   votes(){
-     return this.manyThrough("App/Model/VotesProduct","votes","pid","pid")
+     return this.manyThrough("App/Model/VotesProduct","votes","votidpid","pid")
   }
 }
 
