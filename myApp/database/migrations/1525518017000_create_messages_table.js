@@ -23,6 +23,7 @@ class MessagesTableSchema extends Schema {
       //table.integer("replied_to_id").unsigned()
       //table.foreign("replied_to_id").references("mesgid").on("messages") 
       table.enu("type",["message","notification","conversation"]).default("conversation")
+      table.text("content")
       table.integer("mesgattid").unsigned()
       table.foreign("mesgattid").references("mesgattid").on("messages_attachments")
        
