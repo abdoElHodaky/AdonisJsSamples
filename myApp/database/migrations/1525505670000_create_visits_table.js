@@ -16,7 +16,7 @@ class VisitsTableSchema extends Schema {
       table.string("scope",50)/*page.[name]*/
       table.boolean("isGuest").default(true)
       table.timestamp("duration")
-      table.integer("uid").unsigned()
+      table.integer("uid").unsigned().default(0)
       table.foreign("uid").references("uid").on("users")
      // table.integer("session_id")
     //  table.foreign("session_id").references("session_id").on("sessions"
