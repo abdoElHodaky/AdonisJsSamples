@@ -14,6 +14,7 @@ class OffersTableSchema extends Schema {
       table.timestamps()
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
+      table.text("content")
       table.string("status").nullable()
       table.string("type").nullable()
       table.integer("offattid").unsigned()
