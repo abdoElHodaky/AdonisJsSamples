@@ -27,23 +27,25 @@ class Cart2Controller {
       });
       amount+=Math.round((parseInt(p.Price)*parseInt(bcart[i].q)*coupon.amount),2)
     }
-    car wallet=yield user.wallet().create()
-    var credit=yield Credit.findBy("creditNo",obj.CN)
-    if(credit==null) {
+    car wallet=yield user.wallet().findBy("address")
+    //var credit=yield Credit.findBy("creditNo",obj.CN)
+    /*if(credit==null) {
       credit=yield wallet.credits().create({
         creditNo:obj.CN,
         cvv:obj.CVV,
         balance:500,
         cid:user.id
       })
-    }
-    credit.balance-=parseInt(amount);
-    yield credit.save();
-    wallet.balance-=parseInt(amount);
-    yield wallet.save()
-    yield Payment.create({
-      cid:user.id,
-      amount:amount
+    }*/
+    var credit=wallet.credits().findBy("credit_No",obj.CN)
+    
+    wallet.balance-=parseFloat(credit.value)
+    credit.used=true;
+    credit.save()
+    wallet.save()
+    
+    yield user.payments().create({
+      amount:credit.value
     })
     this.socket.toMe().emit("ok","your order will be sent");
   }
