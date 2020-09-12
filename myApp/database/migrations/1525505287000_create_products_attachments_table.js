@@ -14,8 +14,8 @@ class ProductAttachmentsTableSchema extends Schema {
       table.timestamps()
       table.integer("aid").unsigned()
       table.foreign("aid").references("aid").on("attachments")
-      table.integer("pattid").unsigned()
-      table.foreign("pattid").references("pid").on("products")
+      table.integer("pid").unsigned()
+      table.foreign("pid").references("pid").on("products")
      
   }
 
