@@ -38,16 +38,20 @@ class Cart2Controller {
       })
     }*/
     var credit=wallet.credits().findBy("credit_No",obj.CN)
-    
-    wallet.balance-=parseFloat(credit.value)
-    credit.used=true;
-    credit.save()
-    wallet.save()
-    
-    yield user.payments().create({
+    var creditValue=credit.value,
+    allowed=(creditValue>=amount)?true:false
+    if(allowed)
+     {
+      wallet.balance-=creditValue
+      credit.used=true;
+      yield user.payments().create({
       amount:credit.value
-    })
-    this.socket.toMe().emit("ok","your order will be sent");
+      })
+     credit.save()
+     wallet.save()
+     
+    }
+   // this.socket.toMe().emit("ok","your order will be sent");
   }
    onCreateProduct(data)
    {
