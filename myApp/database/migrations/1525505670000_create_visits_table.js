@@ -18,8 +18,8 @@ class VisitsTableSchema extends Schema {
       table.timestamp("duration")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
-      table.integer("session_id")
-      table.foreign("session_id").references("session_id").on("sessions"
+     // table.integer("session_id")
+    //  table.foreign("session_id").references("session_id").on("sessions"
      
   }
 
