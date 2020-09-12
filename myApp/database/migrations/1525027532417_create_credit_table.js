@@ -10,14 +10,19 @@ class CreditsTableSchema extends Schema {
 
   up () {
     this.create('credits', (table) => {
-      table.increments("cid")
+      table.increments("credid")
       table.timestamps()
-      table.text("creditNo")
-      table.date("expires")
-      table.integer("cvv")
+      //table.text("creditNo")
+      table.boolean("used").default(false)
+      //table.integer("cvv")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
-      table.integer("balance").unsigned().default(500)
+      table.integer("value").unsigned().default(500)
+      table.integer("parent_id").unsigned()
+      table.foreign("parent_id").references("credid").on("credits")
+      table.integer("wallid").unsigned()
+      table.foreign("wallid").references("wallid").on("wallet")
+      
     })
   }
 
