@@ -12,7 +12,7 @@ class CreditsTableSchema extends Schema {
     this.create('credits', (table) => {
       table.increments("credid")
       table.timestamps()
-      //table.text("creditNo")
+      table.string("credit_No",10)
       table.boolean("used").default(false)
       //table.integer("cvv")
       table.integer("uid").unsigned()
