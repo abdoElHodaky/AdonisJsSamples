@@ -12,7 +12,7 @@ class Ad extends Lucid {
     return this.hasMany("App/Model/User","uid","uid")
   }*/
   attachments(){
-    return this.manyThrough("App/Model/AdAttachment","attachments","aid","aid")
+    return this.manyThrough("App/Model/AdAttachment","attachments","adid","aid")
    }
 }
 module.exports = Ad
