@@ -13,6 +13,7 @@ class AdsTableSchema extends Schema {
       table.increments("adid")
       table.timestamps()
       table.string("scope",50)/*table.[id]*/
+      table.text("content")
       table.boolean("isPaid")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
