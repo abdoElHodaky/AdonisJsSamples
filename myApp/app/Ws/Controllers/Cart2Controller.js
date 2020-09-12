@@ -44,6 +44,9 @@ class Cart2Controller {
      {
       wallet.balance-=creditValue
       credit.used=true;
+      if(creditValue>amount)
+       yield credit.credits().create({
+             value:creditValue-amount})
       yield user.payments().create({
       amount:credit.value
       })
