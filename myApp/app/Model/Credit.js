@@ -11,8 +11,11 @@ class Credit extends Lucid {
   	return this.belongTo("App/Model/User","uid","uid");
   }
   wallet(){
-    return this.belongsTo("App/Model/Wallet","wid","wid")
+    return this.belongsTo("App/Model/Wallet","wallid","wallid")
   }
+  credits(){
+     return this.hasMany("App/Model/Credit","credid","parent_id")
+   }
 }
 
 module.exports = Credit
