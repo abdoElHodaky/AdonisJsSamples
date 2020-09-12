@@ -12,7 +12,7 @@ class Comment extends Lucid {
     return this.hasMany("App/Model/User","uid","uid")
   }
   attachments(){
-    return this.manyThrough("App/Model/CommentAttachment","attachments","aid","aid")
+    return this.manyThrough("App/Model/CommentAttachment","attachments","commaid","aid")
    }
   comments(){
    return this.hasMany("App/Model/Comment","commid","parent_id")
