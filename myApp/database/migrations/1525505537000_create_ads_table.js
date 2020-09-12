@@ -16,6 +16,7 @@ class AdsTableSchema extends Schema {
       table.boolean("isPaid")
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
+      table.json("targeting").default("{}")
       
      
   }
