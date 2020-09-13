@@ -27,7 +27,7 @@ class Attachment extends Lucid {
     return this.belongsTo("App/Model/CommentAttachment",
     "aid","aid").where("related_type","comment");
   }*/
-  belongs(modelName){
+  hasAttachments(modelName){
    return this.hasOne("App/Model/"+modelName,"aid","aid")
   }
   
