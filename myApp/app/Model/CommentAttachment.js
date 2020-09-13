@@ -8,7 +8,9 @@ class CommentAttachment extends Lucid {
     return 'mysql'
   }
    attachments(){
-    return this.hasMany("App/Model/Attachment","aid","aid")
+    //return this.hasMany("App/Model/Attachment","aid","aid")
+     return this.belongsTo("App/Model/Attachment","aid","aid")
+   
    }
   
 }
