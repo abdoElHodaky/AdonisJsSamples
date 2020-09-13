@@ -7,7 +7,7 @@ class Attachment extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  static get on(type,{id}){
+  /*static get on(type,{id}){
    return Attachment.query().where({
     'on->"$.type"':type,
      'on->"$.id"':id
@@ -26,11 +26,10 @@ class Attachment extends Lucid {
   comment(){
     return this.belongsTo("App/Model/CommentAttachment",
     "aid","aid").where("related_type","comment");
-  }
-  /*belongs(modelName,modelId){
-   return this.belongsTo("App/Model/"+modelName,"OnId",modelId)
-    .where("OnType",modelName);
   }*/
+  belongs(modelName){
+   return this.hasOne("App/Model/"+modelName,"aid","aid")
+  }
   
   
 }
