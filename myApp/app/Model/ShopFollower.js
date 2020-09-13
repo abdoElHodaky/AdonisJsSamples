@@ -9,9 +9,9 @@ class ShopFollower extends Lucid {
     return 'mysql'
   }
 
-  followers(){
-   //return this.belongsTo("App/Model/Follower","follid","follid");
-    return this.hasMany("App/Model/Follower","follid","follid")
+  follower(){
+   return this.belongsTo("App/Model/Follower","follid","follid");
+    //return this.hasMany("App/Model/Follower","follid","follid")
    }
   shop(){
     return this.belongsTo("App/Model/Shop","sid","sid")
