@@ -8,8 +8,8 @@ class AffiliateProduct extends Lucid {
     return 'mysql'
   }
   
-  products(){
-    return this.belongsTo("App/Model/Product","pid","pid")
+  product(){
+    return this.hasOne("App/Model/Product","pid","pid")
    }
 }
 
