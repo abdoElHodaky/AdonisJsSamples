@@ -9,7 +9,7 @@ class AffiliateProduct extends Lucid {
   }
   
   product(){
-    return this.belongsTo("App/Model/Product","pid","pid")
+    return this.hasOne("App/Model/Product","pid","pid")
    }
 }
 
