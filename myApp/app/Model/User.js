@@ -10,8 +10,8 @@ class User extends Lucid {
   shops(){
     return this.hasMany("App/Model/Shop","uid","uid");
   }
-  shops_followed(){
-    return this.manyThrough("App/Model/ShopFollow","shop","uid","sip");
+  shops_followings(){
+    return this.belongsMany("App/Model/Shop","sid","uid").pivotModel("App/Model/ShopFollower");
   }
   types(){
    return this.belongsMany("App/Model/TypeUser","utype_id","uid","uid","utype_id")
