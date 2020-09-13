@@ -11,7 +11,8 @@ class VotesUser extends Lucid {
     return 'mysql'
   }
    votes(){
-    return this.hasMany("App/Model/Votes","votid","votid")
+   // return this.hasMany("App/Model/Votes","votid","votid")
+    return this.belongsTo("App/Model/Votes","votid","votid")
    }
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
