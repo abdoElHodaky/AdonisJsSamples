@@ -42,6 +42,9 @@ class Product extends Lucid {
   votes(){
      return this.manyThrough("App/Model/VotesProduct","votes","votpid","pid")
   }
+  affiliates(){
+    return this.hasMany("App/Model/AffilateProduct","pid","pid")
+   }
 }
 
 module.exports = Product
