@@ -76,5 +76,8 @@ class User extends Lucid {
   verifications(){
     return this.hasMany("App/Model/Verification","uid","uid")
   }
+  affiliates(){
+    return this.hasOne("App/Model/Affiliate","uid","uid")
+  }
 }
 module.exports = User
