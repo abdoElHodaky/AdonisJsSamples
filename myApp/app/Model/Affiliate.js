@@ -10,8 +10,7 @@ class Affiliate extends Lucid {
   
   products(){
     return this.manyThrough("App/Model/AffilateProduct","affilid","pid")
-     //return this.belongsMany("App/Model/Product","pid","affilid","affilid","pid")
-     .pivotTable("affiliates_products")
+     //return this.belongsMany("App/Model/Product","pid","affilid","affilid","pid").pivotTable("affiliates_products")
    
    }
 }
