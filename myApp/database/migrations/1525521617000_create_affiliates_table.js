@@ -13,7 +13,7 @@ class AffiliatesTableSchema extends Schema {
     this.create('affiliates', (table) => {
       table.increments("affilid")
       table.timestamps()
-      table.string("affiliater_code",30)
+      table.string("affiliate_code",30)
       //table.integer("pid").unsigned().default(0)
       //table.foreign("pid").references("pid").on("products")
       table.integer("uid").unsigned().default(0)
