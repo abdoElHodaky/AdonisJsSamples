@@ -11,7 +11,7 @@ class User extends Lucid {
     return this.hasMany("App/Model/Shop","uid","uid");
   }
   shops_followings(){
-    return this.belongsMany("App/Model/Shop","sid","uid").pivotModel("App/Model/ShopFollower");
+    return this.belongsMany("App/Model/Shop","sid","uid","uid","sid").pivotModel("App/Model/ShopFollower");
     //return this.manyThrough("App/Model/ShopFollower","shop","follid","sid");
   }
    }
@@ -43,7 +43,9 @@ class User extends Lucid {
    return this.manyThrough("App/Model/VotesUsers","votes","uid","votid");
   }
   votes(){
-   return this.hasMany("App/Model/Votes","uid","uid");
+   //return this.hasMany("App/Model/Votes","uid","uid");
+   return this.belongsMany("App/Model/Votes","votid","uid","uid","votid").pivotModel("App/Model/VoteUser");
+    
   }
   ads(){
    return this.hasMany("App/Model/Ads","uid","uid");
