@@ -59,20 +59,18 @@ class User extends Lucid {
   events(){
    return this.hasMany("App/Model/Event","uid","uid");
   }
-  users(){
-   return this.hasMany("App/Model/User","uid","related_id")
+  users(followers=false){
+   return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
+    this.hasMany("App/Model/Follower","follid","follid")
+   }
+  transfers(out==false){
+   return (out==false)? this.hasMany("App/Model/Transfer","uid","sender_uid")
+   :this.hasMany("App/Model/Transfer","uid","receiver_uid")
+  
   }
-  outTransfers(){
-   return this.hasMany("App/Model/Transfer","uid","sender_uid")
-  }
-  inTransfers(){
-   return this.hasMany("App/Model/Transfer","uid","receiver_uid")
-  }
-  outMessages(){
-   return this.hasMany("App/Model/Message","uid","sender_uid")
-  }
-  inMessages(){
-   return this.hasMany("App/Model/Message","uid","receiver_uid")
+  Messages(out===false){
+   return (out==true)? this.hasMany("App/Model/Message","uid","uid"):
+    this.hasMany("App/Model/Message","uid","receiver_id")
   }
   conversations(){
    return this.belongsMany("App/Model/Message","mesgid","uid","uid","mesgid")
