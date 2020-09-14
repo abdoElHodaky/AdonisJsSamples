@@ -68,7 +68,7 @@ class User extends Lucid {
    :this.hasMany("App/Model/Transfer","uid","receiver_uid")
   
   }
-  Messages(out===false){
+  messages(out===false){
    return (out==true)? this.hasMany("App/Model/Message","uid","uid"):
     this.hasMany("App/Model/Message","uid","receiver_id")
   }
