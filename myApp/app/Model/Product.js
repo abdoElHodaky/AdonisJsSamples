@@ -48,6 +48,9 @@ class Product extends Lucid {
   ordered(){
     return this.hasMany("App/Model/OrderedProduct","pid","pid")
    }
+  shops(){
+    return this.manyThrough("App/Model/Cat","shop","pid","cid");
+  }
 }
 
 module.exports = Product
