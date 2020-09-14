@@ -73,7 +73,7 @@ class User extends Lucid {
     this.hasMany("App/Model/Message","uid","receiver_id")
   }
   conversations(){
-   return this.belongsMany("App/Model/Message","mesgid","uid","uid","mesgid")
+   return this.belongsMany("App/Model/Message","mesgid","uid","uid","mesgid").where({"type":"conversation"})
   }
   devices(){
     return this.hasMany("App/Model/Device","uid","uid")
