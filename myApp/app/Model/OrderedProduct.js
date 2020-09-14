@@ -13,6 +13,9 @@ class OrderedProduct extends Lucid {
   coupon(){
     return this.belongsMany("App/Model/Coupon","coupid","opid","opid","coupid");
   }
+  shops(){
+     return this.product().shops()
+   }
 }
 
 module.exports = OrderedProduct
