@@ -24,7 +24,9 @@ class Shop extends Lucid {
   followers(){
    return this.manyThrough("App/Model/ShopFollower","followers","sid","follid");
   }
-  
+  ordered_products(){
+   return this.products().ordered();
+  }
 
 }
 
