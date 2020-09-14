@@ -45,6 +45,9 @@ class Product extends Lucid {
   affiliates(){
     return this.hasMany("App/Model/AffilateProduct","pid","pid")
    }
+  ordered(){
+    return this.hasMany("App/Model/OrderedProduct","pid","pid")
+   }
 }
 
 module.exports = Product
