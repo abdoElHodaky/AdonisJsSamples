@@ -13,6 +13,9 @@ class Offer extends Lucid {
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
   }
+  products(){
+    return this.belongsMany("App/Model/Offer","pid","offid","offid","pid")
+  }
   
 }
 
