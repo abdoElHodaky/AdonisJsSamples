@@ -1,6 +1,6 @@
 'use strict'
 const TypesUsers=use("App/Model/TypeUser")
-class TypesUsersController {
+class TypeUserController {
     
   * index(request, response) {
    /* if (request.session.get("user")) {
@@ -42,4 +42,4 @@ class TypesUsersController {
 
 }
 
-module.exports = TypesUsersController
+module.exports = TypeUserController
