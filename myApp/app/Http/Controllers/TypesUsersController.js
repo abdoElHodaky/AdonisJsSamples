@@ -1,5 +1,5 @@
 'use strict'
-const TypesUsers=use("App/Model/UserType")
+const TypesUsers=use("App/Model/TypeUser")
 class TypesUsersController {
     
   * index(request, response) {
