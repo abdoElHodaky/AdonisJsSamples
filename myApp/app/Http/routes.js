@@ -17,7 +17,8 @@
 
 const Route = use('Route')
 Route.get("/Logout","UserController.logout")
-Route.resource("Home","UserController").addCollection("login", ['POST'])
+Route.resource("User","UserController").addCollection("login", ['POST'])
+Route resource("User.payments","PaymentController")
 Route.resource("Product","ProductController").addCollection("compare",['GET','POST'])
 Route.resource("Product.specs","ProductSpecController")
 Route.resource("Shop","ShopController")
