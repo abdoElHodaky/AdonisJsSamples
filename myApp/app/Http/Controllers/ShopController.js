@@ -75,7 +75,7 @@ class ShopController {
       }
     }
     yield response.sendView('shop',{cats:cats,shop:shop,products:products,type:type})*/
-    response.json(yield shop.loadMany("cats","products","followers","ordered"))
+    response.json(yield shop.loadMany(["cats","products","followers","ordered"]))
   }
 
   * edit(request, response) {
