@@ -1,7 +1,7 @@
 'use strict'
-//const order=use("App/Model/Order")
+const TypesShops=use("App/Model/TypeShop")
 class TypeShopController {
-
+    
   * index(request, response) {
    /* if (request.session.get("user")) {
       yield response.sendView("Cart",{})
@@ -9,20 +9,22 @@ class TypeShopController {
       response.redirect("Home")
     }
      */
+    return response.json(yield TypesShops.all())
   }
 
   * create(request, response) {
     //
-    var inputs=request.post();
-    order.create(inputs);
+    
   }
 
   * store(request, response) {
     //
-    console.log(request.post)
+      response.json( TypesShops.create(yield request.post()))
   }
 
   * show(request, response) {
+     return reaponse.json(yield TypesShops.find(request.get())
+    .load("shops"))
     //
   }
 
