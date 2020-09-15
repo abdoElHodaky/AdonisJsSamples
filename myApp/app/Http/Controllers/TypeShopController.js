@@ -23,7 +23,7 @@ class TypeShopController {
   }
 
   * show(request, response) {
-     return reaponse.json(yield TypesShops.find(request.get())
+     return reaponse.json(yield TypesShops.find(request.params().id)
     .load("shops"))
     //
   }
