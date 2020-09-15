@@ -1,5 +1,5 @@
 'use strict'
-const order=use("App/Model/Order")
+//const User=use("App/Model/User")
 class CartController {
 
   * index(request, response) {
@@ -19,8 +19,12 @@ class CartController {
 
   * store(request, response) {
     //
-    console.log(request.post)
-  }
+    var user=yield request.auth.getUser()
+    ,order=user.orders().create()
+    yield order.products().createMany(request.post())
+    response.json(order.load("products"))
+
+ }
 
   * show(request, response) {
     //
