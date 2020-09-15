@@ -1,5 +1,5 @@
 'use strict'
-const TypesShops=use("App/Model/TypeShop")
+const TypesShops=use("App/Model/ShopType")
 class TypeShopController {
     
   * index(request, response) {
