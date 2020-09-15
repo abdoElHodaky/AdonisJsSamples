@@ -37,7 +37,7 @@ class ProductController {
   * show(request, response) {
     //
      var product=Product.find(request.get().id)
-     response.json(product.loadMany((["specs","specs.childern","comments","offers","attachments"]))
+     response.json(product.loadMany((["specs","specs.childern","comments","offers","attachments","children"]))
   }
 
   * edit(request, response) {
