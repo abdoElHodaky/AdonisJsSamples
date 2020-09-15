@@ -53,7 +53,7 @@ class UserController {
       })
     }
     yield response.sendView("user",{user:user})*/
-    response.json(yield user.loadMany(["type","users","followers","shops","coupons","affiliates","affiliates.products"]))
+    response.json(yield user.loadMany(["types","users","followers","shops","coupons","ads","affiliates"]))
   }
 
   * edit(request, response) {
@@ -71,7 +71,8 @@ class UserController {
   * login(request, response) {
     //
     var inputs=yield request.post();
-    var obj;
+    yield request.auth.attempts(inputs)
+    /*var obj;
     if (inputs.type=="Client") {
       obj=yield Client.findBy("Name",inputs.Name);
     } else {
@@ -82,7 +83,7 @@ class UserController {
       response.redirect("/Shop")
     } else {
       response.redirect("/Home")
-    }
+    }*/
   }
   *logout(request,response){
     var user =yield request.session.get("user")
