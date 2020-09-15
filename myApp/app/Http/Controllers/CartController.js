@@ -28,6 +28,10 @@ class CartController {
 
   * show(request, response) {
     //
+     var user=yield request.auth.getUser()
+    ,order=user.orders().find(request.params().id)
+    response.json (yield order.load("products"))
+
   }
 
   * edit(request, response) {
@@ -36,6 +40,13 @@ class CartController {
 
   * update(request, response) {
     //
+     var user=yield request.auth.getUser(),inputs=request.post()
+    ,order=user.orders().find(request.params().id)
+     response.json( 
+      order.products().where({"opid":inputs.opid}).
+      update(inputs.product)
+    )
+
   }
 
   * destroy(request, response) {
