@@ -53,7 +53,7 @@ class UserController {
       })
     }
     yield response.sendView("user",{user:user})*/
-    response.json(yield user.loadMany(["types","users","followers","shops","coupons","ads","affiliates"]))
+    response.json(yield user.loadMany(["types","users","followers","shops","coupons","ads","affiliates","shops_followings"]))
   }
 
   * edit(request, response) {
