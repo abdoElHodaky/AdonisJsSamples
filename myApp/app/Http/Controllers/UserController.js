@@ -37,7 +37,7 @@ class UserController {
   * show(request, response) {
     //
     var user=yield request.session.get("user")
-    var payments=yield(yield Client.find(user.id)).payments(),orders=yield(yield Client.find(user.id)).orders()
+    /*var payments=yield(yield Client.find(user.id)).payments(),orders=yield(yield Client.find(user.id)).orders()
      user={
       Name:user.Name,
       id:user.id,
@@ -52,7 +52,8 @@ class UserController {
         products:yield(yield use("App/Model/Order").find(order.id)).products()
       })
     }
-    yield response.sendView("user",{user:user})
+    yield response.sendView("user",{user:user})*/
+    response.json(yield user.loadMany(["type","users","followers","shops","coupons","affiliates","affiliates.products"]))
   }
 
   * edit(request, response) {
