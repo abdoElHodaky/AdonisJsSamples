@@ -36,7 +36,7 @@ class ProductController {
 
   * show(request, response) {
     //
-     var product=Product.find(request.get().id)
+     var product=Product.find(request.params().id)
      response.json(product.loadMany((["specs","specs.childern","comments","offers","attachments","children"]))
   }
 
