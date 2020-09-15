@@ -47,7 +47,7 @@ class ShopController {
     //var user=yield request.session.get("user")
    // var id=request.params().id
    // var type=user.type?user.type:"Client"
-    var shop=yield Shop.find(request.get().id)
+    var shop=yield Shop.find(request.params().id)
    /* var cats=yield shop.cats();
     var products=[]
     if(request.get().cat){
