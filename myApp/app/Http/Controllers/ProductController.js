@@ -4,10 +4,7 @@ class ProductController {
 
   * index(request, response) {
     console.log();
-    response.send(
-      (yield Product.all()).toJSON()
-    //yield(yield use("App/Model/Spec").find(3)).product()
-      ) //
+    response.json(yield Product.all())
   }
 
   * create(request, response) {
@@ -17,7 +14,7 @@ class ProductController {
   * store(request, response) {
     //
     var inputs=request.post()
-    var createdProduct=yield Product.create({
+    var createdProduct=yield shop.products().create({
       Name:inputs.Name,
       Price:inputs.price,
       Quantity:inputs.quantity,
