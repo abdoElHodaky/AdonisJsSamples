@@ -10,7 +10,7 @@ class EventController {
       response.redirect("Home")
     }
      */
-     response.json(Event.all())
+     response.json(yield Event.query().with("users").fetch())
   }
 
   * create(request, response) {
@@ -22,9 +22,8 @@ class EventController {
   * store(request, response) {
     //
     var user=yield request.auth.getUser()
-    ,order=user.orders().create()
-    yield order.products().createMany(request.post())
-    response.json(order.load("products"))
+    ,event=yield user.events().create()
+    response.json(event)
 
  }
 
