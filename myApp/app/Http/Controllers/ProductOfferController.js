@@ -16,13 +16,21 @@ class ProductOfferController {
     //
     var inputs=request.post()
     var product=yield Product.find(request.params().pid),
-    
+    user=request.auth.getUser(),
+    offer=yield user.offers().create(inputs.offer)
+    if(inputs.attachment)
+   { 
+      offer.attachments().
+      attach([(yield user.attachments().
+       create(inputs.attachment)).aid])
+    }
+    product.offers().attach([offers.offid])
   }
 
   * show(request, response) {
     //
-     var product=Product.findOrFail(request.params().id)
-     response.json(product.loadMany((["specs","specs.childern","comments"]))
+     var product=Product.findOrFail(request.params().pid)
+     response.json(product.offers().findOrFail(request.params().offid))
   }
 
   * edit(request, response) {
@@ -31,10 +39,7 @@ class ProductOfferController {
 
   * update(request, response) {
     //
-      var product=Product.find(request.params().pid)
-      response.json(product.specs()
-     .where({"specid":request.params().specid}).
-     update(request.post()))
+      
   }
 
   * destroy(request, response) {
