@@ -1,6 +1,6 @@
 'use strict'
 const Product=use("App/Model/Product"),
-Attachment=use("App/Model/Offer")
+Attachment=use("App/Model/Attachment")
 class ProductOfferController {
 
   * index(request, response) {
@@ -21,7 +21,7 @@ class ProductOfferController {
     if("attachment"in inputs&&inputs.attachment!=={})
    { 
       offer.attachments().
-      attach([(yield user.attachments().
+      attach([(yield Attachment.
        create(inputs.attachment)).aid])
     }
     product.offers().attach([offers.offid])
