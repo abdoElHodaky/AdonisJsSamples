@@ -29,7 +29,8 @@ class EventController {
 
   * show(request, response) {
     //
-     
+     response.json(yield Event.findOrFail(request.params().evtid).
+     loadMany(["user","users"]))
   }
 
   * edit(request, response) {
