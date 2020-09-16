@@ -94,7 +94,7 @@ class UserController {
   }
   *shops_following(request , response){
     var user=request.auth.getUser()
-    response.json (user.shops_followings().sync(user))
+    response.json (user.shops_followings().sync(use("App/Model/Shop").ids()))
   }
 
 }
