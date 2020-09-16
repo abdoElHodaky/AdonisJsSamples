@@ -14,7 +14,8 @@ class ProductSpecController {
   * store(request, response) {
     //
     var inputs=request.post()
-    var specs=yield Product.find(request.params().pid).specs().findOrCreate(request.get().specid,{
+    var specs=yield Product.find(request.params().pid).specs()
+     .findOrCreate({"specid":inputs.specid},{
       Name:inputs.Name,
       Value:input.value
     });
@@ -25,7 +26,7 @@ class ProductSpecController {
 
   * show(request, response) {
     //
-     var product=Product.find(request.params().id)
+     var product=Product.findOrFail(request.params().id)
      response.json(product.loadMany((["specs","specs.childern","comments"]))
   }
 
