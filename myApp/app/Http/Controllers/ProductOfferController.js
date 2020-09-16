@@ -18,7 +18,7 @@ class ProductOfferController {
     var product=yield Product.find(request.params().pid),
     user=request.auth.getUser(),
     offer=yield user.offers().create(inputs.offer)
-    if(inputs.attachment)
+    if(inputs.attachment!=={})
    { 
       offer.attachments().
       attach([(yield user.attachments().
