@@ -1,6 +1,6 @@
 'use strict'
 //const User=use("App/Model/User"),Client=use("App/Model/Client");
-class HomeController {
+class VisitController {
 
   * index(request, response) {
     //
@@ -40,4 +40,4 @@ class HomeController {
 
 }
 
-module.exports = HomeController
+module.exports = VisitController
