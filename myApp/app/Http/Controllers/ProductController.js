@@ -48,7 +48,7 @@ class ProductController {
   * destroy(request, response) {
     //
   }
-  *Visits(request,response){
+  *visits(request,response){
      var product=Product.find(request.params().id)
      product.visits().attach([(yield Visit
      .create({"uid":(request.auth.getUser().uid),
