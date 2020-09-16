@@ -54,6 +54,9 @@ class Product extends Lucid {
   offers(){
     return this.hasMany("App/Model/Offer","pid","pid")
   }
+  visits(){
+    return this.belongsMany("App/Model/Visit","visid","pid","pid","visid")
+   }
 }
 
 module.exports = Product
