@@ -17,7 +17,7 @@ class ProductAttachmentController {
     var inputs=request.post()
     var product=yield Product.find(request.params().pid),
     response.json(yield product.attachments().
-    attach([(yield (user.attachments().create(inputs)).aid]))
+    attach([(yield (Attachment.create(inputs)).aid]))
     
     
   }
