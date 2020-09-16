@@ -1,6 +1,6 @@
 
 'use strict'
-//const User=use("App/Model/User")
+const Event=use("App/Model/Event")
 class EventController {
 
   * index(request, response) {
@@ -46,7 +46,12 @@ class EventController {
   * destroy(request, response) {
     //
   }
-
+  *User(request , response){
+     var inputs=request.post()
+      var event_user=yield Event.findOrFail(request.params().evtid).
+      users().attach([inputs.uid])
+      return event_user
+    }
 }
 
 module.exports = EventController
