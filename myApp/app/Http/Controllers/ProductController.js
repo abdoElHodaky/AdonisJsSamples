@@ -34,7 +34,7 @@ class ProductController {
   * show(request, response) {
     //
      var product=Product.find(request.params().id)
-     response.json(product.loadMany((["specs","specs.childern","comments","offers","attachments","children"]))
+     response.json(product.loadMany((["specs","specs.childern","comments","offers","attachments","children","visits"]))
   }
 
   * edit(request, response) {
@@ -48,6 +48,12 @@ class ProductController {
   * destroy(request, response) {
     //
   }
+  *Visits(request,response){
+     var product=Product.find(request.params().id)
+     product.visits().attach([(yield Visit
+     .create({"uid":(request.auth.getUser().uid),
+     "duration":request.post().duration})).visid])
+   }
 
   * compare(request, response) {
     //
