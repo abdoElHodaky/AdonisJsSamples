@@ -1,6 +1,6 @@
 'use strict'
 const Product=use("App/Model/Product"),
-const Attachment=use("App/Model/Attachment")
+Attachment=use("App/Model/Attachment")
 class ProductAttachmentController {
 
   * index(request, response) {
