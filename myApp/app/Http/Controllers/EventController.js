@@ -47,11 +47,20 @@ class EventController {
     //
   }
   *User(request , response){
-     var inputs=request.post()
-      var event_user=yield Event.findOrFail(request.params().evtid).
-      users().attach([inputs.uid])
-      return event_user
-    }
+     var inputs=request.post(),user=request.auth.getUser()
+      var event_users=yield Event.findOrFail(request.params().evtid).
+      users(),event_user={}
+      if("status" in inputs && 
+          inputs.status in ["comming","interesting","following"])
+       event_user=event_users.attach([user.uid])
+       event_user.status=inputs.status
+       event_user.save()
+      }
+      else{
+        event_users.detach([user.uid])
+      }
+     response.json(event_user)
+   
 }
 
 module.exports = EventController
