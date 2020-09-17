@@ -16,7 +16,8 @@ class AffiliteController {
     //
     var inputs=yield request.post(),
     affiliate=yield Affiliate.create(inputs)
-    response.json(affiliate.load("products"))
+    affiliate.user().associate(request.params().owner_id)
+    response.json(affiliate.loadMany(["user","products"]))
   }
 
   * show(request, response) {
