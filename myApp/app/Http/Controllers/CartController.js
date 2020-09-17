@@ -26,7 +26,7 @@ class CartController {
     //
      var user=yield request.auth.getUser()
     ,order=user.orders().find(request.params().id)
-    response.json (yield order.load("products("+request.post().transfer+")))
+    response.json (yield order.load("products("+request.post().transfer+")"))
 
   }
 
