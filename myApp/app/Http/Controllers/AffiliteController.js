@@ -4,7 +4,7 @@ class AffiliteController {
 
   * index(request, response) {
     //
-    
+    response.json(yield Affiliate.query().with("products").fetch())
   }
 
   * create(request, response) {
@@ -14,8 +14,9 @@ class AffiliteController {
 
   * store(request, response) {
     //
-    var inputs=yield request.post();
-    ;
+    var inputs=yield request.post(),
+    affiliate=yield Affiliate.create(inputs)
+    response.json(affiliate.load("products"))
   }
 
   * show(request, response) {
