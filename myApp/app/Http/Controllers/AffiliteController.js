@@ -14,9 +14,15 @@ class AffiliteController {
 
   * store(request, response) {
     //
-    var inputs=yield request.post(),
+    var inputs=request.post(),
+    user=request.auth.getUser()
     affiliate=yield Affiliate.create(inputs)
     affiliate.owner().associate((yield User.find(request.params()).owner_id)
+    yield user.activities().create({
+      action:"create_affiliate",
+      action_info:{at:affiliate.created_at,url:route("AffiliateController.show",
+      {affilid:affiliate.affilid})}
+    })
     response.json(affiliate.loadMany(["user","products"]))
   }
 
