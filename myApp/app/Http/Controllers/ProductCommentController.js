@@ -14,7 +14,8 @@ class ProductCommentController {
   * store(request, response) {
     //
     var inputs=request.post()
-    var specs=yield Product.find(request.params().pid).comments()
+    var specs=yield Product.find(request.params().pid).
+      comments()
      .create({
       content:inputs.comment
     });
