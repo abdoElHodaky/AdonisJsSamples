@@ -3,8 +3,8 @@ const Comment=use("App/Model/Comment");
 class CommentAttachmentController {
 
   * index(request, response) {
-    var product=Product.find(request.params().pid)
-    response.json(yield product.comments().load("children"))
+    var comment=Comment.find(request.params().commid)
+    response.json(yield comment.load("attachments"))
   }
 
   * create(request, response) {
