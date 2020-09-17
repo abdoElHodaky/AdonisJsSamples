@@ -13,14 +13,18 @@ class ProductCommentController {
 
   * store(request, response) {
     //
-    var inputs=request.post()
-    var specs=yield Product.find(request.params().pid).
+    var inputs=request.post(),
+    comment= yield Comment.create(inputs.comment)
+    if("attachment" in inputs)
+      comment.attachments().attach(
+       [(yield Attachment.create(inputs.attachment)).aid])
+     var comments=yield Product.find(request.params().pid).
       comments()
-     .create({
-      content:inputs.comment
-    });
+     .attach([
+        comment.commid
+      ])
     
-    response.json(yield specs.load("children"))
+    response.json(yield comments.load("comments"))
   }
 
   * show(request, response) {
@@ -42,7 +46,7 @@ class ProductCommentController {
   * destroy(request, response) {
     //
   }
-
+  
 
 }
 
