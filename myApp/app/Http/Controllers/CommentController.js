@@ -1,10 +1,10 @@
 'use strict'
-const Product=use("App/Model/Product");
+const Comment=use("App/Model/Comment");
 class CommentController {
 
   * index(request, response) {
-    var product=Product.find(request.params().pid)
-    response.json(yield product.comments().load("children"))
+    //var product=Product.find(request.params().pid)
+    // response.json(yield product.comments().load("children"))
   }
 
   * create(request, response) {
@@ -28,9 +28,9 @@ class CommentController {
 
   * update(request, response) {
     //
-      var product=Product.find(request.params().pid)
-      response.json(product.comments()
-     .where({"commid":request.params().commid}).
+      var comment=Comment.findOrFail(request.params().commid)
+      response.json(comment.comments()
+     .where({"commid":request.params().reply_id}).
      update(request.post()))
   }
 
