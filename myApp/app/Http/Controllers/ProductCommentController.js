@@ -33,11 +33,14 @@ class ProductCommentController {
 
   * update(request, response) {
     //
-      var product=Product.findorFail(request.params().pid)
+      var product=yield Product.findOrFail(request.params().pid),
+      comment=yield Comment.findOrFail(request.params().commid)
+      
      /* response.json(product.comments()
      .where({"commid":request.params().commid}).
      update(request.post()))
     */
+   
      
   }
 
