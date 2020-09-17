@@ -1,13 +1,9 @@
 'use strict'
-//const User=use("App/Model/User")
+const Order=use("App/Model/Order")
 class CartController {
 
   * index(request, response) {
-    if (request.session.get("user")) {
-      yield response.sendView("Cart",{})
-    } else {
-      response.redirect("Home")
-    }
+    //response.json()
      
   }
 
@@ -19,9 +15,10 @@ class CartController {
 
   * store(request, response) {
     //
-    var user=yield request.auth.getUser()
-    ,order=user.orders().create()
-    yield order.products().createMany(request.post())
+    var user=yield request.auth.getUser(),
+    inputs=request.post(),
+    order=user.orders().create(inputs)
+    yield order.products().createMany(inputs.products)
     response.json(order.load("products"))
 
  }
