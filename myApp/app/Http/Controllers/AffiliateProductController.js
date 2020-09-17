@@ -31,10 +31,15 @@ class AffiliteProductController {
 
   * update(request, response) {
     //
+     
   }
 
   * destroy(request, response) {
     //
+    var inputs=yield request.post(),
+    affiliate=yield Affiliate.findOrFail(request.params().affilid)
+    affiliate.products().detch(inputs.affiliate_products)
+    response.json(affiliate.load("products"))
   }
 
  
