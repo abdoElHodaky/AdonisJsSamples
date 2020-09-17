@@ -18,12 +18,6 @@ class ProductOfferController {
     var product=yield Product.find(request.params().pid),
     user=request.auth.getUser(),
     offer=yield user.offers().create(inputs.offer)
-    if("attachment"in inputs&&inputs.attachment!=={})
-   { 
-      offer.attachments().
-      attach([(yield Attachment.
-       create(inputs.attachment)).aid])
-    }
     product.offers().attach([offers.offid])
   }
 
@@ -39,7 +33,12 @@ class ProductOfferController {
 
   * update(request, response) {
     //
-      
+    var inputs=request.post()
+    ,product=yield Product.find(request.params().pid),
+    user=request.auth.getUser(),
+    offer=yield user.offers().where(request.params().offid).
+    update(inputs)
+    response.json(yield product.offers().sync([offer.offid]))
   }
 
   * destroy(request, response) {
