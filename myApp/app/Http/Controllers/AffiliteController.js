@@ -1,6 +1,6 @@
 'use strict'
 const Affiliate=use("App/Model/Affiliate");
-class AffilitesController {
+class AffiliteController {
 
   * index(request, response) {
     //
@@ -38,4 +38,4 @@ class AffilitesController {
 
 }
 
-module.exports = AffilitesController
+module.exports = AffiliteController
