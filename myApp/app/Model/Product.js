@@ -43,7 +43,10 @@ class Product extends Lucid {
      return this.manyThrough("App/Model/VotesProduct","votes","votpid","pid")
   }
   affiliates(){
-    return this.hasMany("App/Model/AffilateProduct","pid","pid")
+    //return this.hasMany("App/Model/AffilateProduct","pid","pid")
+     return this.belongsMany("App/Model/Affiliate","pid","affilid","affilid","pid").
+     pivotModel("App/Model/AffiliateProduct")
+  
    }
   ordered(){
     return this.hasMany("App/Model/OrderedProduct","pid","pid")
