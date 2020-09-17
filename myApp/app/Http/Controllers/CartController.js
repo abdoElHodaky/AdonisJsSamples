@@ -1,5 +1,5 @@
 'use strict'
-const Order=use("App/Model/Order")
+//const Order=use("App/Model/Order")
 class CartController {
 
   * index(request, response) {
@@ -9,8 +9,7 @@ class CartController {
 
   * create(request, response) {
     //
-    var inputs=request.post();
-    order.create(inputs);
+    
   }
 
   * store(request, response) {
@@ -18,7 +17,7 @@ class CartController {
     var user=yield request.auth.getUser(),
     inputs=request.post(),
     order=user.orders().create(inputs)
-    yield order.products().createMany(inputs.products)
+    yield order.products(inputs.transfer).createMany(inputs.products)
     response.json(order.load("products"))
 
  }
@@ -27,7 +26,7 @@ class CartController {
     //
      var user=yield request.auth.getUser()
     ,order=user.orders().find(request.params().id)
-    response.json (yield order.load("products"))
+    response.json (yield order.load("products("+request.post().transfer+")))
 
   }
 
@@ -40,7 +39,7 @@ class CartController {
      var user=yield request.auth.getUser(),inputs=request.post()
     ,order=user.orders().find(request.params().id)
      response.json( 
-      order.products().where({"opid":inputs.opid}).
+      order.products(inputs.transfer).where({"opid":inputs.opid}).
       update(inputs.product)
     )
 
