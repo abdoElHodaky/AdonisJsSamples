@@ -12,10 +12,10 @@ class MessagesTableSchema extends Schema {
     this.create('messages', (table) => {
       table.increments("mesgid")
       table.timestamps()
-      table.integer("uid").unsigned()
+      table.integer("uid").unsigned().default(0)
       table.foreign("uid").references("uid").on("users")
-      table.integer("sender_uid").unsigned()default(0)
-      table.foreign("sender_uid").references("uid").on("users")
+     // table.integer("sender_uid").unsigned().default(0)
+      //table.foreign("sender_uid").references("uid").on("users")
       table.integer("receiver_uid").unsigned().default(0)
       table.foreign("receiver_uid").references("uid").on("users")
       table.integer("parent_id").unsigned().default(0)
