@@ -5,7 +5,7 @@ class AffiliteProductController {
 
   * index(request, response) {
     //
-    //response.json(yield Affiliate.query().with("products").fetch())
+    response.json(yield Affiliate.query().with("products").fetch())
   }
 
   * create(request, response) {
