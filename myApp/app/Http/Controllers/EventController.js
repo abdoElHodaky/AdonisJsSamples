@@ -21,8 +21,9 @@ class EventController {
 
   * store(request, response) {
     //
-    var user=yield request.auth.getUser()
-    ,event=yield user.events().create()
+    var inputs=request.post(),
+     user=yield request.auth.getUser()
+    ,event=yield user.events().create(inputs)
     response.json(event)
 
  }
