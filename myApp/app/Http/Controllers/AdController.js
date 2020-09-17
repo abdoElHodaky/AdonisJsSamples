@@ -14,18 +14,16 @@ class AdController {
 
   * store(request, response) {
     //
-    var user=yield request.auth.getUser()
-    ,ad=yield user.ads().create()
+    var inputs=request.post(),
+    user=yield request.auth.getUser()
+    ,ad=yield user.ads().create(inputs)
     response.json(ad)
 
  }
 
   * show(request, response) {
     //
-     var user=yield request.auth.getUser()
-    ,order=user.orders().find(request.params().id)
-    response.json (yield order.load("products"))
-
+     
   }
 
   * edit(request, response) {
