@@ -34,9 +34,11 @@ class ProductCommentController {
   * update(request, response) {
     //
       var product=Product.findorFail(request.params().pid)
-      response.json(product.comments()
+     /* response.json(product.comments()
      .where({"commid":request.params().commid}).
      update(request.post()))
+    */
+     
   }
 
   * destroy(request, response) {
