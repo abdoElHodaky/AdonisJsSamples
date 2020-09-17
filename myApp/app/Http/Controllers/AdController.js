@@ -15,11 +15,7 @@ class AdController {
   * store(request, response) {
     //
     var user=yield request.auth.getUser()
-    ,ads=yield user.ads().create()
-    if("attachment" in request.post())
-    yield ad.attachments()
-    .attach([yield (Attachment.
-    create(request.post().attachment)).adid])
+    ,ad=yield user.ads().create()
     response.json(ad)
 
  }
