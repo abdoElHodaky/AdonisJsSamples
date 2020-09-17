@@ -33,9 +33,9 @@ class CommentAttachmentController {
      var inputs=request.post()
     ,comment=yield Comment.find(request.params().pid),
     ,attachment=Attachment.find(request.params().aid)
-     yield comment.attachments().detach([attachment.aid])
+     //yield comment.attachments().detach([attachment.aid])
      attachment.update(inputs)
-     yield comment.attachments().attach([attachment.aid])
+     //yield comment.attachments().attach([attachment.aid])
      response.json(comment)
   
   }
