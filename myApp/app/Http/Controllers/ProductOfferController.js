@@ -38,13 +38,12 @@ class ProductOfferController {
     user=request.auth.getUser(),
     offer=yield user.offers().where(request.params().offid).
     update(inputs)
-    response.json(yield product.offers().sync([offer.offid]))
+    response.json(offer)
   }
 
   * destroy(request, response) {
     //
   }
-
 
 }
 
