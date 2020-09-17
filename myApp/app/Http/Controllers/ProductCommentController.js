@@ -15,15 +15,11 @@ class ProductCommentController {
     //
     var inputs=request.post(),
     comment= yield Comment.create(inputs.comment)
-    if("attachment" in inputs)
-      comment.attachments().attach(
-       [(yield Attachment.create(inputs.attachment)).aid])
-     var comments=yield Product.find(request.params().pid).
+     var comments=yield Product.findOrFail(request.params().pid).
       comments()
      .attach([
         comment.commid
       ])
-    
     response.json(yield comments.load("comments"))
   }
 
@@ -37,7 +33,7 @@ class ProductCommentController {
 
   * update(request, response) {
     //
-      var product=Product.find(request.params().pid)
+      var product=Product.findorFail(request.params().pid)
       response.json(product.comments()
      .where({"commid":request.params().commid}).
      update(request.post()))
