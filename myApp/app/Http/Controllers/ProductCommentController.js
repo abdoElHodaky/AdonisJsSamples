@@ -35,17 +35,20 @@ class ProductCommentController {
     //
       var product=yield Product.findOrFail(request.params().pid),
       comment=yield Comment.findOrFail(request.params().commid)
-      
-     /* response.json(product.comments()
-     .where({"commid":request.params().commid}).
-     update(request.post()))
-    */
-   
-     
+      comment.content=request.post().comment
+      comment.save()
+     response.json( yield product.
+     comments().sync([comment.commid]))
   }
 
   * destroy(request, response) {
     //
+     var product=yield Product.findOrFail(request.params().pid),
+      comment=yield Comment.findOrFail(request.params().commid)
+     yield product.
+     comments().detach([comment.commid])
+     comment.delete()
+     response.json({commid:comment.commid,"status":deleted})
   }
   
 
