@@ -30,7 +30,12 @@ class CommentAttachmentController {
 
   * update(request, response) {
     //
-      
+     var inputs=request.post()
+    ,comment=yield Comment.find(request.params().pid),
+    ,attachment=Comment.attachments().find(request.params().aid)
+     attachment.update(inputs)
+     response.json(yield comment.attachments().sync([attachment.commid]))
+  
   }
 
   * destroy(request, response) {
