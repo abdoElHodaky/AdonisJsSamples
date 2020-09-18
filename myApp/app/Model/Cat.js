@@ -17,6 +17,13 @@ class Cat extends Lucid {
       })
    })
   }
+  static castDates (field, value) {
+    if (field.contains("at")==true) {
+      return `${value.fromNow()}`
+    }
+    return super.formatDates(field, value)
+  }
+
   shop(){
   	return this.belongsTo("App/Model/Shop",'sid','sid');
   }
