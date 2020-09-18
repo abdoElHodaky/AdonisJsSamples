@@ -15,6 +15,10 @@ class Activity extends Lucid {
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
    }
+   notification(){
+    return this.hasOne("App/Model/Notification","notificid","notificid")
+   
+   }
 }
 
 module.exports = Activity
