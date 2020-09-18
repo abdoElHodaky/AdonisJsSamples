@@ -12,9 +12,9 @@ class NotificationsTableSchema extends Schema {
     this.create('notification', (table) => {
       table.increments("notificid")
       table.timestamps()
-   //   table.json("action")
-     // table.integer("uid").unsigned()
-    //  table.foreign("uid").references("uid").on("users")
+      //table.json("action")
+      table.integer("actid").unsigned()
+      table.foreign("actid").references("actid").on("activities")
       table.softDeletes()
     })
   }
