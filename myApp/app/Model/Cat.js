@@ -7,6 +7,16 @@ class Cat extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  static boot(){
+   super.boot()
+   this.addHook("afterCreate",cat=>{
+      yield use("App/Model/Activity").create({
+       action:"create_category",
+       at:cat.created_at,
+       url:route("CatController.show",{catid:cat.catid})
+      })
+   })
+  }
   shop(){
   	return this.belongsTo("App/Model/Shop",'sid','sid');
   }
