@@ -4,8 +4,22 @@ const Lucid = use('Lucid')
 
 class Product extends Lucid {
 
+  constructor(){
+   this.changes=[]
+  }
   static get connection () {
     return 'mysql'
+  }
+  static boot(){
+   super.boot()
+   this.addHook("afterCreate",product=>{
+    yield use("App/Model/Activity").create({
+      action_type:"created_product"
+      at:product.created_at,
+      callback_url:use("Route").route("ProductController.show",{pod:product.pid})
+    })
+    
+   })
   }
   cat(){
     return this.belongsTo("App/Model/Cat","cid","cid");
