@@ -5,7 +5,7 @@ class NotificationController {
 
   * index(request, response) {
     var user=yield request.auth.getUser()
-    response.json(yield user.messages().where({type:"notification"}))
+    response.json(yield user.notifications())
      
   }
 
@@ -16,20 +16,13 @@ class NotificationController {
 
   * store(request, response) {
     //
-    var user=yield request.auth.getUser(),
-    inputs=request.post(),
-    notification=Notification.create(inputs)
-  //  yield order.products(inputs.transfer).createMany(inputs.products)
-    response.json(notification)
+    
 
  }
 
   * show(request, response) {
     //
-     var user=yield request.auth.getUser()
-    ,notification=yield user.messages().findBy({request.params().messgid,"type":"notification"})
-    response.json ( notification)
-
+     
   }
 
   * edit(request, response) {
