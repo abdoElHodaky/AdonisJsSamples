@@ -36,7 +36,17 @@ class DeviceController {
   * destroy(request, response) {
     //
   }
-
+  * verify(request, response) {
+    
+    var user=request.author.getUser(),
+   inputs=request.post(),
+   device=yield user.devices().findOrFail(request.params().devid)
+   verification= device.verification().findBy({verify_code:inputs.verify_code})
+   device.verified=true
+   devices.allow_login=true
+   device.save()
+   response.json(device)
+  }
 }
 
 module.exports = DeviceController
