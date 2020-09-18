@@ -1,6 +1,6 @@
 
 'use strict'
-const Message=use("App/Model/Message")
+const Notification=use("App/Model/Notification")
 class NotificationController {
 
   * index(request, response) {
