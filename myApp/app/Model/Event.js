@@ -14,7 +14,7 @@ class Event extends Lucid {
       yield use("App/Model/Activity").create({
         action:{
           type:"create_event",
-          at:event.created_at
+          at:event.created_at,
           url:route("EventController.show",{evtid:event.evtid})
          }
        })
