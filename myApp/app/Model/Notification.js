@@ -9,12 +9,16 @@ class Notification extends Lucid {
   }
   static boot() {
     super.boot()
+    this.addHook("afterCreate",notification=>{
+     yield notification.users().attach((yield use("App/Model/User").ids())
+     .filter(v=>notification.notificid!=v))
+    })
   }
   user(){
     return this.belongsTo("App/Model/User","uid","uid")
    }
    activity(){
-    return this.hasOne("App/Model/Notification","notificid","notificid")
+    return this.hasOne("App/Model/Activity","notificid","notificid")
    
    }
    users(){
