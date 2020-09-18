@@ -61,7 +61,7 @@ class User extends Lucid {
   }
   users(followers=false){
    return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
-    this.hasMany("App/Model/Follower","follid","follid")
+    this.belongsMany("App/Model/Follower","follid","uid","uid","follid")
    }
   transfers(out==false){
    return (out==false)? this.hasMany("App/Model/Transfer","uid","sender_uid")
