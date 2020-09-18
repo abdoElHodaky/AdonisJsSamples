@@ -13,7 +13,7 @@ class Product extends Lucid {
     yield use("App/Model/Activity").create({
       action_type:"created_product"
       at:product.created_at,
-      callback_url:use("Route").route("ProductController.show",{pod:product.pid})
+      callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })
     
    })
