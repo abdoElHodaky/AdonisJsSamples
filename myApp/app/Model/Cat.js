@@ -13,7 +13,7 @@ class Cat extends Lucid {
       yield use("App/Model/Activity").create({
        action:"create_category",
        at:cat.created_at,
-       callback_url:route("CatController.show",{catid:cat.catid})
+       callback_url:use("Route").route("CatController.show",{catid:cat.catid})
       })
    })
   }
