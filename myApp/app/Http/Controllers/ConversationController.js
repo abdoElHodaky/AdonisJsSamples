@@ -3,7 +3,8 @@
 class ConventionController {
 
   * index(request, response) {
-    //response.json()
+    var user=yield request.auth.getUser()
+    response.json(yield user.messages().where({type:"conversation"}))
      
   }
 
