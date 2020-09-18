@@ -3,7 +3,9 @@
 const Lucid = use('Lucid')
 
 class Activity extends Lucid {
-
+  static current_user(user){
+   Activity.current_user=user
+  }
   static get connection () {
     return 'mysql'
   }
