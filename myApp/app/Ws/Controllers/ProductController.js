@@ -1,6 +1,8 @@
 'use strict'
 const Oproduct=use("App/Model/OrderedProduct"),
-product=use("App/Model/Product"),
+product=use("App/Model/Product")
+
+
 class ProductController {
 
   constructor (socket, request) {
