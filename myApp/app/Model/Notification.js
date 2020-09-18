@@ -18,7 +18,8 @@ class Notification extends Lucid {
    
    }
    users(){
-    return this.belongsMany("App/Model/User","uid","notificid","notificid","uid")
+    return this.belongsMany("App/Model/User","uid","notificid","notificid","uid").
+    pivotTable("notifications_users")
    }
 }
 
