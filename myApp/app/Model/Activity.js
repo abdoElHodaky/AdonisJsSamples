@@ -9,8 +9,11 @@ class Activity extends Lucid {
   }
   static boot() {
     super.boot()
-    this.addHook("afterCreate",(activity=>{
-      actvity.notification().associate(activity)
+    this.addHook("beforeCreate",(activity)=>{
+      yield Notification.crate()
+    }))
+   this.addHook("afterCreate",(activity=>{
+      yield actvity.notification().associate(activity)
     }))
   }
   static get actions(type,id){
