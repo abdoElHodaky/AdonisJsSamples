@@ -13,8 +13,8 @@ class CommentsTableSchema extends Schema {
     this.create('comments', (table) => {
       table.increments("comid")
       table.timestamps()
-      table.integer("uid").unsigned()
-      table.foreign("uid").references("uid").on("users")
+      table.integer("by_uid").unsigned()
+      table.foreign("by_uid").references("uid").on("users")
       table.integer("parent_id").unsigned().default(0)
       table.foreign("parent_id").references("parent_id").on("comments")
       table.string("status").nullable()
