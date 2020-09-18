@@ -4,9 +4,6 @@ const Lucid = use('Lucid')
 
 class Product extends Lucid {
 
-  constructor(){
-   this.changes=[]
-  }
   static get connection () {
     return 'mysql'
   }
