@@ -32,7 +32,15 @@ class MessageAttachmentController {
 
   * update(request, response) {
     //
-     
+     var inputs=request.post(),
+     cmessgid=request.params().cmessgid,
+     conversation=yield Message.findBy({type:"conversation",
+     messgid:cmessgid}),
+     attachment=yield Attachment.find(request.params().aid)
+     //yield comment.attachments().detach([attachment.aid])
+     attachment.update(inputs)
+     //yield comment.attachments().attach([attachment.aid])
+     response.json(conversation)
   }
 
   * destroy(request, response) {
