@@ -17,6 +17,7 @@ class Activity extends Lucid {
     }
     return super.formatDates(field, value)
   }
+
   static boot() {
     super.boot()
     this.addHook("beforeCreate",(activity)=>{
