@@ -4,14 +4,19 @@ const Lucid = use('Lucid')
 
 class Cat extends Lucid {
 
-  static get connection () {
+  static current_user(user){
+    Cat.current_user=user 
+  }
+  
+ static get connection () {
     return 'mysql'
   }
   static boot(){
    super.boot()
    this.addHook("afterCreate",cat=>{
       yield use("App/Model/Activity").create({
-       action:"create_category",
+       uid:Cat.current_user.uid,
+       action_type:"create_category",
        at:cat.created_at,
        callback_url:use("Route").route("CatController.show",{catid:cat.catid})
       })
