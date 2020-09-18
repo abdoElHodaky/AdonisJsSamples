@@ -7,6 +7,12 @@ class Activity extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  static boot() {
+    super.boot()
+    this.addHook("afterCreate",(activity=>{
+      actvity.notification().associate(activity)
+    }))
+  }
   static get actions(type,id){
    var actions=JSON.parse(yield Activity.query().where({
      "uid":id
@@ -16,7 +22,7 @@ class Activity extends Lucid {
     return this.belongsTo("App/Model/User","uid","uid")
    }
    notification(){
-    return this.hasOne("App/Model/Notification","notificid","notificid")
+    return this.belongsTo("App/Model/Notification","notificid","notificid")
    
    }
 }
