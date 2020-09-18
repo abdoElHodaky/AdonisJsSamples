@@ -10,7 +10,7 @@ class Activity extends Lucid {
   static boot() {
     super.boot()
     this.addHook("beforeCreate",(activity)=>{
-      yield Notification.crate()
+      yield Notification.crate({actid:activity.actid})
     }))
    this.addHook("afterCreate",(activity=>{
       yield actvity.notification().associate(activity)
