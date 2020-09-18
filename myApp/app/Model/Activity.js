@@ -7,6 +7,16 @@ class Activity extends Lucid {
   static get connection () {
     return 'mysql'
   }
+   static get dates () {
+    return super.dates.concat(['at'])
+  }
+  
+   static castDates (field, value) {
+    if (field==="at") {
+      return `${value.fromNow()}`
+    }
+    return super.formatDates(field, value)
+  }
   static boot() {
     super.boot()
     this.addHook("beforeCreate",(activity)=>{
