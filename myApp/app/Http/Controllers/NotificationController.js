@@ -18,7 +18,7 @@ class NotificationController {
     //
     var user=yield request.auth.getUser(),
     inputs=request.post(),
-    notification=Message.create({
+    notification=user.messages().create({
      type:"notification",
      receiver_id:inputs.receiver,
      content:inputs.content
