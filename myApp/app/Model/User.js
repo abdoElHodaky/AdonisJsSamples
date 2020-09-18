@@ -3,7 +3,10 @@
 const Lucid = use('Lucid')
 
 class User extends Lucid {
-
+  static boot(){
+    super.boot()
+    super.current_user=this
+   }
   static get connection () {
     return 'mysql'
   }
