@@ -17,6 +17,9 @@ class Notification extends Lucid {
     return this.hasOne("App/Model/Notification","notificid","notificid")
    
    }
+   users(){
+    return this.belongsMany("App/Model/User","uid","notificid","notificid","uid")
+   }
 }
 
 module.exports = Activity
