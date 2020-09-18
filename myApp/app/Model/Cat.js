@@ -4,12 +4,13 @@ const Lucid = use('Lucid')
 
 class Cat extends Lucid {
 
-  static current_user(user){
-    Cat.current_user=user 
-  }
+  
   
  static get connection () {
     return 'mysql'
+  }
+  static current_user(user){
+    Cat.current_user=user 
   }
   static boot(){
    super.boot()
