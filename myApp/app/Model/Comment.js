@@ -11,7 +11,7 @@ class Comment extends Lucid {
    super.boot()
    this.addHook("afterCreate",cat=>{
       yield use("App/Model/Activity").create({
-       uid:Comment.current_user.uid,
+       uid:Comment.by_uid,
        action_type:"created_comment",
        at:cat.created_at,
        callback_url:use("Route").route("CatController.show",{catid:cat.catid})
@@ -22,7 +22,9 @@ class Comment extends Lucid {
   static get connection () {
     return 'mysql'
   }
-
+  user(){
+    return this.belongsTo("App/Model/User","by_uid","uid")
+   }
   users(){
    // return this.hasMany("App/Model/User","uid","uid")
      return this.belongsMany("App/Model/User","commid","uid","uid","commid")
