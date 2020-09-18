@@ -8,6 +8,18 @@ class Event extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  static boot(){
+    super.boot()
+    this.addHook("afterCreate",event=>{
+      yield use("App/Model/Activity").create({
+        action:{
+          type:"create_event",
+          at:event.created_at
+          url:route("EventController.show",{evtid:event.evtid})
+         }
+       })
+     })
+   }
   user(){
   	return this.belongsTo("App/Models/User",'uid','uid');
   }
