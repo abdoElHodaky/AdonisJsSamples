@@ -23,7 +23,7 @@ class Comment extends Lucid {
     return 'mysql'
   }
   user(){
-    return this.belongsTo("App/Model/User","by_uid","uid")
+    return this.belongsTo("App/Model/User","uid","by_uid")
    }
   users(){
    // return this.hasMany("App/Model/User","uid","uid")
