@@ -15,7 +15,7 @@ class ProductOffer extends Lucid {
       yield Activity.create({
         action_type:"created_offer on job_".concat(productoffer.pid),
         at:productoffer.offer().created_at,
-        callback_url:use("Route").route("ProductOfferController.show",{offid:offers.offid})
+        callback_url:use("Route").route("ProductOfferController.show",{offid:productoffer.offid})
        })
     })
   }
