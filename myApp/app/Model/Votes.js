@@ -8,14 +8,14 @@ class Vote extends Lucid {
     return 'mysql'
   }
   users(){
-      return this.belongsMany("App/Models/User","votid,"uid","votid","uid")
+      return this.belongsMany("App/Models/User","uid,"votid","votid","uid")
       .pivotModel("App/Model/VoteUser");
     }
  /* votes_users(){
       return this.belongsTo("App/Models/VoteUser","votuid","votuid")
     }*/
    products(){
-      return this.belongsMany("App/Models/Product","votid,"pid","votid","pid")
+      return this.belongsMany("App/Models/Product","pid,"votid","votid","pid")
       .pivotModel("App/Model/VoteProduct");
    }
 }
