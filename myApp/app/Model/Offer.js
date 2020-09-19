@@ -1,16 +1,30 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+Activity=use("App/Model/Activity")
 
 class Offer extends Lucid {
   
- 
+  static current_user(user){
+    Offer.current_user=user
+  }
   static castDates (field, value) {
     if (field.contains("at")==true) {
       return `${value.fromNow()}`
     }
     return super.formatDates(field, value)
   }
+  
+  static boot(){
+    super.boot()
+    this.addHook("afterCreate",offer=>{
+      Activity.current_user(Offer.current_user)
+      yield Activity.create({
+        
+       })
+    })
+  }
+  
   static get connection () {
     return 'mysql'
   }
