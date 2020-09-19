@@ -1,12 +1,25 @@
 
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+Activity=use("App/Model/Activity")
 
 class Coupon extends Lucid {
 
   static get connection () {
     return 'mysql'
+  }
+   static boot(){
+    super.boot()
+    this.addHook("afterCreate",coupon=>{
+      Activity.current_user(yield coupon.user())
+      yield Activity.create({
+        action_type:"created_coupon by user_".concat(coupon.user().name),
+        at:coupon.created_at,
+        callback_url:use("Route").route("CouponController.show",
+        {coupid:coupon.coupid})
+       })
+    })
   }
   /*static get on(type,{id}){
    return Information.query().where({
@@ -26,7 +39,9 @@ class Coupon extends Lucid {
    products(){
     return this.hasMany("App/Model/OrderedProduct","coupid","coupid")
    }
-
+   user(){
+    return this.belongsTo("App/Model/User","uid","by_uid")
+   }
 
 }
 
