@@ -21,7 +21,7 @@ class Coupon extends Lucid {
     return this.manyThrough("App/Model/CouponUser","uid","uid")
    }*/
    users(){
-    return this.belongsMany("App/Model/User","uid","coupid","coupid","uid")
+    return this.belongsMany("App/Model/User","coupid","uid","uid","coupid")
    }
    products(){
     return this.hasMany("App/Model/OrderedProduct","coupid","coupid")
