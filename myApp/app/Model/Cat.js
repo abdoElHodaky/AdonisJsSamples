@@ -10,15 +10,12 @@ class Cat extends Lucid {
  static get connection () {
     return 'mysql'
   }
-  static current_user(user){
-    Cat.current_user=user 
-  }
   static boot(){
    super.boot()
    this.addHook("afterCreate",cat=>{
-      Activity.current_user(Cat.current_user)
+      Activity.current_user(yield cat.shop().user())
       yield Activity.create({
-       action_type:"create_category",
+       action_type:"create_category in shop_".concat(cat.shop().Name),
        at:cat.created_at,
        callback_url:use("Route").route("CatController.show",{catid:cat.catid})
       })
