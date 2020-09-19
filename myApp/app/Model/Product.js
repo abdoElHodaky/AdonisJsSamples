@@ -67,8 +67,9 @@ class Product extends Lucid {
     return this.manyThrough("App/Model/Cat","shop","pid","cid");
   }
   offers(){
-    return this.hasMany("App/Model/Offer","pid","pid")
-  }
+    return this.belongsMany("App/Model/Offer","pid","offid","offid","pid").
+    pivotModel("App/Model/ProductOffer")
+   }
   visits(){
     return this.belongsMany("App/Model/Visit","visid","pid","pid","visid")
    }
