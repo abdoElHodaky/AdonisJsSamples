@@ -8,7 +8,7 @@ class CouponProduct extends Lucid {
   static get connection () {
     return 'mysql'
   }
-   static boot(){
+ /*  static boot(){
     super.boot()
     this.addHook("afterCreate",couponproduct=>{
       Activity.current_user(yield couponproduct.coupon().user())
@@ -19,7 +19,7 @@ class CouponProduct extends Lucid {
         {oid:couponproduct.product().order().oid})
        })
     })
-  }
+  }*/
 
   
    coupon(){
