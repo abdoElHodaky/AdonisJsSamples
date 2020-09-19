@@ -23,6 +23,7 @@ class Activity extends Lucid {
   static boot() {
     super.boot()
     this.addHook("beforeCreate",(activity)=>{
+      activity.uid=Activity.current_user.uid
       yield use("App/Model/Notification").crate({actid:activity.actid,
       by_uid:Activity.current_user.uid})
     }))
