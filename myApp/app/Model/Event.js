@@ -1,24 +1,23 @@
 
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+Activity=use("App/Model/Activity")
 
 class Event extends Lucid {
    
-  static current_user(user){
-   Event.current_user=user
-  }
   static get connection () {
     return 'mysql'
   }
   static boot(){
     super.boot()
     this.addHook("afterCreate",event=>{
-      yield use("App/Model/Activity").create({
+      Activity.current_user(event.user())
+      yield Activity.create({
         action:{
           action_type:"created_event",
           at:event.created_at,
-          url:route("EventController.show",{evtid:event.evtid})
+          callbackurl:route("EventController.show",{evtid:event.evtid})
          }
        })
      })
@@ -30,7 +29,7 @@ class Event extends Lucid {
   users(){
    return this.belongsMany("App/Model/User"
    ,"evtid","uid","uid","evtid")
-    .pivotTable("events_users")
+    .pivotModel("App/Model/EventUser")
   }
   
 }
