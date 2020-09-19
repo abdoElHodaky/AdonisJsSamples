@@ -13,7 +13,7 @@ class ProductOffer extends Lucid {
     this.addHook("afterCreate",productoffer=>{
       Activity.current_user(yield productoffer.offer().user())
       yield Activity.create({
-        action_type:"created_offer on job_".concat(productoffer.pid),
+        action_type:"created_offer on job_".concat(productoffer.name),
         at:productoffer.offer().created_at,
         callback_url:use("Route").route("ProductOfferController.show",{offid:productoffer.offid})
        })
