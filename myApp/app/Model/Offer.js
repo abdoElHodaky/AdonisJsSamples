@@ -2,7 +2,6 @@
 
 const Lucid = use('Lucid'),
 Activity=use("App/Model/Activity")
-
 class Offer extends Lucid {
   
   static current_user(user){
@@ -15,17 +14,17 @@ class Offer extends Lucid {
     return super.formatDates(field, value)
   }
   
-  static boot(){
+  /*static boot(){
     super.boot()
     this.addHook("afterCreate",offer=>{
       Activity.current_user(yield offer.user())
       yield Activity.create({
-        action_type:"created_offer",
+        action_type:"created_offer  ",
         at:offer created_at,
         callback_url:use("Route").route("ProductOfferController.show",{offid:offers.offid})
        })
     })
-  }
+  }*/
   
   static get connection () {
     return 'mysql'
