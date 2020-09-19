@@ -7,8 +7,12 @@ class Follower extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  followers(){
-    return this.belongsMany("App/Model/User","follid","uid","uid","follid")
+  users(){
+    return this.belongsMany("App/Model/User","follid","uid","uid","follid").
+    pivotModel("App/Model/UserFollower")
+  }
+  user(){
+    return this.belongsTo("App/Model/User","uid","uid")
   }
   
 }
