@@ -17,7 +17,7 @@ class EventUser extends Lucid {
     this.addHook("afterCreate",eventuser=>{
       Activity.current_user(yield eventuser.user())
       yield Activity.create({
-        action_type:`${eventuser.user().name}  is  ${eventuser.status} ${eventuser.event().name}`
+        action_type:`${eventuser.user().name} +" is " +${eventuser.status} ${eventuser.event().name}`
         eventuser.created_at,
         callback_url:use("Route").route("EventController.show",
         {evtid:eventuser.event().evtid})
