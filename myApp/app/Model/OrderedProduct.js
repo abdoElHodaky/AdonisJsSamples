@@ -11,7 +11,8 @@ class OrderedProduct extends Lucid {
   	return this.belongsTo("App/Model/Product",'id','pid');
   }
   coupon(){
-    return this.belongsMany("App/Model/Coupon","coupid","opid","opid","coupid");
+    return this.belongsMany("App/Model/Coupon","coupid","opid","opid","coupid").
+    pivotModel("App/Model/CouponProduct");
   }
   shops(){
      return this.product().shops()
