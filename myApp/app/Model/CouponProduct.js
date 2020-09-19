@@ -26,7 +26,7 @@ class CouponProduct extends Lucid {
     return this.belongsTo("App/Model/Coupon","coupid","coupid")
   }
   product(){
-    return this.belongsTo("App/Model/Product","pid","pid")
+    return this.belongsTo("App/Model/OrderedProduct","pid","pid")
   }
   
 }
