@@ -40,7 +40,7 @@ class Coupon extends Lucid {
     return this.hasMany("App/Model/OrderedProduct","coupid","coupid")
    }
    user(){
-    return this.belongsTo("App/Model/User","uid","by_uid")
+    return this.belongsTo("App/Model/User","uid","uid")
    }
 
 }
