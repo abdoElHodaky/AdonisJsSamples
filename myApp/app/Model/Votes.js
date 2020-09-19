@@ -14,9 +14,10 @@ class Vote extends Lucid {
  /* votes_users(){
       return this.belongsTo("App/Models/VoteUser","votuid","votuid")
     }*/
-   votes_products(){
-      return return this.belongsTo("App/Models/VoteProduct","votpid","votpid")
-    }
+   products(){
+      return this.belongsMany("App/Models/Product","votid,"pid","votid","pid")
+      .pivotModel("App/Model/VoteProduct");
+   }
 }
 
 module.exports = Vote
