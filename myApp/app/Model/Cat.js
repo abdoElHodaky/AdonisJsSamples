@@ -1,6 +1,7 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+Activity=use("App/Model/Activity")
 
 class Cat extends Lucid {
 
@@ -15,8 +16,8 @@ class Cat extends Lucid {
   static boot(){
    super.boot()
    this.addHook("afterCreate",cat=>{
-      yield use("App/Model/Activity").create({
-       uid:Cat.current_user.uid,
+      Activity.current_user(Cat.current_user)
+      yield Activity.create({
        action_type:"create_category",
        at:cat.created_at,
        callback_url:use("Route").route("CatController.show",{catid:cat.catid})
