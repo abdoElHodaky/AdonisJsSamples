@@ -16,8 +16,7 @@ class Event extends Lucid {
     this.addHook("afterCreate",event=>{
       yield use("App/Model/Activity").create({
         action:{
-          uid:Event.current_user.uid
-          type:"create_event",
+          action_type:"created_event",
           at:event.created_at,
           url:route("EventController.show",{evtid:event.evtid})
          }
