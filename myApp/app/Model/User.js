@@ -46,7 +46,7 @@ class User extends Lucid {
   }
   votes(){
    //return this.hasMany("App/Model/Votes","uid","uid");
-   return this.belongsMany("App/Model/Votes","votid","uid","uid","votid").pivotModel("App/Model/VoteUser");
+   return this.belongsMany("App/Model/Vote","uid","votid","votid","uid").pivotModel("App/Model/VoteUser");
     
   }
   ads(){
