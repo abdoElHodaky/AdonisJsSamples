@@ -15,46 +15,13 @@ class UserController {
   * store(request, response) {
     //
     var inputs=yield request.post();
-    if (inputs.type=="Client") {
-      var client={
-        Name:inputs.Name,
-        Password:inputs.Password,
-        Email:inputs.Email
-      };
-      yield Client.create(client)
-    }else{
-      var adms={
-        Name:inputs.Name,
-        Password:inputs.Password,
-        Email:inputs.Email,
-        type:inputs.type
-      };
-      yield User.create(adms);
-    }
-    response.redirect("back");
+    
   }
 
   * show(request, response) {
     //
-    var user=yield request.session.get("user")
-    /*var payments=yield(yield Client.find(user.id)).payments(),orders=yield(yield Client.find(user.id)).orders()
-     user={
-      Name:user.Name,
-      id:user.id,
-      type:user.type?user.type:"Client",
-      payments:payments,
-      orders:[]
-      }
-    for (var order of orders) {
-      user.orders.push({
-        id:order.id,
-        created_by:user.Name,
-        products:yield(yield use("App/Model/Order").find(order.id)).products()
-      })
-    }
-    yield response.sendView("user",{user:user})*/
-    response.json(yield user.loadMany(["types","users","followers","shops","coupons","ads","affiliates","shops_followings"]))
-  }
+    
+     }
 
   * edit(request, response) {
     //
@@ -70,27 +37,27 @@ class UserController {
 
   * login(request, response) {
     //
-    var inputs=yield request.post();
-    yield request.auth.attempts(inputs)
-    /*var obj;
-    if (inputs.type=="Client") {
-      obj=yield Client.findBy("Name",inputs.Name);
-    } else {
-      obj=yield User.findBy("Name",inputs.Name);
-    }
-    if (obj!={}) {
-      yield request.session.put("user",obj);
-      response.redirect("/Shop")
-    } else {
-      response.redirect("/Home")
-    }*/
+    var inputs=inputs=yield request.post(),
+    token=""
+    if(!request.auth.check()&& "Authorization" in request.headers())
+      token=yield request.auth.attempts(inputs.user)|| request.auth.getAuthHeader()
+   var device=request.auth.getUser().devices().findBy("token",inputs.device_token)
+    response.json({tokens:[
+    {access_token:token},
+    {devce_token:device token}]})
   }
   *logout(request,response){
-    var user =yield request.session.get("user")
-    if (user) {
-        yield  request.session.forget("user")
+    var user=request.auth.getUser()
+    device=request.auth.getUser().devices().findBy("token",inputs.device_token)
+    if(device.allow_login==true && device.remember==true){
+      response.json({})
     }
-    response.redirect("/Home")
+    if(device.allow_login==true && device.remember==false){
+      device.remember=false
+      device.save()
+      yield request.auth.authenticator("api").revokeTokensForUser(user)
+      response.json({})
+    }
   }
   *shops_following(request , response){
     var user=request.auth.getUser()
