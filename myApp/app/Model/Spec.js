@@ -7,8 +7,8 @@ class Spec extends Lucid {
   static get connection () {
     return 'mysql'
   }
-  product(){
-    return this.belongsTo("App/Model/Product","pid","pid");
+  products(){
+    //return this.belongsTo("App/Model/Product","pid","pid");
   }
 }
 
