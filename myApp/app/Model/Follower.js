@@ -8,7 +8,7 @@ class Follower extends Lucid {
     return 'mysql'
   }
   users(){
-    return this.belongsMany("App/Model/User","follid","uid","uid","follid").
+    return this.belongsMany("App/Model/User","uid","follid","follid","uid").
     pivotModel("App/Model/UserFollower")
   }
   user(){
