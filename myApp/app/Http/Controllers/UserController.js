@@ -1,7 +1,10 @@
 'use strict'
-const User=use("App/Model/User")
-class UserController {
+const User=use("App/Model/User"),
+TypeUser=use("App/Model/TypeUser")
 
+class UserController {
+   
+    static adminCount=0
   * index(request, response) {
     //
     yield response.sendView("welcome")
@@ -14,8 +17,24 @@ class UserController {
 
   * store(request, response) {
     //
-    var inputs=yield request.post();
     
+    var inputs=yield request.post(),type={},user={}
+    if("type" in inputs){
+      type=yield TypeUser.findBy("type",inputs.type)
+      if(adminCount>=1)
+        {response.json({admin_creation:"not Allowed"})}
+      else
+     {
+        user=yield User.create(inputs.user)
+        user.types().attach([type.type_id])
+     }
+       adminCount++;
+      
+    }
+    else 
+    { user= yield User.create(inputs.user)}
+     response.json(user)
+     
   }
 
   * show(request, response) {
