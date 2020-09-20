@@ -46,7 +46,7 @@ class User extends Lucid {
   }
   votes(){
    //return this.hasMany("App/Model/Votes","uid","uid");
-   return this.belongsMany("App/Model/Vote","uid","votid","uid","votid").pivotModel("App/Model/VoteUser");
+   return this.belongsMany("App/Model/Vote","uid","votid","votid","uid").pivotModel("App/Model/VoteUser");
     
   }
   ads(){
@@ -67,7 +67,7 @@ class User extends Lucid {
   }
   users(followers=false){
    return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
-    this.belongsMany("App/Model/Follower","follid","uid","uid","follid")
+    this.belongsMany("App/Model/Follower","uid","follid","follid","uid")
    }
   transfers(out==false){
    return (out==false)? this.hasMany("App/Model/Transfer","uid","sender_uid")
@@ -79,7 +79,7 @@ class User extends Lucid {
     this.hasMany("App/Model/Message","uid","receiver_id")
   }
   conversations(){
-   return this.belongsMany("App/Model/Message","uid","meagjd","uid","mesgid").where({"type":"conversation"})
+   return this.belongsMany("App/Model/Message","uid","mesgid","mesgid","uid").where({"type":"conversation"})
   }
   devices(){
     return this.hasMany("App/Model/Device","uid","uid")
