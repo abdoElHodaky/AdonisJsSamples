@@ -14,7 +14,7 @@ class Skill extends Lucid {
    this.addHook("afterCreate",skill=>{
     Activity.current_user(skill.suggested_by)
     yield Activity.create({
-      action_type:"created_skill"
+      action_type:"created_skill",
       at:product.created_at,
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })
