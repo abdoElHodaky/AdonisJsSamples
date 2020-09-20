@@ -2,7 +2,7 @@
 
 const Schema = use('Schema')
 
-class SkillsTableSchema extends Schema {
+class UsersSkillsTableSchema extends Schema {
 
   static get connection () {
     return 'mysql'
@@ -27,4 +27,4 @@ class SkillsTableSchema extends Schema {
 
 }
 
-module.exports = SkillsTableSchema
+module.exports = UsersSkillsTableSchema
