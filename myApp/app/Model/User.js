@@ -31,6 +31,7 @@ class User extends Lucid {
   info(){
     //return Information.on("users",this);
     //return this.hasOne("App/Model/Inforamation","onId","uid").where("onType","users")
+    
    }
   attachments(){
    return this.hasMany("App/Model/Attachment","uid","uid");
@@ -89,6 +90,10 @@ class User extends Lucid {
   }
   affiliates(){
     return this.hasOne("App/Model/Affiliate","uid","uid")
+  }
+  skills(){
+    return this.belongsMany("App/Model/Skill","uid","skillid","skillid","uid").
+    pivotTable("App/Model/UserSkill")
   }
 }
 module.exports = User
