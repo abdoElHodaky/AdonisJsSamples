@@ -60,10 +60,10 @@ class User extends Lucid {
   }
   events(){
     return this.hasMany("App/Model/Event","uid","uid");
-    return this.manyThrough("App/Model/EventUser","event","uid","evtid")
+    //return this.manyThrough("App/Model/EventUser","event","uid","evtid")
   }
   events_subscribed(){
-   return this.manyThrough("App/Model/EventUser","event","uid","evtid")
+   return this.belongsMany("App/Model/Event","uid","evtid","evtid","uid").pivotModel("App/Model/EventUser")
   }
   users(followers=false){
    return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
