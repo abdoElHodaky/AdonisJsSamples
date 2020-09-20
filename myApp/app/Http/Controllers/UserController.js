@@ -1,5 +1,5 @@
 'use strict'
-const User=use("App/Model/User"),Client=use("App/Model/Client");
+const User=use("App/Model/User")
 class UserController {
 
   * index(request, response) {
@@ -64,11 +64,9 @@ class UserController {
     response.json (user.shops_followings().sync(use("App/Model/Shop").ids()))
   }
   *events(request , response){
-     var user=request.auth.getUser()
-     response.json(user.events_subscribed()
-    .filter(v=>v.pivot.status||v.status==
-     request.params().status))
-     //response.json(yield user.events(request.params().status))
+     var user=request.auth.getUser(),events_user=[]
+     yield (user.events_subscribed().all({"uid":user.uid})).forEach(v=>events_user.unshift(yield v.event()))
+     response.json(events_users)
   }
 
 }
