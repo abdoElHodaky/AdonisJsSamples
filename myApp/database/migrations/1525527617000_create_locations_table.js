@@ -17,7 +17,7 @@ class LocationsTableSchema extends Schema {
       table.integer("uid").unique()
       table.foreign("uid").references("uid").on("users")
       table.integer("parent_id")
-      table.foreign("parent_id").references("skillid").on("skills")
+      table.foreign("parent_id").references("locatid").on("locations")
       table.softDeletes()
     })
   }
