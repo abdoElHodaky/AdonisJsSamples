@@ -15,7 +15,7 @@ class Vote extends Lucid {
       return this.belongsTo("App/Models/VoteUser","votuid","votuid")
     }*/
    products(){
-      return this.belongsMany("App/Models/Product","pid,"votid","votid","pid")
+      return this.belongsMany("App/Models/Product","pid","votid","votid","pid")
       .pivotModel("App/Model/VoteProduct");
    }
 }
