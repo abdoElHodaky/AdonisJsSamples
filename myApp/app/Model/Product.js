@@ -71,7 +71,8 @@ class Product extends Lucid {
     pivotModel("App/Model/ProductOffer")
    }
   visits(){
-    return this.belongsMany("App/Model/Visit","visid","pid","pid","visid")
+    return this.belongsMany("App/Model/Visit","pid","visid","visid","pid").
+    pivotModel("App/Model/VisitProduct")
    }
 }
 
