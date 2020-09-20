@@ -13,12 +13,12 @@ class User extends Lucid {
     return this.hasMany("App/Model/Shop","uid","uid");
   }
   shops_followings(){
-    return this.belongsMany("App/Model/Shop","sid","uid","uid","sid").pivotModel("App/Model/ShopFollower");
+    return this.belongsMany("App/Model/Shop","uid","sid","uid","sid").pivotModel("App/Model/ShopFollower");
     //return this.manyThrough("App/Model/ShopFollower","shop","follid","sid");
   }
    }
   types(){
-   return this.belongsMany("App/Model/TypeUser","uid","utype_id","utype_id","uid")
+   return this.belongsMany("App/Model/TypeUser","uid","utype_id","uid","utype_id")
   }
   wallet(){
     return this.hasOne("App/Model/Wallet","wid","wid")
@@ -46,7 +46,7 @@ class User extends Lucid {
   }
   votes(){
    //return this.hasMany("App/Model/Votes","uid","uid");
-   return this.belongsMany("App/Model/Vote","uid","votid","votid","uid").pivotModel("App/Model/VoteUser");
+   return this.belongsMany("App/Model/Vote","uid","votid","uid","votid").pivotModel("App/Model/VoteUser");
     
   }
   ads(){
@@ -63,7 +63,7 @@ class User extends Lucid {
     //return this.manyThrough("App/Model/EventUser","event","uid","evtid")
   }
   events_subscribed(){
-   return this.belongsMany("App/Model/Event","uid","evtid","evtid","uid").pivotModel("App/Model/EventUser")
+   return this.belongsMany("App/Model/Event","uid","evtid","uid","evtid").pivotModel("App/Model/EventUser")
   }
   users(followers=false){
    return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
@@ -79,7 +79,7 @@ class User extends Lucid {
     this.hasMany("App/Model/Message","uid","receiver_id")
   }
   conversations(){
-   return this.belongsMany("App/Model/Message","mesgid","uid","uid","mesgid").where({"type":"conversation"})
+   return this.belongsMany("App/Model/Message","uid","meagjd","uid","mesgid").where({"type":"conversation"})
   }
   devices(){
     return this.hasMany("App/Model/Device","uid","uid")
