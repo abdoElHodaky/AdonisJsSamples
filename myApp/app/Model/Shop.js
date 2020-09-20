@@ -27,7 +27,10 @@ class Shop extends Lucid {
   ordered_products(){
    return this.products().ordered();
   }
-
+  locations(){
+    return this.belongsMany("App/Model/Location","sid","locatid","locatid","sid").
+    pivotTable("App/Model/ShopLocation")
+  }
 }
 
 module.exports = Shop
