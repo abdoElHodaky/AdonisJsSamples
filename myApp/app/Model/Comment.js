@@ -27,11 +27,11 @@ class Comment extends Lucid {
    }
   users(){
    // return this.hasMany("App/Model/User","uid","uid")
-     return this.belongsMany("App/Model/User","commid","uid","uid","commid")
+     return this.belongsMany("App/Model/User","uid","commid","commid","uid")
   }
   attachments(){
-    return this.manyThrough("App/Model/CommentAttachment","attachments","commid","aid")
-    // return this.belongsMany("aid","commid","commid","aid").pivotModel("App/Model/CommentAttachment")
+   // return this.manyThrough("App/Model/CommentAttachment","attachments","commid","aid")
+    return this.belongsMany("commid","aid","aid","commid").pivotModel("App/Model/CommentAttachment")
    
    }
   comments(){
