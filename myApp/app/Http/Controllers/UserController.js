@@ -65,7 +65,10 @@ class UserController {
   }
   *events(request , response){
      var user=request.auth.getUser()
-     response.json(yield user.events(request.params().status))
+     response.json(user.events_subscribed()
+    .filter(v=>v.pivot.status||v.status==
+     request.params().status))
+     //response.json(yield user.events(request.params().status))
   }
 
 }
