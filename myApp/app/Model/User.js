@@ -97,7 +97,7 @@ class User extends Lucid {
   }
   locations(){
     return this.belongsMany("App/Model/Location","uid","locatid","locatid","uid").
-    pivotTable("App/Model/UserSkill")
+    pivotTable("App/Model/UserLocation")
   }
 }
 module.exports = User
