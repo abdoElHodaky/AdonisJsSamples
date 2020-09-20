@@ -58,9 +58,12 @@ class User extends Lucid {
   reactions(){
    // return this.hasMany("App/Model/Reaction","uid","uid");
   }
-  events(status=""){
-    if (status =="")return this.hasMany("App/Model/Event","uid","uid");
-    else return this.manyThrough("App/Model/EventUser","event","uid","evtid").where({"events_users.status":status})
+  events(){
+    return this.hasMany("App/Model/Event","uid","uid");
+    return this.manyThrough("App/Model/EventUser","event","uid","evtid")
+  }
+  events_subscribed(){
+   return this.manyThrough("App/Model/EventUser","event","uid","evtid")
   }
   users(followers=false){
    return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
