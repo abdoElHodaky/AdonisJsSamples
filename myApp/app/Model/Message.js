@@ -13,7 +13,7 @@ class Message extends Lucid {
   }
   attachments(){
     //return this.manyThrough("App/Model/MessageAttachment","attachments","messegid","aid")
-    return this.belongsMany("mesgid","aid","aid","mesgid").pivotModel("App/Model/MessageAttachment")
+    return this.belongsMany("App/Model/Attachment","mesgid","aid","aid","mesgid").pivotModel("App/Model/MessageAttachment")
    }
   messages(){
    return this.hasMany("App/Model/Message","mesgid","parent_id").where({"type":"conversation"})
