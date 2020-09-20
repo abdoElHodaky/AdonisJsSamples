@@ -9,6 +9,10 @@ class Spec extends Lucid {
   }
   products(){
     //return this.belongsTo("App/Model/Product","pid","pid");
+    return this.belongsMany("App/Model/Product","specid","pid","pid","specid")
+  }
+  specs(){
+   return this.hasMany("App/Model/Spec","specid","parent_id")
   }
 }
 
