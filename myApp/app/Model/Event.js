@@ -28,7 +28,7 @@ class Event extends Lucid {
   
   users(){
    return this.belongsMany("App/Model/User"
-   ,"evtid","uid","uid","evtid")
+   ,"uid","evtid","evtid","uid")
     .pivotModel("App/Model/EventUser")
   }
   
