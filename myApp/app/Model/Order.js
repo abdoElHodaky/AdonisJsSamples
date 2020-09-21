@@ -13,8 +13,10 @@ class Order extends Lucid {
    this.addHook("afterFind",order=>{
     order.total=order.products().reduce((t,{Price})=>t+=Price)
     order.save()
-    if(order.user().related_id!=0) order.user().commission=.25;yield order.user().save()
-     order.addHook("afterUpdate",_order=>{
+    if(order.user().related_id!=0) {
+      order.user().commission=.25
+      yield order.user().save()
+      order.addHook("afterUpdate",_order=>{
        credits_values=yield use("App/Model/OrderedProduct").credits_value
        if(credits_values.length!=0)
         {
@@ -26,6 +28,7 @@ class Order extends Lucid {
        }
 
        })
+       }
     })
    
   }
