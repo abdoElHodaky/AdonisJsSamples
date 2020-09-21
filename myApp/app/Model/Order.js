@@ -11,7 +11,6 @@ class Order extends Lucid {
   static boot(){
    super.boot()
    this.addHook("beforeUpdate",order=>{
-    if("total" in order)
     order.total=order.products().reduce((t,{Price})=>t+=Price)
     if(order.user().related_id!=0) order.user().commission=.25
    })
