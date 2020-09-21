@@ -8,7 +8,7 @@ class Vote extends Lucid {
     return 'mysql'
   }
   users(){
-      return this.belongsMany("App/Models/User","votid","uid,"uid","votid")
+      return this.belongsMany("App/Models/User","votid","uid","uid","votid")
       .pivotModel("App/Model/VoteUser");
     }
  /* votes_users(){
