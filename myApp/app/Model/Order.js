@@ -22,6 +22,7 @@ class Order extends Lucid {
           yield order.user().credits().create({
           value:order.user().commission*order.total,
           code:RandomCode(8)
+          })
        }
 
    })
