@@ -23,6 +23,11 @@ class Location extends Lucid {
    })
   }*/
 
+  shops(){
+    return this.belongsMany("App/Model/Shop","locatid","sid","sid","locatid").
+    pivotTable("App/Model/ShopLocation")
+  }
+  
   users(){
     return this.belongsMany("App/Model/User","locatid","uid","uid","locatid").
     pivotTable("App/Model/UserLocation")
