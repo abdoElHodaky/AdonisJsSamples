@@ -28,6 +28,10 @@ class Credit extends Lucid {
   credits(){
      return this.hasMany("App/Model/Credit","credid","parent_id")
    }
+  parent(){
+     return this.belongsTo("App/Model/Credit","parent_id","credid")
+  }
+  
 }
 
 module.exports = Credit
