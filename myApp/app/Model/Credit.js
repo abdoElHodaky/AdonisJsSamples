@@ -7,6 +7,18 @@ class Credit extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  
+  static boot(){
+   super.boot()
+   this.addHook("afterUpdate",credit=>{
+     if(credit.used==true)
+     { 
+       credit.wallet().balance-=credit.value
+       credit.wallet().save()
+     }
+   })
+  }
+
   client(){
   	return this.belongTo("App/Model/User","uid","uid");
   }
