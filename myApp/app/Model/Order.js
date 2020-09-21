@@ -1,6 +1,7 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+RandomCode=use("randomcode")
 
 class Order extends Lucid {
 
