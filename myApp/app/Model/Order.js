@@ -14,19 +14,20 @@ class Order extends Lucid {
     order.total=order.products().reduce((t,{Price})=>t+=Price)
     order.save()
     if(order.user().related_id!=0) order.user().commission=.25;yield order.user().save()
-   })
-   this.addHook("afterUpdate",order=>{
-     credits_values=yield use("App/Model/OrderedProduct").credits_value
-     if(credits_values.length!=0)
-      {
+     order.addHook("afterUpdate",_order=>{
+       credits_values=yield use("App/Model/OrderedProduct").credits_value
+       if(credits_values.length!=0)
+        {
           //total=credits_values.reduce((t,v)=>t+=v)
-          yield order.user().credits().create({
-          value:order.user().commission*order.total,
+          yield _order.user().credits().create({
+          value:_order.user().commission*_order.total,
           code:RandomCode(8)
           })
        }
 
-   })
+       })
+    })
+   
   }
 
   products(transfer=false){
