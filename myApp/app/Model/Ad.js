@@ -7,7 +7,9 @@ class Ad extends Lucid {
   static get connection () {
     return 'mysql'
   }
-
+   getVisitsCount(){
+     return this.visits().getCount()
+   }
   user(){
     return this.belongsTo("App/Model/User","uid","uid")
   }
