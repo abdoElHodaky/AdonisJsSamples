@@ -12,12 +12,12 @@ class Ad extends Lucid {
     return this.belongsTo("App/Model/User","uid","uid")
   }
   attachments(){
-     return this.belongsToMany("App/Model/Attachment","adid","aid","aid","adid").
+     return this.belongsMany("App/Model/Attachment","adid","aid","aid","adid").
      pivotModel("App/Model/AdAttachment")
     //return this.manyThrough("App/Model/AdAttachment","attachments","adid","aid")
    }
    visits(){
-     return this.belongsToMany("App/Model/Visit","adid","visid","visid","adid").
+     return this.belongsMany("App/Model/Visit","adid","visid","visid","adid").
      pivotModel("App/Model/AdVisit")
    }
 }
