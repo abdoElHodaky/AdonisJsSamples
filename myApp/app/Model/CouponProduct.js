@@ -8,18 +8,17 @@ class CouponProduct extends Lucid {
   static get connection () {
     return 'mysql'
   }
- /*  static boot(){
+  static boot(){
     super.boot()
     this.addHook("afterCreate",couponproduct=>{
-      Activity.current_user(yield couponproduct.coupon().user())
-      yield Activity.create({
-        action_type:"created_coupon on product_".concat(couponproduct.product().name),
-        at:productoffer.offer().created_at,
-        callback_url:use("Route").route("CatController.show",
-        {oid:couponproduct.product().order().oid})
-       })
-    })
-  }*/
+       if(couponproduct.coupon().type=="Market")
+      {
+         price=couponproduct.product().price*couponproduct.coupon().amount
+         couponproduct.product().price-=price
+         couponproduct.product().save()
+      }
+   })
+  }
 
   
    coupon(){
