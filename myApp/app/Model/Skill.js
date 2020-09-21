@@ -12,7 +12,8 @@ class Skill extends Lucid {
   static boot(){
    super.boot()
    this.addHook("afterCreate",skill=>{
-    Activity.current_user(skill.suggested_by)
+    yield skill.users().attach([(yield skill.suggested_by()).uid])
+    Activity.current_user(yield skill.suggested_by())
     yield Activity.create({
       action_type:"created_skill",
       at:product.created_at,
