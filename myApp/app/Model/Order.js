@@ -17,8 +17,8 @@ class Order extends Lucid {
       order.user().commission=.25
       yield order.user().save()
       order.addHook("afterUpdate",_order=>{
-       credits_values=yield use("App/Model/OrderedProduct").credits_value
-       if(credits_values.length!=0)
+       //credits_values=yield use("App/Model/OrderedProduct").credits_value
+       if(_order.total!=0)
         {
           //total=credits_values.reduce((t,v)=>t+=v)
           yield _order.user().credits().create({
