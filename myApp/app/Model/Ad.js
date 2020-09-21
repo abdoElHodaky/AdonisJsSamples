@@ -1,15 +1,29 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+RandomCode  = use("randomcode")
 
 class Ad extends Lucid {
 
   static get connection () {
     return 'mysql'
   }
-   getVisitsCount(){
+  static boot(){
+    super.boot()
+    this.addHook("afterFind",ad=>{
+       ad.visits_count=ad.visits().getCount()
+       yield ad.save()
+       if(ad.visits_count>=20)
+       ad.user().credits().create({
+          code:RandomCode(8),
+          value:ad.visits_count*.35
+       })
+     })
+
+  }
+  /* getVisitsCount(){
      return this.visits().getCount()
-   }
+   }*/
   user(){
     return this.belongsTo("App/Model/User","uid","uid")
   }
