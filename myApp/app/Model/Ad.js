@@ -8,11 +8,17 @@ class Ad extends Lucid {
     return 'mysql'
   }
 
-  /*users(){
-    return this.hasMany("App/Model/User","uid","uid")
-  }*/
+  user(){
+    return this.belongsTo("App/Model/User","uid","uid")
+  }
   attachments(){
-    return this.manyThrough("App/Model/AdAttachment","attachments","adid","aid")
+     return this.belongsToMany("App/Model/Attachment","adid","aid","aid","adid").
+     pivotModel("App/Model/AdAttachment")
+    //return this.manyThrough("App/Model/AdAttachment","attachments","adid","aid")
+   }
+   visits(){
+     return this.belongsToMany("App/Model/Visit","adid","visid","visid","adid").
+     pivotModel("App/Model/AdVisit")
    }
 }
 module.exports = Ad
