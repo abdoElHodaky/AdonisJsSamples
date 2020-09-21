@@ -8,17 +8,18 @@ class OrderedProduct extends Lucid {
   static get connection () {
     return 'mysql'
   }
- 
+  static credits_values=[]
   static boot(){
     super.boot()
     this.addHook("afterUpdate",ordered=>{
-      if(couponproduct.coupon().type=="Market")
+      if(ordered.coupon().type=="Market")
       {
-       yield ordered.coupons().findBy("coupid",ordered.coupid)
+      /* yield ordered.coupons().findBy("coupid",ordered.coupid)
        .coupon().user().credits().create({
          code:RandomCode(8)
          value:ordered.price*.25
-       })
+       })*/
+        credits_value.unshift(ordered.price*.25)
      }
    })
   }
