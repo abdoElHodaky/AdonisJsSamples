@@ -1,6 +1,7 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+RandomCode=use("randomcode")
 
 class OrderedProduct extends Lucid {
 
@@ -11,17 +12,14 @@ class OrderedProduct extends Lucid {
   static boot(){
     super.boot()
     this.addHook("afterUpdate",ordered=>{
-      /* if(couponproduct.coupon().type=="Market")
+      if(couponproduct.coupon().type=="Market")
       {
-         price=couponproduct.product().price*couponproduct.coupon().amount
-         couponproduct.product().price-=price
-         yield couponproduct.product().save()
-      }
-     */
        yield ordered.coupons().findBy("coupid",ordered.coupid)
        .coupon().user().credits().create({
-         value:ordered.price*.05
+         code:RandomCode(8)
+         value:ordered.price*.25
        })
+     }
    })
   }
 
