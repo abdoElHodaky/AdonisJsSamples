@@ -15,7 +15,7 @@ class CouponProduct extends Lucid {
       {
          price=couponproduct.product().price*couponproduct.coupon().amount
          couponproduct.product().price-=price
-         couponproduct.product().save()
+         yield couponproduct.product().save()
       }
    })
   }
