@@ -11,7 +11,8 @@ class Device extends Lucid {
     return this.belongsTo("App/Model/User","uid","uid")
    }
    verification(){
-    return this.belongsTo("App/Model/Verification","devid","devid")
+    return this.belongsMany("App/Model/Verification","devid","verifid","verifid","devid").
+    pivotModel("App/Model/DeviceVwrification")
    }
 }
 
