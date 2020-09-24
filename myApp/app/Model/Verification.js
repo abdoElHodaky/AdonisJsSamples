@@ -11,7 +11,13 @@ class Verification extends Lucid {
     return this.belongsTo("App/Model/User","uid","uid")
    }
    device(){
-    return this.hasOne("App/Model/Device","devid","devid")
+    return this.belongsMany("App/Model/Device","verifid","devid","devid","verifid").
+    pivotModel("App/Model/DeviceVerification")
+   }
+
+   email(){
+    return this.belongsMany("App/Model/Email","verifid","emid","emid","verifid").
+    pivotModel("App/Model/EmailVerification")
    }
 }
 
