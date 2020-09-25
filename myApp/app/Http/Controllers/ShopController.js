@@ -1,6 +1,6 @@
 'use strict'
 const Shop=use("App/Model/Shop"),
-User=use("App/Model/User")
+//User=use("App/Model/User")
 class ShopController {
 
   * index(request, response) {
