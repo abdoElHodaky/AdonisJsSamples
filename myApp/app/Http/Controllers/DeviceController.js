@@ -48,15 +48,14 @@ class DeviceController {
   *verify(request, response) {
     
     var user=request.auth.getUser(),
-   inputs=request.post(),
-  // verification= device.verification().findBy({verify_code:inputs.verify_code})
-  /* device.verified=true
-   devices.allow_login=true
-   device.save()
-   response.json(device)*/
-
-   
-    
+   inputs=request.post();
+   if(device_verification.verification().verify_code==inputs.verify_code)
+    {
+       device.verified=true
+       device.allow_login=true
+       device.save()
+    }
+    response.json(device)
   }
 }
 
