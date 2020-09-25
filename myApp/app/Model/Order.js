@@ -1,7 +1,7 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-RandomCode=use("randomcode")
+gen=require("randomcode")
 
 class Order extends Lucid {
 
@@ -20,7 +20,7 @@ class Order extends Lucid {
         {
           yield order.user().credits().create({
           value:order.user().commission*order.total,
-          code:RandomCode(8)
+          code:gen(8)
           })
        }
      }
