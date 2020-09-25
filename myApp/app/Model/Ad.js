@@ -20,7 +20,10 @@ class Ad extends Lucid {
        })
      })
   }
-   getReleation(name){
+   setReleation(name){
+   return this[name]=this.getRelation(name)
+  }
+  getReleation(name){
    return this[name]().fetch()
   }
   /* getVisitsCount(){
