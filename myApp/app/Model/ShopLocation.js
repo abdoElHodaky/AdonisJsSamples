@@ -1,16 +1,17 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-Activity=use("App/Model/Activity")
+Activity=use("App/Model/Activity"),
+GeoRedis=use("App/Model/GeoRedis")
 
 class ShopLocation extends Lucid {
-  
-  static get connection () {
+   static get connection () {
     return 'mysql'
   }
   
   static boot(){
    super.boot()
+   
    this.addHook("afterCreate",skill=>{
     /*yield skill.users().attach([(yield skill.suggested_by()).uid])
     Activity.current_user(yield skill.suggested_by())
@@ -20,7 +21,6 @@ class ShopLocation extends Lucid {
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })
    })*/
-   
   }
 
   shop(){
