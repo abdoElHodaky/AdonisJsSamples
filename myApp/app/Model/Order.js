@@ -17,12 +17,10 @@ class Order extends Lucid {
   static boot(){
    super.boot()
    this.addHook("afterFind",order=>{
-    order.total=order.fetch("products").reduce((t,{Price})=>t+=Price)
-    /*order.products().fetch().reduce((t,{Price})=>t+=Price)*/
+    order.total=order.products().reduce((t,{Price})=>t+=Price)*/
     order.save()
     if(order.fetch("user").related_id!=0) {
-      order.user().commission=.25
-      yield order.user().save()
+      yield order.user().merge({commission:.25})
       if(order.total!=0)
         {
           yield order.user().credits().create({
