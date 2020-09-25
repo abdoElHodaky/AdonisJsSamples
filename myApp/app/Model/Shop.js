@@ -7,7 +7,10 @@ class Shop extends Lucid {
   static get connection () {
     return 'mysql'
   }
-
+  getReleation(name){
+   return this[name]().fetch()
+  }
+   
    cats(){
      return this.hasMany("App/Model/Cat",'sid','sid')
   }
