@@ -1,18 +1,19 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+//GeoRedis=use("App/Model/GeoRedis"),
+//GeoShops=GeoRedis.addSet("ShopLocations")
 
 class Shop extends Lucid {
-
+  
   static get connection () {
     return 'mysql'
   }
   static boot(){
    super.boot()
-  
   }
   setReleation(name){
-   return this[name]=this.getRelation(name)
+   return this[name]
   }
   getReleation(name){
    return this[name]().fetch()
