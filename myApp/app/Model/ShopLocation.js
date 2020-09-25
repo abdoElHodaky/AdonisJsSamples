@@ -12,17 +12,23 @@ class ShopLocation extends Lucid {
   static boot(){
    super.boot()
    
-   this.addHook("afterCreate",skill=>{
+   this.addHook("afterCreate",shlocation=>{
     /*yield skill.users().attach([(yield skill.suggested_by()).uid])
     Activity.current_user(yield skill.suggested_by())
     yield Activity.create({
       action_type:"created_skill",
       at:product.created_at,
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
-    })
-   })*/
-  }
+    })*/
 
+    location=shlocation.location().fetch()
+     GeoRedis.sets.push({location.name:{
+      longitude:location.longitude,
+      latitude:location.latitude
+    }})
+   })
+   
+  }
   shop(){
     return this.belongsTo("App/Model/Shop","sid","sid")
   }
