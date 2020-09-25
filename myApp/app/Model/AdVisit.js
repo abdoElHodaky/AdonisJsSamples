@@ -18,10 +18,10 @@ class AdVisit extends Lucid {
     return 'mysql'
   }
    visit(){
-     return this.belongs("App/Model/Visit","visid","visid")
+     return this.belongsTo("App/Model/Visit","visid","visid")
    }
    ad(){
-     return this.belongs("App/Model/Ad","adid","adid")
+     return this.belongsTo("App/Model/Ad","adid","adid")
    }
 }
 module.exports = AdVisit
