@@ -18,6 +18,11 @@ class Product extends Lucid {
     
    })
   }
+
+  getReleation(name){
+   return this[name]().fetch()
+  }
+
   cat(){
     return this.belongsTo("App/Model/Cat","cid","cid");
   }
