@@ -21,10 +21,10 @@ class DeviceController {
    var user=request.auth.getUser(),
    inputs=request.post(),
    device=yield user.devices().create(inputs),
-     device_verification=device.verifications()
+     device.verifications()
     .attach([(yield Verification.create({
      verify_code:gen(16)
-    })).verifid])
+    })).verifid],row=>device_verification=row)
    response.json(device)
    
     
