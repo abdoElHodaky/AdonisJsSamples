@@ -8,6 +8,12 @@ class Order extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  setReleation(name){
+   return this[name]=this.getRelation(name)
+  }
+  getReleation(name){
+   return this[name]().fetch()
+  }
   static boot(){
    super.boot()
    this.addHook("afterFind",order=>{
