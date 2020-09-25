@@ -7,6 +7,10 @@ class Shop extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  static boot(){
+   super.boot()
+  
+  }
   setReleation(name){
    return this[name]=this.getRelation(name)
   }
