@@ -9,6 +9,9 @@ class User extends Lucid {
   static get connection () {
     return 'mysql'
   }
+  getReleation(name){
+   return this[name]().fetch()
+  }
   shops(){
     return this.hasMany("App/Model/Shop","uid","uid");
   }
