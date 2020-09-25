@@ -2,8 +2,12 @@
 'use strict'
 
 const redis = use('Redis')
-,GeoRedis=use("georedis").initialize(redis,{
+,geo=use("georedis").initialize(redis,{
   zset: 'LocationsSet',
   nativeGeo: false
 })
+ var GeoRedis={}
+ for(var prop of geo)
+ GeoRedis[prop]=geo[prop]
+
 module.exports = GeoRedis
