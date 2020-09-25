@@ -13,9 +13,11 @@ class DeviceController {
 
   * store(request, response) {
     //
-   var user=request.author.getUser(),
+   var user=request.auth.getUser(),
    inputs=request.post(),
    device=yield user.devices().create(inputs)
+   if(device.verified==false)
+    device.verification()
    response.json(device)
    
     
@@ -38,7 +40,7 @@ class DeviceController {
   }
   * verify(request, response) {
     
-    var user=request.author.getUser(),
+    var user=request.auth.getUser(),
    inputs=request.post(),
    device=yield user.devices().findOrFail(request.params().devid)
    verification= device.verification().findBy({verify_code:inputs.verify_code})
