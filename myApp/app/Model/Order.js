@@ -9,7 +9,7 @@ class Order extends Lucid {
     return 'mysql'
   }
   setReleation(name){
-   this[name]=this.getRelation(name)
+    return  this[name]=this.getRelation(name)
   }
   getReleation(name){
    return this[name]().fetch()
