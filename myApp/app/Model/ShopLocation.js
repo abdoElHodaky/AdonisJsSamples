@@ -22,7 +22,7 @@ class ShopLocation extends Lucid {
     })*/
 
     location=shlocation.location().fetch()
-     GeoRedis.sets.push({location.name:{
+     GeoRedis.sets["shopLocstions"].push({location.name:{
       longitude:location.longitude,
       latitude:location.latitude
     }})
