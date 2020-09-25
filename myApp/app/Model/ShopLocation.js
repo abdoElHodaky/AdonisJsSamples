@@ -9,19 +9,19 @@ class ShopLocation extends Lucid {
     return 'mysql'
   }
   
- /* static boot(){
+  static boot(){
    super.boot()
    this.addHook("afterCreate",skill=>{
-    yield skill.users().attach([(yield skill.suggested_by()).uid])
+    /*yield skill.users().attach([(yield skill.suggested_by()).uid])
     Activity.current_user(yield skill.suggested_by())
     yield Activity.create({
       action_type:"created_skill",
       at:product.created_at,
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })
-    
-   })
-  }*/
+   })*/
+   
+  }
 
   shop(){
     return this.belongsTo("App/Model/Shop","sid","sid")
