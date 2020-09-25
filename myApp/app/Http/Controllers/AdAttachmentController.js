@@ -16,7 +16,7 @@ class AdAttachmentController {
     //
     var inputs=request.post(),
     adid=request.params().adid,
-    ad=yield Comment.find(adid),
+    ad=yield Ad.find(adid),
     attachment=yield Attachment.create(inputs.attachment)
     ad.attachments().attach([attachment.aid])
     response.json(ad.load("attachments"))
