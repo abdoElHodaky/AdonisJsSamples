@@ -1,7 +1,7 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-{gen}  = require("randomcode")
+ gen        = require("randomcode")
 
 class Ad extends Lucid {
 
