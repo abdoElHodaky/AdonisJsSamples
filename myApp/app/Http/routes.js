@@ -25,6 +25,6 @@ Route.resource("Product","ProductController").addCollection("compare",['GET','PO
 Route.resource("Product.specs","ProductSpecController")
 Route.resource("Product.comments","ProductCommentController")
 Route.resource("Product.attachments","ProductAttachmentController")
-Route.resource("Offer","OfferController")
+Route.resource("Product.offers","OfferController")
 Route.resource("Shop","ShopController")
 Route.resource("Cart","CartController")
