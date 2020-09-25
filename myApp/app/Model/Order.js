@@ -9,7 +9,7 @@ class Order extends Lucid {
     return 'mysql'
   }
   setReleation(name){
-   return this[name]=this.getRelation(name)
+   this[name]=this.getRelation(name)
   }
   getReleation(name){
    return this[name]().fetch()
@@ -17,7 +17,8 @@ class Order extends Lucid {
   static boot(){
    super.boot()
    this.addHook("afterFind",order=>{
-    order.total=order.products().reduce((t,{Price})=>t+=Price)
+    order.total=order.relation("products").reduce((t,{Price})=>t+=Price)
+    /*order.products().fetch().reduce((t,{Price})=>t+=Price)*/
     order.save()
     if(order.user().related_id!=0) {
       order.user().commission=.25
