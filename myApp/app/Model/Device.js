@@ -12,7 +12,7 @@ class Device extends Lucid {
    }
    verification(){
     return this.belongsMany("App/Model/Verification","devid","verifid","verifid","devid").
-    pivotModel("App/Model/DeviceVwrification")
+    pivotModel("App/Model/DeviceVerification")
    }
 }
 
