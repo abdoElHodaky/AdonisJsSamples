@@ -21,8 +21,8 @@ class ShopLocation extends Lucid {
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })*/
 
-    location=shlocation.location().fetch()
-     GeoRedis.sets["shopLocstions"][location.name]=
+    location=shlocation.location()
+     GeoRedis.addLocation({shlocation.shop().name:
      { longitude:location.longitude,
       latitude:location.latitude
      }
