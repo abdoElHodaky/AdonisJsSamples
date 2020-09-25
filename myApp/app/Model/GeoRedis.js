@@ -9,5 +9,6 @@ const redis = use('Redis')
  var GeoRedis={}
  for(var prop of geo)
  GeoRedis[prop]=geo[prop]
-GeoRedis.sets={}
+GeoRedis.sets={"shopLocations":{},
+"userLocations":{}}
 module.exports = GeoRedis
