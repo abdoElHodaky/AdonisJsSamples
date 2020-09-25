@@ -10,6 +10,9 @@ class Password extends Lucid {
    user(){
     return this.belongsTo("App/Model/User","uid","uid")
    }
+   emails(){
+    return this.manyThrough("App/Model/User","emails","passid","emid")
+   }
 }
 
 module.exports = Password
