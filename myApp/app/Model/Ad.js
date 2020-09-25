@@ -1,7 +1,7 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-RandomCode  = use("randomcode")
+{gen}  = require("randomcode")
 
 class Ad extends Lucid {
 
@@ -15,7 +15,7 @@ class Ad extends Lucid {
        yield ad.save()
        if(ad.visits_count>=20)
        ad.user().credits().create({
-          code:RandomCode(8),
+          gen(8),
           value:ad.visits_count*.35
        })
      })
