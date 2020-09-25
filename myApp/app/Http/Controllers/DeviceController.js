@@ -49,7 +49,7 @@ class DeviceController {
     
     var user=request.auth.getUser(),
    inputs=request.post();
-   if(device_verification.verification().verify_code==inputs.verify_code)
+   if(device_verification.verification().fetch().verify_code==inputs.verify_code)
     {
        device.verified=true
        device.allow_login=true
