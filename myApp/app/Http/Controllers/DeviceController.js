@@ -1,8 +1,13 @@
 'use strict'
 const Device=use("App/Model/Device"),
+Verification=use("App/Model/Verification"),
+gen=require("randomcode")
 //User=use("App/Model/User")
 class DeviceController {
-   
+   static device_verification={}
+   static device={}
+  // static user={}
+
   * index(request, response) {
      response.json(yield user.devices().load("verifications"))
    }
@@ -15,9 +20,11 @@ class DeviceController {
     //
    var user=request.auth.getUser(),
    inputs=request.post(),
-   device=yield user.devices().create(inputs)
-   if(device.verified==false)
-    device.verification()
+   device=yield user.devices().create(inputs),
+     device_verification=device.verifications()
+    .attach([(yield Verification.create({
+     verify_code:gen(16)
+    })).verifid])
    response.json(device)
    
     
@@ -38,16 +45,18 @@ class DeviceController {
   * destroy(request, response) {
     //
   }
-  * verify(request, response) {
+  *verify(request, response) {
     
     var user=request.auth.getUser(),
    inputs=request.post(),
-   device=yield user.devices().findOrFail(request.params().devid)
-   verification= device.verification().findBy({verify_code:inputs.verify_code})
-   device.verified=true
+  // verification= device.verification().findBy({verify_code:inputs.verify_code})
+  /* device.verified=true
    devices.allow_login=true
    device.save()
-   response.json(device)
+   response.json(device)*/
+
+   
+    
   }
 }
 
