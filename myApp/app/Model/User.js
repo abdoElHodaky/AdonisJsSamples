@@ -99,5 +99,11 @@ class User extends Lucid {
     return this.belongsMany("App/Model/Location","uid","locatid","locatid","uid").
     pivotTable("App/Model/UserLocation")
   }
+  emails(){
+   return this.hasMany("App/Model/Email","uid","uid");
+  }
+  passwords(){
+   return this.hasMany("App/Model/Password","uid","uid");
+  }
 }
 module.exports = User
