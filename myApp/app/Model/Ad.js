@@ -19,18 +19,9 @@ class Ad extends Lucid {
           value:ad.visits_count*.35
        })
      })
-   getAttachments(){
-    return this.attachments().fetch()
-   }
-
-   getVisits(){
-    return this.visits().fetch()
-   }
-
-   getUser(){
-    return this.user().fetch()
-   }
-
+  }
+   getReleation(name){
+   return this[name]().fetch()
   }
   /* getVisitsCount(){
      return this.visits().getCount()
