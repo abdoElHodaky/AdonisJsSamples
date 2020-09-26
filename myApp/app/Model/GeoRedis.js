@@ -4,7 +4,7 @@
 const redis = use('Redis')
 ,geo=use("georedis").initialize(redis,{
   zset: 'LocationsSet',
-  nativeGeo: false
+  nativeGeo: true
 })
  var GeoRedis={}
  for(var prop of geo)
