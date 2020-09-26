@@ -9,7 +9,7 @@ class User extends Lucid {
    }
   static nearBy(location={longitude:0,latitude:0}){
    var nearBy=[]
-   GeoRedis.nearby(location,(locations,err)=>nearBy=locations)
+   GeoRedis.nearby(location,(err,locations)=>nearBy=locations)
    return nearBy
   }
   static get connection () {
