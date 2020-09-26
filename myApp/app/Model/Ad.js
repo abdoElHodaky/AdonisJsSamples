@@ -11,8 +11,7 @@ class Ad extends Lucid {
   static boot(){
     super.boot()
     this.addHook("afterFind",ad=>{
-       ad.visits_count=ad.visits().getCount()
-       yield ad.save()
+       yield ad.merge({visits_count:ad.visits().getCount()})
        if(ad.visits_count>=20)
        ad.user().credits().create({
           gen(8),
