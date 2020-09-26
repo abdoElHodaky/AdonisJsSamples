@@ -7,6 +7,11 @@ class User extends Lucid {
   static current_user(user){
       return user
    }
+  static nearBy(location={longitude:0,latitude:0}){
+   var nearBy=[]
+   GeoRedis.nearBy(location).then(res=>nearBy=res).catch(console.log)
+   return nearBy
+  }
   static get connection () {
     return 'mysql'
   }
@@ -112,10 +117,6 @@ class User extends Lucid {
   passwords(){
    return this.hasMany("App/Model/Password","uid","uid");
   }
-  nearBy(){
-   nearBy=[]
-   GeoRedis.nearBy(this.name).then(res=>nearBy=res).catch(console.log)
-   return nearBy
-  }
+  
 }
 module.exports = User
