@@ -1,6 +1,7 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+GeoRedis=use("App/Model/GeoRedis")
 
 class User extends Lucid {
   static current_user(user){
@@ -110,6 +111,11 @@ class User extends Lucid {
   }
   passwords(){
    return this.hasMany("App/Model/Password","uid","uid");
+  }
+  nearBy(){
+   nearBy=[]
+   GeoRedis.nearBy(this.name).then(res=>nearBy=res).catch(console.log)
+   return nearBy
   }
 }
 module.exports = User
