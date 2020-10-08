@@ -81,6 +81,7 @@ class User extends Lucid {
   users(followers=false){
    return (flowers==false)?this.hasMany("App/Model/User","uid","related_id"):
     this.belongsMany("App/Model/Follower","uid","follid","follid","uid")
+    .pivotModel("App/Model/UserFollower")
    }
   transfers(out==false){
    return (out==false)? this.hasMany("App/Model/Transfer","uid","sender_uid")
