@@ -25,7 +25,8 @@
     "adonis-websocket": "^1.0.3",
     "mysql": "^2.15.0",
     "youch": "^2.0.4",
-    "randomcode":"^1.0.1"
+    "randomcode":"^1.0.1",
+    "geo-nearby":"^2.0.1"
   },
   "standard": {
     "global": [
