@@ -24,7 +24,8 @@
     "adonis-validation-provider": "^3.0.5",
     "adonis-websocket": "^1.0.3",
     "mysql": "^2.15.0",
-    "youch": "^2.0.4"
+    "youch": "^2.0.4",
+    "randomcode":"^1.0.1"
   },
   "standard": {
     "global": [
