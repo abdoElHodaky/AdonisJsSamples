@@ -1,7 +1,8 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-Activity=use("App/Model/Activity")
+Activity=use("App/Model/Activity"),
+GeoNear=use("geo-nearby")
 
 class Location extends Lucid {
   
@@ -35,5 +36,9 @@ class Location extends Lucid {
   suggested_by(){
     //return this.belongsTo("App/Model/User","suggested_by","uid")
   }
+ nearBy(){
+   var res=new GeoNear(yield Location.all().toJSON())
+   return res.nearBy(this.latitude,this.longitude,5000)
+ }
 }
 module.exports = Location
