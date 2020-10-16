@@ -1,8 +1,8 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-Activity=use("App/Model/Activity"),
-GeoRedis=use("App/Model/GeoRedis")
+Activity=use("App/Model/Activity")//,
+//GeoRedis=use("App/Model/GeoRedis")
 
 class ShopLocation extends Lucid {
    static get connection () {
@@ -21,12 +21,12 @@ class ShopLocation extends Lucid {
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })*/
 
-    location=shlocation.location()
+   /* location=shlocation.location()
      GeoRedis.addLocation({shlocation.shop().name:
      { longitude:location.longitude,
       latitude:location.latitude
      }
-   })
+   })*/
    
   }
   shop(){
