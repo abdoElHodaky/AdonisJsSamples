@@ -13,11 +13,11 @@ class EmailsVerificationsTableSchema extends Schema {
       table.increments("emverfid")
       table.timestamps()
       table.boolean("verified")
-       table.integer("verifid").unsigned()
-       table.foreign("verifid").references("verifid").on("verifications")
-     table.integer("emid").unsigned()
-       table.foreign("emid").references("emid").on("emails")
-        table.softDeletes()
+      table.integer("verifid").unsigned()
+      table.foreign("verifid").references("verifid").on("verifications")
+      table.integer("emid").unsigned()
+      table.foreign("emid").references("emid").on("emails")
+      table.softDeletes()
     })
   }
 
