@@ -1,8 +1,8 @@
 'use strict'
 
 const Lucid = use('Lucid'),
-Activity=use("App/Model/Activity"),
-GeoRedis=use("App/Model/GeoRedis")
+Activity=use("App/Model/Activity")//,
+//GeoRedis=use("App/Model/GeoRedis")
 
 class UserLocation extends Lucid {
   
@@ -20,12 +20,12 @@ class UserLocation extends Lucid {
       at:product.created_at,
       //callback_url:use("Route").route("ProductController.show",{pid:product.pid})
     })*/
-     GeoRedis.addLocation({
+    /* GeoRedis.addLocation({
        userlocation.user().name:{
         latitude:userlocation.location().latitude,
         longitude:userlocation.location().longitude
        }
-     })
+     })*/
    })
   }
 
