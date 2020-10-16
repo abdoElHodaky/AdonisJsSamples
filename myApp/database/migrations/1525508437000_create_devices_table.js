@@ -20,7 +20,7 @@ class DevicesTableSchema extends Schema {
       //table.string("verify_code",50)
       table.string("token",100)
       table.json("push_subcriper")
-      table.boolean("verified").default(false)
+     // table.boolean("verified").default(false)
       /*table.integer("verifid").unsigned()
       table.foreign("verifid").references("veryfid").on("verification")*/
       table.softDeletes()
