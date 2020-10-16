@@ -51,9 +51,9 @@ class DeviceController {
    inputs=request.post();
    if(device_verification.verification().fetch().verify_code==inputs.verify_code)
     {
-       device.verified=true
-       device.allow_login=true
-       device.save()
+       device_verification.merge({verified:true})
+       device.merge({allow_login:true})
+       
     }
     response.json(device)
   }
