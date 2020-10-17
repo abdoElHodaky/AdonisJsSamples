@@ -14,7 +14,7 @@ class LocationsTableSchema extends Schema {
       table.timestamps()
       table.float("latitude",10,6)
       table.float("longitude",10,6)
-      table.enu("type",["current","previous"])
+      //table.enu("type",["current","previous"])
       table.enu("of",["user","shop","product","order"])
       //table.integer("uid").unique()
       //table.foreign("uid").references("uid").on("users")
