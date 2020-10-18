@@ -14,8 +14,8 @@ class TransferTableSchema extends Schema {
       table.timestamps()
       table.integer("oid").unsigned()
       table.foreign("oid").references("oid").on("orders")
-      table.integer("sender_uid").unsigned()
-      table.foreign("sender_uid").references("uid").on("users")
+      //table.integer("sender_uid").unsigned()
+      //table.foreign("sender_uid").references("uid").on("users")
       table.integer("receiver_uid").unsigned()
       table.foreign("receiver_uid").references("uid").on("users")
 
