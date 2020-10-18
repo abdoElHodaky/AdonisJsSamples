@@ -2,14 +2,14 @@
 
 const Schema = use('Schema')
 
-class TransferTableSchema extends Schema {
+class TransfersTableSchema extends Schema {
 
   static get connection () {
     return 'mysql'
   }
 
   up () {
-    this.create('transfer', (table) => {
+    this.create('transfers', (table) => {
       table.increments("transid")
       table.timestamps()
       table.integer("oid").unsigned()
@@ -23,9 +23,9 @@ class TransferTableSchema extends Schema {
   }
 
   down () {
-    this.drop('transfer')
+    this.drop('transfers')
   }
 
 }
 
-module.exports = TransferTableSchema
+module.exports = TransfersTableSchema
