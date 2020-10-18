@@ -10,7 +10,7 @@ class TransferTableSchema extends Schema {
 
   up () {
     this.create('transfer', (table) => {
-      table.increments()
+      table.increments("transid")
       table.timestamps()
       table.integer("oid").unsigned()
       table.foreign("oid").references("oid").on("orders")
