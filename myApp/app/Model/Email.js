@@ -14,7 +14,7 @@ class Email extends Lucid {
     this.addHook("afterCreate",email=>{
       verification=yield Verification.create({
        of:"email",
-       verify_code:Random(8,2),
+       verify_code:Random(16,2),
        uid:email.uid
       })
       yield email.verification().attach([verification.verifid])
