@@ -7,11 +7,11 @@ class User extends Lucid {
   static current_user(user){
       return user
    }
-  static nearBy(location={longitude:0,latitude:0}){
+  /*static nearBy(location={longitude:0,latitude:0}){
    var nearBy=[]
    GeoRedis.nearby(location,(err,locations)=>nearBy=locations)
    return nearBy
-  }
+  }*/
   static get connection () {
     return 'mysql'
   }
