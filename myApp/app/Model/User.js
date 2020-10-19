@@ -1,7 +1,7 @@
 'use strict'
 
-const Lucid = use('Lucid'),
-GeoRedis=use("App/Model/GeoRedis")
+const Lucid = use('Lucid')//,
+//GeoRedis=use("App/Model/GeoRedis")
 
 class User extends Lucid {
   static current_user(user){
