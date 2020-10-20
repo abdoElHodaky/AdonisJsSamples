@@ -18,7 +18,7 @@ class Order extends Lucid {
    super.boot()
    this.addHook("afterFind",order=>{
     yield order.merge({total:order.
-    products().fetch().reduce((t,{Price})=>t+=Price)})
+    products().all().reduce((t,{Price})=>t+=Price)})
     if(order.user().related_id!=0) {
       yield order.user().merge({commission:.25})
       if(order.total!=0)
