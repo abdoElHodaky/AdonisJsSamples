@@ -2,13 +2,19 @@
   Owner-multiShop->cat->subcat->product/versions->products
 
   Owner->users
+
   Owner->coupons->(not)marketing
+
   Owner->ads
+
   Owner->nearBy
+
   Notifications
   Offers
   Comments
   Conversation
+  Votes
+  Visits
 ...
 Please you can surf files to understand and you view Add_Expansion.txt
 ### Framework
