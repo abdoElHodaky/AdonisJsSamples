@@ -1,4 +1,4 @@
-###Project
+### Project
 Owner-multiShop->cat->subcat->product/versions->products
 Owner->users
 Owner->coupons->(not)marketing
@@ -10,7 +10,7 @@ Comments
 Conversation
 ...
 Please you can surf files to understand and you view Add_Expansion.txt
-###Framework
+### Framework
 # AdonisJs Application
 
 This repo is the pre-configured project structure to be used for creating ambitious web servers using AdonisJs.
