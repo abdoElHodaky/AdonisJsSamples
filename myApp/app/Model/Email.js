@@ -17,7 +17,7 @@ class Email extends Lucid {
        verify_code:Random(16,2),
        uid:email.uid
       })
-      yield email.verification().attach([verification.verifid])
+      yield email.verification().create({verifid:verification.verifid})
     })
   }
    user(){
