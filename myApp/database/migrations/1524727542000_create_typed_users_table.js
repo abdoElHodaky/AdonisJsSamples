@@ -21,7 +21,7 @@ class TypedUsersTableSchema extends Schema {
   }
 
   down () {
-    this.drop('users_types')
+    this.drop('typed_users')
   }
 
 }
