@@ -17,7 +17,7 @@ class Device extends Lucid {
        verify_code:Random(8,1),
        uid:device.uid
       })
-      yield device.verification().attach([verification.verifid])
+      yield device.verification().create({verifid:verification.verifid})
     })
   }
    user(){
