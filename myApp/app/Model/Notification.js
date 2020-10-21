@@ -10,7 +10,9 @@ class Notification extends Lucid {
   static boot() {
     super.boot()
     this.addHook("afterCreate",notification=>{
-     
+     users=yield use("App/Model/User").ids().filter(v=>notification.by_uid!=v)
+     users=users.map(v=>v={uid:v})
+     yield notifications.users().createMany(users)
      //yield notification.users().attach((yield use("App/Model/User").ids())
      //.filter(v=>notification.by_uid!=v))
     })
