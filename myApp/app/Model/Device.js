@@ -1,6 +1,8 @@
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid = use('Lucid'),
+Random=use("randomcode"),
+Verification=use("App/Model/Verification")
 
 class Device extends Lucid {
 
