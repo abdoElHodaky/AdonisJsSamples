@@ -33,6 +33,7 @@ class UserController {
     }
     else 
     { user= yield User.create(inputs.user)}
+      yield user.emails().create(inputs.email)
      response.json(user)
      
   }
