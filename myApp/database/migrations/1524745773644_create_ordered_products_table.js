@@ -19,6 +19,7 @@ class OrderedProductsTableSchema extends Schema {
       table.integer('coupid').unsigned().default(0)
       table.foreign('coupid').references('coupid').on('coupons')
       table.integer('Quantity').unsigned()
+      table.foreign('sid').references('sid').on('shops')
       table.boolean("transfered").default(false)
     })
   }
