@@ -126,6 +126,16 @@ Events
 Operation
   New-Payment=>Credit(balance-    =Transfer(Fee))
 
+Equity_Share(
+ User
+ Amount
+ Shop
+ Percentage
+)
+Sales
+
+
+
 Note:
   Use adonis-jsonable trait
   For json crud
