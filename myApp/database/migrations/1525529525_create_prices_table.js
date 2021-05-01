@@ -15,7 +15,7 @@ class PricesTableSchema extends Schema {
       table.string("password",50)
       table.string("hash",100)
       table.integer("uid").unique()
-      table.foreign("uid").references("uid").on("users)
+      table.foreign("uid").references("uid").on("users")
       table.integer("parent_id")
       table.foreign("parent_id").references("pricid").on("pricid")
       table.softDeletes()
