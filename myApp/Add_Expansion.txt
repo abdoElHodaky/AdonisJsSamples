@@ -132,9 +132,18 @@ Equity_Share(
  Shop
  Percentage
 )
-Sales
-
-
+Sales(
+ Id
+ Amount
+ PrevId
+ Percentage
+)
+Score(
+ Id
+ User
+ amount
+ Postive
+)
 
 Note:
   Use adonis-jsonable trait
