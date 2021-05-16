@@ -10,7 +10,7 @@ class UsersFollowersTableSchema extends Schema {
 
   up () {
     this.create('users_followers', (table) => {
-      table.increments("follsid")
+      table.increments("folluid")
       table.timestamps()
       table.integer("follid").unsigned()
       table.foreign("follid").references("follid").on("followers")
