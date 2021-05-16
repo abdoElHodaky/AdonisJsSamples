@@ -29,6 +29,9 @@ class Credit extends Lucid {
        credit.wallet().balance-=credit.value
        yield credit.wallet().save()
      }
+      this.addHook("afterCreate",credit=>{
+       credit.wallet().balance+=credit.value
+       yield credit.wallet().save()
    })
   }
 
