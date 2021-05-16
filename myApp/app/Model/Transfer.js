@@ -11,8 +11,11 @@ class Transfer extends Lucid {
    static boot(){
    super.boot()
    this.addHook("afterCreate",transfer=>{
-    yield Wallet.FindBy("address",transfer.receiver_address)
-   
+    yield rwallet=Wallet.findBy("address",transfer.receiver_address)
+    yield wallet.credits().create({value:transfer.amount})
+    yield swallet=Wallet.findBy("address",transfer.sender_address)
+    yield wallet.credits().findBy({value:transfer.amount}).delete()
+    
   }
   order(){
     return this.belongsTo("App/Model/Order",'oid','oid');
