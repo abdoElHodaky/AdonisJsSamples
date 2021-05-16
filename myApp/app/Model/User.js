@@ -18,6 +18,7 @@ class User extends Lucid {
   getReleation(name){
     return  this[name]()
   }
+  getWallet(address){return yieldthis.wallets().all().filter(w.address==address)}
   fetch(name){
    return this[name]().fetch()
   }
@@ -32,8 +33,8 @@ class User extends Lucid {
   types(){
    return this.belongsMany("App/Model/TypeUser","uid","utype_id","uid","utype_id")
   }
-  wallet(){
-    return this.hasOne("App/Model/Wallet","wid","wid")
+  wallets(){
+    return this.hasMany("App/Model/Wallet","uid","hid")
   }
   orders(model="order",type="order"){
    return (model=="order")?this.hasMany("App/Model/Order",
