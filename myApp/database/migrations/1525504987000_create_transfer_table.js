@@ -18,7 +18,7 @@ class TransfersTableSchema extends Schema {
       //table.foreign("sender_uid").references("uid").on("users")
       table.string("receiver_address")
       table.float("amount").unsigned()
-      table.foreign("address",["sender_address","receiver_address"])
+      table.foreign(["sender_address","receiver_address"],"w_address")
       .references("address").on("wallets")
       
 
