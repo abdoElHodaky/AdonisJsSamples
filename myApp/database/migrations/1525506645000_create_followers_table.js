@@ -13,8 +13,8 @@ class FollowersTableSchema extends Schema {
     this.create('followers', (table) => {
       table.increments("follid")
       table.timestamps()
-     // table.integer("uid").unsigned()
-     // table.foreign("uid").references("uid").on("users")
+      table.integer("uid").unsigned()
+      table.foreign("uid").references("uid").on("users")
       table.softDeletes()
     })
   }
