@@ -12,10 +12,9 @@ class PricesTableSchema extends Schema {
     this.create('prices', (table) => {
       table.increments("pricid")
       table.timestamps()
-      table.string("password",50)
-      table.string("hash",100)
       table.integer("uid").unique()
       table.foreign("uid").references("uid").on("users")
+      table.float("amount").default(0)
       table.integer("parent_id")
       table.foreign("parent_id").references("pricid").on("pricid")
       table.softDeletes()
