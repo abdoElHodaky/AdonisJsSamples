@@ -12,8 +12,6 @@ class PricesProductsTableSchema extends Schema {
     this.create('prices_products', (table) => {
       table.increments("pricpid")
       table.timestamps()
-      table.string("password",50)
-      table.string("hash",100)
       table.integer("pid").unique()
       table.foreign("pid").references("pid").on("products")
       table.integer("pricid").unique()
