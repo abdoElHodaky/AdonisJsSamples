@@ -21,7 +21,7 @@ class CreditsTableSchema extends Schema {
       table.integer("parent_id").unsigned()
       table.foreign("parent_id").references("credid").on("credits")
       table.integer("wallid").unsigned()
-      table.foreign("wallid").references("wallid").on("wallet")
+      table.foreign("wallid").references("wallid").on("wallets")
       
     })
   }
