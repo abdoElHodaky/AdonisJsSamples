@@ -18,7 +18,7 @@ class User extends Lucid {
   getReleation(name){
     return  this[name]()
   }
-  getWallet(address){return yieldthis.wallets().all().filter(w.address==address)}
+  getWallet(address){return yield this.wallets().all().filter(w.address==address)}
   fetch(name){
    return this[name]().fetch()
   }
