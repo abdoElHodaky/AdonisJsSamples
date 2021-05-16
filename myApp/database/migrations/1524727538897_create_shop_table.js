@@ -25,6 +25,7 @@ class ShopsTableSchema extends Schema {
       table.foreign("shptype_id").references("shptype_id").on("types_shops")
       table.integer("follsid").unsigned().default(0)
       table.foreign("follsid").references("follsid").on("shops_followers")
+      table.float("funds")
       table.softDeletes()
     })
   }
