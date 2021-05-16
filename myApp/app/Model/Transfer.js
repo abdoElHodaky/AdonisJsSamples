@@ -11,8 +11,7 @@ class Transfer extends Lucid {
    static boot(){
    super.boot()
    this.addHook("afterCreate",transfer=>{
-    yield 
-    })
+    yield Wallet.FindBy("address",transfer.receiver_address)
    
   }
   order(){
