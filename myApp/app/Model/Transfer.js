@@ -1,12 +1,19 @@
 
 'use strict'
 
-const Lucid = use('Lucid')
+const Lucid,Wallet = use('Lucid'),use("App/Model/Wallet")
 
 class Transfer extends Lucid {
 
   static get connection () {
     return 'mysql'
+  }
+   static boot(){
+   super.boot()
+   this.addHook("afterCreate",transfer=>{
+    yield 
+    })
+   
   }
   order(){
     return this.belongsTo("App/Model/Order",'oid','oid');
