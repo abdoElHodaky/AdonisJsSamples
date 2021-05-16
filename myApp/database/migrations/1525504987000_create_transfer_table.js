@@ -14,11 +14,13 @@ class TransfersTableSchema extends Schema {
       table.timestamps()
       table.integer("oid").unsigned()
       table.foreign("oid").references("oid").on("orders")
-      //table.integer("sender_uid").unsigned()
+      table.string("sender_address")
       //table.foreign("sender_uid").references("uid").on("users")
-      table.integer("receiver_uid").unsigned()
+      table.string("receiver_address")
       table.float("amount").unsigned()
-      table.foreign("receiver_uid").references("uid").on("users")
+      table.foreign("address",["sender_address","receiver_address"])
+      .references("address").on("wallets")
+      
 
    })
   }
