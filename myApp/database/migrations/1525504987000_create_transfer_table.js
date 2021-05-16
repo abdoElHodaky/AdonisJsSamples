@@ -17,6 +17,7 @@ class TransfersTableSchema extends Schema {
       //table.integer("sender_uid").unsigned()
       //table.foreign("sender_uid").references("uid").on("users")
       table.integer("receiver_uid").unsigned()
+      table.float("amount").unsigned()
       table.foreign("receiver_uid").references("uid").on("users")
 
    })
