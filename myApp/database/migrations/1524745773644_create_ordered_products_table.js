@@ -21,6 +21,7 @@ class OrderedProductsTableSchema extends Schema {
       table.integer('Quantity').unsigned()
       table.foreign('sid').references('sid').on('shops')
       table.boolean("transfered").default(false)
+      table.boolean("affiliated").default(false)
     })
   }
 
