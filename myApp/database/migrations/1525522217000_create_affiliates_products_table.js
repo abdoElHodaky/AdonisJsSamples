@@ -15,11 +15,11 @@ class AffiliatesProductsTableSchema extends Schema {
       //table.string("affiliate_code",30)
       table.integer("pid").unsigned().default(0)
       table.foreign("pid").references("pid").on("products")
-      table.integer("uid").unsigned().default(0)
-      table.foreign("uid").references("uid").on("users")
+     // table.integer("uid").unsigned().default(0)
+     // table.foreign("uid").references("uid").on("users")
       table.integer("affilid").unsigned().default(0)
       table.foreign("affilid").references("affilid").on("affiliates")
-      //table.timestamp("expired_at")
+      table.boolean("ordered")
       table.softDeletes()
   }
 
