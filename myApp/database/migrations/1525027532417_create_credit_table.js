@@ -22,7 +22,7 @@ class CreditsTableSchema extends Schema {
       table.foreign("parent_id").references("credid").on("credits")
       table.integer("wallid").unsigned()
       table.foreign("wallid").references("wallid").on("wallets")
-      table.enu("for",["transaction","businesses"])
+      table.enu("for",["transaction","businesses","none"]).default("none")
       
     })
   }
