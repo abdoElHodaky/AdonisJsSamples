@@ -51,4 +51,4 @@ class ProductsCatsTableSchema extends Schema {
 
 }
 
-module.exports = CatsTableSchema,ProductsCatsTableSchema
+module.exports = [CatsTableSchema,ProductsCatsTableSchema]
