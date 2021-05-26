@@ -12,7 +12,7 @@ class WalletsTableSchema extends Schema {
     this.create('wallets', (table) => {
       table.increments("wallid")
       table.timestamps()
-      table.string("address",10)
+      table.string("address").unique()
       table.boolean("used").default(false)
       //table.integer("cvv")
       table.integer("uid").unsigned()
