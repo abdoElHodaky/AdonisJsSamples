@@ -18,6 +18,8 @@ class EquitySharesTableSchema extends Schema {
       table.float("percentage")
       table.integer("parent_id")
       table.foreign("parent_id").references("equishid").on("equishid")
+      table.integer("shpfundid").unique()
+      table.foreign("shpfundid").references("fundid").on("shops_funds")
       table.softDeletes()
     })
   }
