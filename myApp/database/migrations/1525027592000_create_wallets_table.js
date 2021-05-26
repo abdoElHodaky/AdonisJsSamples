@@ -10,7 +10,7 @@ class WalletsTableSchema extends Schema {
 
   up () {
     this.create('wallets', (table) => {
-      table.increments("Wallis")
+      table.increments("wallid")
       table.timestamps()
       table.string("address",10)
       table.boolean("used").default(false)
@@ -18,6 +18,7 @@ class WalletsTableSchema extends Schema {
       table.integer("uid").unsigned()
       table.foreign("uid").references("uid").on("users")
       table.integer("balance").unsigned()
+      table.enu("for",["transaction","businesses"])
       //table.integer("parent_id").unsigned()
      // table.foreign("parent_id").references("credid").on("credits")
      // table.integer("wallid").unsigned()
@@ -27,7 +28,7 @@ class WalletsTableSchema extends Schema {
   }
 
   down () {
-    this.drop('Wallet')
+    this.drop('wallets')
   }
 
 }
