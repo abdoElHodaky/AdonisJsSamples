@@ -39,7 +39,8 @@ class ProductsCatsTableSchema extends Schema {
       table.integer("pid").unsigned()
       table.foreign("pid").references('pid').on('products')
       table.integer("cid").usigned().default(0)
-      table.foreign("cid").references("cid").on("cats","cats_shops")
+      table.foreign("cid").references("cid").on("cats")
+      table.foreign("cid").references("cid").on("cats_shops")
       table.softDeletes()
     })
   }
