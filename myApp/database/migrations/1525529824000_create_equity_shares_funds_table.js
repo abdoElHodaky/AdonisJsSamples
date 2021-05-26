@@ -13,7 +13,7 @@ class FundsEquitySharesTableSchema extends Schema {
       table.increments("fundequishid")
       table.timestamps()
       table.integer("equishid")
-      table.foreign("equishid").references("equishid").on("equishid")
+      table.foreign("equishid").references("equishid").on("equity_shares")
       table.integer("fundid").unique()
       table.foreign("fundid").references("fundid").on("funds")
       table.softDeletes()
