@@ -13,7 +13,7 @@ class AdsTableSchema extends Schema {
       table.increments("adid")
       table.timestamps()
       table.string("scope",50)/*table.[id]*/
-      table.text("content")
+      table.binary("content")
       table.integer("visits_count")
       table.boolean("isPaid")
       table.integer("uid").unsigned()
