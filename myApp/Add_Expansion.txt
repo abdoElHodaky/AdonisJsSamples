@@ -149,6 +149,10 @@ Funds(
  Uid
  Amount
 )
+Rights(
+ Products
+ Users
+)
 Note:
   Use adonis-jsonable trait
   For json crud
