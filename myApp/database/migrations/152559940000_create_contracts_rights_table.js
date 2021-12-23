@@ -17,8 +17,8 @@ class ContractsTableSchema extends Schema {
       //table.text("content")
       table.string("status").nullable()
       table.string("type").nullable()
-      //table.integer("offattid").unsigned()
-     // table.foreign("offattid").references("offattid").on("offer_attachment")
+      table.integer("rightid").unsigned()
+     table.foreign("rightid").references("rightid").on("rights")
     })
   }
 
