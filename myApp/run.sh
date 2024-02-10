@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-node ace serve
+node server.js
