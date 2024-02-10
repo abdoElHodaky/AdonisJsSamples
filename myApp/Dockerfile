@@ -1,4 +1,4 @@
-FROM 6.12.0-wheezy
+FROM node:6.12.0-alpine
 COPY . .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev 
 RUN npm install 
