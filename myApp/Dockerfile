@@ -1,5 +1,6 @@
 FROM node:16-alpine3.16
-COPY . /app
+WORKDIR /app
+COPY . .
 RUN apk add --no-cache tzdata  git sqlite-dev postgresql-dev mysql-dev 
 RUN chmod +x run.sh && npm install 
 ENV PORT 3000
