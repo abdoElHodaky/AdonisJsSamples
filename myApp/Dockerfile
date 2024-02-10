@@ -1,4 +1,4 @@
-FROM node:6.12.0-alpine
+FROM node:16-alpine3.16
 COPY . .
 RUN apk add --no-cache tzdata  git sqlite-dev postgresql-dev mysql-dev 
 RUN npm install 
